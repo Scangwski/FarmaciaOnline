@@ -7,12 +7,12 @@ public class Prodotto {
     private String descrizione;
     private Double prezzo;
 
-    private Integer richiestaPerRicetta;
+    private String richiestaPerRicetta;
 
     private String azienda;
     private String immagine;
 
-    public Prodotto(String id, String nome, String descrizione,Double prezzo, Integer richiestaPerRicetta,String azienda,String immagine){
+    public Prodotto(String id, String nome, String descrizione,Double prezzo, String richiestaPerRicetta,String azienda,String immagine){
         this.id = id;
         this. nome = nome;
         this.descrizione=descrizione;
@@ -30,7 +30,7 @@ public class Prodotto {
 
     public Double getPrezzo() {return prezzo;}
 
-    public Integer getRichiestaPerRicetta() {return richiestaPerRicetta;}
+    public String getRichiestaPerRicetta() {return richiestaPerRicetta;}
 
     public String getAzienda() {return azienda;}
 
