@@ -21,13 +21,12 @@ public class UtenteDaoJDBC implements UtenteDao {
         if(connection==null || connection.isClosed())
             return false;
 
-        PreparedStatement p=connection.prepareStatement("INSERT INTO utente VALUES(?,?,?,?,?,?,?);");
+        PreparedStatement p=connection.prepareStatement("INSERT INTO utente VALUES(?,?,?,?,?,?);");
         p.setString(1,utente.getNomeUtente());
         p.setString(2, utente.getNome());
         p.setString(3,utente.getCognome());
         p.setString(4,utente.getEmail());
         p.setString(5,BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
-        p.setInt(5,utente.getRicetta());
         p.setString(6, utente.getTipoUtente());
         p.executeUpdate();
         return true;
@@ -81,7 +80,7 @@ public class UtenteDaoJDBC implements UtenteDao {
             result = BCrypt.checkpw(utente.getPassword(), pass);
             if(result)
             {
-                utente=new Utente(r.getString("nomeUtente"),r.getString("nome"),r.getString("cognome"),r.getString("email"),null,r.getInt("ricetta"),r.getString("tipoUtente"));
+                utente=new Utente(r.getString("nomeUtente"),r.getString("nome"),r.getString("cognome"),r.getString("email"),null,r.getString("tipoUtente"));
                 return utente;
             }
         }

@@ -22,7 +22,7 @@ public class ProdottoDaoJDBC implements ProdottoDao {
         PreparedStatement p=connection.prepareStatement("INSERT INTO prodotto VALUES(?,?,?,?,?,?,?)");
         p.setString(1,prodotto.getId());
         p.setString(2,prodotto.getNome());
-        p.setString(2,prodotto.getDescrizione());
+        p.setString(3,prodotto.getDescrizione());
         p.setDouble(4,prodotto.getPrezzo());
         p.setString(5,prodotto.getRichiestaPerRicetta());
         p.setString(6,prodotto.getAzienda());

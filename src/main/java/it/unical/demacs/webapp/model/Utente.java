@@ -7,19 +7,15 @@ public class Utente implements java.io.Serializable{
     private String cognome;
     private String email;
     private String password;
-
-    private Integer ricetta;
-
     private String tipoUtente;
 
-    public Utente(String nomeUtente, String nome, String cognome, String email, String password,Integer ricetta, String tipoUtente )
+    public Utente(String nomeUtente, String nome, String cognome, String email, String password, String tipoUtente )
     {
         this.nomeUtente = nomeUtente;
         this.nome=nome;
         this.cognome=cognome;
         this.email=email;
         this.password=password;
-        this.ricetta=ricetta;
         this.tipoUtente=tipoUtente;
     }
 
@@ -40,10 +36,6 @@ public class Utente implements java.io.Serializable{
     public void setEmail(String email) {this.email = email;}
 
     public String getPassword() {return password;}
-
-    public Integer getRicetta() {return ricetta;}
-
-    public void setRicetta(Integer ricetta) {this.ricetta = ricetta;}
 
     public String getTipoUtente() {return tipoUtente;}
 

@@ -20,7 +20,7 @@ public class CarrelloDaoJDBC implements CarrelloDao {
         if(connection.isClosed() || connection==null)
             return false;
 
-        PreparedStatement p=connection.prepareStatement("SELECT* FROM carrello where emailutente=? AND nomeprodotto=?");
+        PreparedStatement p=connection.prepareStatement("SELECT* FROM carrello where emailutente=? AND prodotti=?");
         p.setString(1,utente.getEmail());
         p.setString(2,prodotto.getNome());
         ResultSet r=p.executeQuery();
@@ -30,7 +30,7 @@ public class CarrelloDaoJDBC implements CarrelloDao {
             int q=r.getInt("quantita");
             ++q;
 
-            p=connection.prepareStatement("UPDATE carrello SET quantita=? WHERE emailutente=? AND nomeprodotto=?");
+            p=connection.prepareStatement("UPDATE carrello SET quantita=? WHERE emailutente=? AND prodotti=?");
             p.setInt(1,q);
             p.setString(2,utente.getEmail());
             p.setString(3,prodotto.getNome());
@@ -38,10 +38,26 @@ public class CarrelloDaoJDBC implements CarrelloDao {
             return true;
         }
 
+        if(r.next())
+        {
+            double q=r.getDouble("prezzototale");
+            q= q +prodotto.getPrezzo();
 
-        p=connection.prepareStatement("INSERT INTO carrello VALUES(?,DEFAULT,?)");
-        p.setString(1,utente.getEmail());
-        p.setString(2, prodotto.getNome());
+            p=connection.prepareStatement("UPDATE carrello SET prezzototale=? WHERE emailutente=? AND prodotti=?");
+            p.setDouble(1,q);
+            p.setString(2,utente.getEmail());
+            p.setString(3,prodotto.getNome());
+            p.executeUpdate();
+            return true;
+        }
+
+
+        p=connection.prepareStatement("INSERT INTO carrello VALUES(?,?,?,?)");
+        p.setString(1, prodotto.getNome());
+        p.setString(2,utente.getEmail());
+        p.setInt(3,1);
+        p.setDouble(4,prodotto.getPrezzo());
+
         p.executeUpdate();
 
         return true;
@@ -63,32 +79,11 @@ public class CarrelloDaoJDBC implements CarrelloDao {
 
     }
 
-    @Override
-    public void svuotaCarrello(Utente utente) throws SQLException
-    {
-        PreparedStatement p=connection.prepareStatement("SELECT* FROM carrello WHERE emailutente=?");
-        p.setString(1,utente.getEmail());
-        ResultSet r=p.executeQuery();
-        while(r.next())
-        {
-            PreparedStatement p1=connection.prepareStatement("SELECT* FROM prodotto where nome=?");
-            p1.setString(1,r.getString("nomeprodotto"));
-            ResultSet r1=p1.executeQuery();
-            r1.next();
-            PreparedStatement p2=connection.prepareStatement("UPDATE prodotto SET disponibilità=? where nome=?");
-            p2.setInt(1,r1.getInt("disponibilità")-r.getInt("quantita"));
-            p2.setString(2,r.getString("nomeprodotto"));
-            p2.executeUpdate();
-        }
-        p=connection.prepareStatement("DELETE FROM carrello where emailUtente=?");
-        p.setString(1,utente.getEmail());
-        p.executeUpdate();
-    }
 
     @Override
     public void eliminaArticolo(Utente utente, Prodotto prodotto) throws SQLException
     {
-        PreparedStatement p=connection.prepareStatement("DELETE FROM carrello WHERE emailUtente=? AND nomeprodotto=?");
+        PreparedStatement p=connection.prepareStatement("DELETE FROM carrello WHERE emailUtente=? AND prodotti=?");
         p.setString(1,utente.getEmail());
         p.setString(2, prodotto.getNome());
         p.executeUpdate();

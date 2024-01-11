@@ -3,7 +3,7 @@ package it.unical.demacs.webapp.model;
 public class Carrello {
 
     private String prodotti;
-    String emailUtente;
+    private String emailUtente;
     private Integer quantita;
     private Double prezzoTotale;
 

@@ -2,23 +2,23 @@ package it.unical.demacs.webapp.model;
 
 public class Recensione {
 
-    private Utente utente;
+    private String nomeUtente;
 
-    private Prodotto prodotto;
+    private String nomeProdotto;
 
     private String titolo;
     private String descrizione;
 
-    public Recensione(Utente utente, Prodotto prodotto, String titolo, String descrizione){
-        this.utente=utente;
-        this.prodotto=prodotto;
+    public Recensione(String nomeUtente, String nomeProdotto, String titolo, String descrizione){
+        this.nomeUtente=nomeUtente;
+        this.nomeProdotto=nomeProdotto;
         this.titolo=titolo;
         this.descrizione=descrizione;
     }
 
-    public Utente getUtente() {return utente;}
+    public String getNomeUtente() {return nomeUtente;}
 
-    public Prodotto getProdotto() {return prodotto;}
+    public String getNomeProdotto() {return nomeProdotto;}
 
     public String getTitolo() {return titolo;}
 

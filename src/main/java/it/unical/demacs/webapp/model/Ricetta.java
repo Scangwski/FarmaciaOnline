@@ -1,19 +1,19 @@
 package it.unical.demacs.webapp.model;
 
 public class Ricetta {
-    private String medico;
-    private Utente utente;
-    private Prodotto prodotto;
+    private String nomeMedico;
+    private String nomeUtente;
+    private String idProdotto;
 
-    public Ricetta(String medico, Utente utente, Prodotto prodotto){
-        this.medico=medico;
-        this.utente=utente;
-        this.prodotto=prodotto;
+    public Ricetta(String nomeMedico,String nomeUtente, String idProdotto ){
+       this.nomeMedico=nomeMedico;
+       this.nomeUtente=nomeUtente;
+       this.idProdotto=idProdotto;
     }
 
-    public String getMedico() {return medico;}
+    public String getNomeMedico() {return nomeMedico;}
 
-    public Utente getUtente() {return utente;}
+    public String getNomeUtente() {return nomeUtente;}
 
-    public Prodotto getProdotto() {return prodotto;}
+    public String getIdProdotto() {return idProdotto;}
 }

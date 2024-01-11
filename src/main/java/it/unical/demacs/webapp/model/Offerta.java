@@ -2,17 +2,17 @@ package it.unical.demacs.webapp.model;
 
 public class Offerta {
 
-    private Prodotto prodotto;
+    private String nomeProdotto;
     private Double prezzoAttuale;
     private Double prezzoScontato;
 
-    public Offerta(Prodotto prodotto, Double prezzoAttuale, Double prezzoScontato){
-        this.prodotto=prodotto;
+    public Offerta(String nomeProdotto, Double prezzoAttuale, Double prezzoScontato){
+        this.nomeProdotto=nomeProdotto;
         this.prezzoAttuale=prezzoAttuale;
         this.prezzoScontato=prezzoScontato;
     }
 
-    public Prodotto getProdotto() {return prodotto;}
+    public String getNomeProdotto() {return nomeProdotto;}
 
     public Double getPrezzoAttuale() {return prezzoAttuale;}
 
