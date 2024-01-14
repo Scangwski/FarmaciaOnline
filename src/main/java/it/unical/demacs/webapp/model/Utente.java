@@ -8,8 +8,9 @@ public class Utente implements java.io.Serializable{
     private String email;
     private String password;
     private String tipoUtente;
+    private boolean bannato = false;
 
-    public Utente(String nomeUtente, String nome, String cognome, String email, String password, String tipoUtente )
+    public Utente(String nomeUtente, String nome, String cognome, String email, String password, String tipoUtente,Boolean bannato )
     {
         this.nomeUtente = nomeUtente;
         this.nome=nome;
@@ -17,6 +18,8 @@ public class Utente implements java.io.Serializable{
         this.email=email;
         this.password=password;
         this.tipoUtente=tipoUtente;
+        this.bannato=bannato;
+
     }
 
     public String getNomeUtente() {return nomeUtente;}
@@ -40,4 +43,8 @@ public class Utente implements java.io.Serializable{
     public String getTipoUtente() {return tipoUtente;}
 
     public void setTipoUtente(String tipoUtente) {this.tipoUtente = tipoUtente;}
+
+    public void setBannato(boolean bannato) {this.bannato = bannato;}
+
+    public boolean getBannato(){return bannato;}
 }

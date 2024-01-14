@@ -99,4 +99,21 @@ public class UtenteDaoJDBC implements UtenteDao {
         return r.next();
     }
 
+    @Override
+    public boolean bannaUtente(Utente utenteAdmin,Utente utenteDaBannare) throws SQLException
+    {
+        if(connection.isClosed() || connection==null)
+            return false;
+
+        if(utenteAdmin.getTipoUtente()=="admin") {
+            PreparedStatement p = connection.prepareStatement("UPDATE utente SET bannato=? WHERE email=?");
+            p.setBoolean(1, true);
+            p.setString(2, utenteDaBannare.getEmail());
+            System.out.println(utenteDaBannare.getEmail());
+            p.executeUpdate();
+            return true;
+        }
+        return false;
+    }
+
 }
