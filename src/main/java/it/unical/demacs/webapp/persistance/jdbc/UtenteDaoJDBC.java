@@ -81,7 +81,7 @@ public class UtenteDaoJDBC implements UtenteDao {
             result = BCrypt.checkpw(utente.getPassword(), pass);
             if(result)
             {
-                utente=new Utente(r.getString("nomeUtente"),r.getString("nome"),r.getString("cognome"),r.getString("email"),null,r.getString("tipoUtente"));
+                utente=new Utente(r.getString("nomeUtente"),r.getString("nome"),r.getString("cognome"),r.getString("email"),null,r.getString("tipoUtente"),false);
                 return utente;
             }
         }
