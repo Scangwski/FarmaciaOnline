@@ -21,6 +21,7 @@ public class UtenteDaoJDBC implements UtenteDao {
         if(connection==null || connection.isClosed())
             return false;
 
+
         PreparedStatement p=connection.prepareStatement("INSERT INTO utente VALUES(?,?,?,?,?,?);");
         p.setString(1,utente.getNomeUtente());
         p.setString(2, utente.getNome());

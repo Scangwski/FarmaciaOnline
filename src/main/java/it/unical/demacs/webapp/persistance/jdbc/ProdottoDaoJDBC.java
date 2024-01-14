@@ -1,6 +1,7 @@
 package it.unical.demacs.webapp.persistance.jdbc;
 
 import it.unical.demacs.webapp.model.Prodotto;
+import it.unical.demacs.webapp.model.Utente;
 import it.unical.demacs.webapp.persistance.ProdottoDao;
 
 import java.sql.Connection;
@@ -14,21 +15,23 @@ public class ProdottoDaoJDBC implements ProdottoDao {
     public ProdottoDaoJDBC(Connection connection){this.connection=connection;}
 
     @Override
-    public boolean aggiungiProdotto(Prodotto prodotto) throws SQLException
+    public boolean aggiungiProdotto(Utente utente,Prodotto prodotto) throws SQLException
     {
         if(connection.isClosed() || connection==null)
             return false;
-
-        PreparedStatement p=connection.prepareStatement("INSERT INTO prodotto VALUES(?,?,?,?,?,?,?)");
-        p.setString(1,prodotto.getId());
-        p.setString(2,prodotto.getNome());
-        p.setString(3,prodotto.getDescrizione());
-        p.setDouble(4,prodotto.getPrezzo());
-        p.setString(5,prodotto.getRichiestaPerRicetta());
-        p.setString(6,prodotto.getAzienda());
-        p.setString(7, prodotto.getImmagine());
-        p.executeUpdate();
-        return true;
+        if(utente.getTipoUtente()=="farmacista") {
+            PreparedStatement p = connection.prepareStatement("INSERT INTO prodotto VALUES(?,?,?,?,?,?,?)");
+            p.setString(1, prodotto.getId());
+            p.setString(2, prodotto.getNome());
+            p.setString(3, prodotto.getDescrizione());
+            p.setDouble(4, prodotto.getPrezzo());
+            p.setString(5, prodotto.getRichiestaPerRicetta());
+            p.setString(6, prodotto.getAzienda());
+            p.setString(7, prodotto.getImmagine());
+            p.executeUpdate();
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -45,13 +48,15 @@ public class ProdottoDaoJDBC implements ProdottoDao {
     }
 
     @Override
-    public Prodotto caricaProdotto(Prodotto prodotto) throws SQLException
-    {
-        PreparedStatement p=connection.prepareStatement("SELECT* FROM prodotto WHERE nome=?");
-        p.setString(1,prodotto.getNome());
-        ResultSet r=p.executeQuery();
-        if(r.next())
-            return new Prodotto(r.getString("id"),r.getString("nome"),r.getString("descrizione"),r.getDouble("prezzo"),r.getString("richiestePerRicetta"),r.getString("azienda"),r.getString("immagine"));
-        return null;
+    public Prodotto caricaProdotto(Utente utente,Prodotto prodotto) throws SQLException {
+        if (utente.getTipoUtente() == "farmacista") {
+            PreparedStatement p = connection.prepareStatement("SELECT* FROM prodotto WHERE nome=?");
+            p.setString(1, prodotto.getNome());
+            ResultSet r = p.executeQuery();
+            if (r.next())
+                return new Prodotto(r.getString("id"), r.getString("nome"), r.getString("descrizione"), r.getDouble("prezzo"), r.getString("richiestePerRicetta"), r.getString("azienda"), r.getString("immagine"));
+            return null;
+        }
+       return null;
     }
 }
