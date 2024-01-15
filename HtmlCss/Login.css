@@ -75,12 +75,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .navbar > .searchBar > input[type="search"]:focus {
     outline: none;
+}
+
+.searchBar > input[type="search"]::placeholder{
+    opacity: 0.6;
 }
 
 .navbar > .searchBar > svg:hover {
@@ -289,12 +292,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .email > input[type="email"]:focus {
     outline: none;
+}
+
+.email > input[type="email"]::placeholder {
+    opacity: 0.6;
 }
 
 .emailepassword > .password {
@@ -314,12 +320,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .password > input[type="password"]:focus {
     outline: none;
+}
+
+.password > input[type="password"]::placeholder {
+    opacity: 0.6;
 }
 
 .password > svg:hover {

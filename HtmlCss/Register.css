@@ -75,12 +75,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .navbar > .searchBar > input[type="search"]:focus {
     outline: none;
+}
+
+.searchBar > input[type="search"]::placeholder{
+    opacity: 0.6;
 }
 
 .navbar > .searchBar > svg:hover {
@@ -299,12 +302,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .nome > input[type="text"]:focus {
     outline: none;
+}
+
+.nome > input[type="text"]::placeholder {
+    opacity: 0.6;
 }
 
 .nomecognome > .cognome {
@@ -324,12 +330,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .cognome > input[type="text"]:focus {
     outline: none;
+}
+
+.cognome > input[type="text"]::placeholder {
+    opacity: 0.6;
 }
 
 .dati > .genere {
@@ -349,6 +358,14 @@
     gap: 10px;
     border-radius: 50px;
     background: #FFF;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="radio"]:checked{
+    background-color: var(--Scorrimento);
 }
 
 .radio:hover {
@@ -381,7 +398,6 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
     cursor:pointer;
 }
@@ -429,12 +445,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .dati > .email > input[type="email"]:focus {
     outline: none;
+}
+
+.email > input[type="email"]::placeholder {
+    opacity: 0.6;
 }
 
 .dati > .password {
@@ -454,12 +473,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .dati > .password > input[type="password"]:focus {
     outline: none;
+}
+
+.password > input[type="password"]::placeholder {
+    opacity: 0.6;
 }
 
 .dati > .confermapassword {
@@ -479,12 +501,15 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    opacity: 0.3;
     width: 100%;
 }
 
 .dati > .confermapassword > input[type="password"]:focus {
     outline: none;
+}
+
+.confermapassword > input[type="password"]::placeholder {
+    opacity: 0.6;
 }
 
 .dati > .creaccount {
