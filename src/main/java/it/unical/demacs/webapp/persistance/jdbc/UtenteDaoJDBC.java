@@ -21,31 +21,32 @@ public class UtenteDaoJDBC implements UtenteDao {
         if(connection==null || connection.isClosed())
             return false;
 
-
-        PreparedStatement p=connection.prepareStatement("INSERT INTO utente VALUES(?,?,?,?,?,?);");
-        p.setString(1,utente.getNomeUtente());
-        p.setString(2, utente.getNome());
-        p.setString(3,utente.getCognome());
-        p.setString(4,utente.getEmail());
-        p.setString(5,BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
-        p.setString(6, utente.getTipoUtente());
+        PreparedStatement p=connection.prepareStatement("INSERT INTO utente VALUES(?,?,?,?,?,?,?);");
+        p.setString(1,utente.getEmail());
+        p.setString(2,BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
+        p.setString(3, utente.getNome());
+        p.setString(4,utente.getCognome());
+        p.setBoolean(5,false);
+        p.setBoolean(6,false);
         p.executeUpdate();
         return true;
     }
 
+
+
     @Override
-    public boolean update(Utente utente, ArrayList<String> data) throws SQLException
+    public boolean update(String emailUtente, ArrayList<String> data) throws SQLException
     {
         if(connection.isClosed() || connection==null)
             return false;
 
 
         PreparedStatement p=connection.prepareStatement("SELECT* FROM utente WHERE email=?");
-        p.setString(1, utente.getEmail());;
+        p.setString(1,emailUtente);
         ResultSet r=p.executeQuery();
         r.next();
         p=connection.prepareStatement("UPDATE utente SET password=?,nome=?,cognome=? WHERE email=?");
-        p.setString(4, utente.getEmail());
+        p.setString(4,emailUtente);
 
         p.setString(1,BCrypt.hashpw(data.get(0), BCrypt.gensalt(12)));
         p.setString(2,data.get(1));
@@ -69,19 +70,20 @@ public class UtenteDaoJDBC implements UtenteDao {
     }
 
     @Override
-    public Utente Login(Utente utente) throws SQLException
+    public Utente Login(String email, String password) throws SQLException
     {
         PreparedStatement p=connection.prepareStatement("SELECT* from utente WHERE email=?");
-        p.setString(1, utente.getEmail());
+        p.setString(1,email);
         ResultSet r=p.executeQuery();
         boolean result;
+        Utente utente;
         if(r.next())
         {
             String pass = r.getString("password");
-            result = BCrypt.checkpw(utente.getPassword(), pass);
+            result = BCrypt.checkpw(password, pass);
             if(result)
             {
-                utente=new Utente(r.getString("nomeUtente"),r.getString("nome"),r.getString("cognome"),r.getString("email"),null,r.getString("tipoUtente"),false);
+                utente=new Utente(r.getString("nome"),r.getString("cognome"),r.getString("email"),null,r.getString("password"),r.getString("tipoUtente"),r.getBoolean("bannato"));
                 return utente;
             }
         }
@@ -90,30 +92,58 @@ public class UtenteDaoJDBC implements UtenteDao {
         return null;
     }
 
+
+    /*@Override
+    public Utente GoogleLogin(String id) throws SQLException
+    {
+        PreparedStatement p=connection.prepareStatement("SELECT* from utente WHERE google_id=?");
+        p.setString(1,id);
+        ResultSet r=p.executeQuery();
+        Utente utente;
+        if(r.next())
+        {
+            utente=new Utente(r.getString("nome"),r.getString("cognome"),r.getString("email"),null,r.getBoolean("admin"),r.getBoolean("bannato"),r.getString("google_id"));
+            return utente;
+        }
+        p.close();
+
+        return null;
+    }*/
+
     @Override
-    public boolean CheckByEmail(Utente utente) throws SQLException
+    public boolean bannaUtente(String email) throws SQLException
+    {
+        if(connection.isClosed() || connection==null)
+            return false;
+
+        PreparedStatement p=connection.prepareStatement("UPDATE utente SET bannato=? WHERE email=?");
+        p.setBoolean(1,true);
+        p.setString(2,email);
+        System.out.println(email);
+        p.executeUpdate();
+        return true;
+    }
+
+    @Override
+    public boolean CheckByEmail(String email) throws SQLException
     {
         PreparedStatement p=connection.prepareStatement("SELECT* FROM utente WHERE email=?");
-        p.setString(1, utente.getEmail());
+        p.setString(1,email);
         ResultSet r=p.executeQuery();
         return r.next();
     }
 
     @Override
-    public boolean bannaUtente(Utente utenteAdmin,Utente utenteDaBannare) throws SQLException
+    public boolean CheckByGoogleId(String id) throws SQLException
     {
-        if(connection.isClosed() || connection==null)
-            return false;
-
-        if(utenteAdmin.getTipoUtente()=="admin") {
-            PreparedStatement p = connection.prepareStatement("UPDATE utente SET bannato=? WHERE email=?");
-            p.setBoolean(1, true);
-            p.setString(2, utenteDaBannare.getEmail());
-            System.out.println(utenteDaBannare.getEmail());
-            p.executeUpdate();
-            return true;
-        }
-        return false;
+        PreparedStatement p=connection.prepareStatement("SELECT* FROM utente where google_id=?");
+        p.setString(1,id);
+        ResultSet r=p.executeQuery();
+        return r.next();
     }
 
+    @Override
+    public Utente GoogleLogin(String id) throws SQLException {
+        return null;
+    }
 }
