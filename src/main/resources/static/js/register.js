@@ -7,24 +7,25 @@ window.addEventListener("load", function ()
     document.getElementById("registerbtn").addEventListener("click", iscriviUtente);
 
 });
-function Utente(nomeUtente,nome,cognome,email,password,admin,bannato)
+function Utente(nome,cognome,email,password,tipoUtente,bannato)
 {
-    this.nomeUtente = nomeUtente;
     this.nome = nome;
     this.cognome = cognome;
     this.email = email;
     this.password =password;
-    this.bannato=bannato;
+    this.tipoUtente= tipoUtente;
+    this.bannato=false;
 
 }
 
 
 function iscriviUtente() {
-    var email = document.querySelector("#email").value;
-    var password = document.querySelector("#password").value;
     var nome = document.querySelector("#nome").value;
     var cognome = document.querySelector("#cognome").value;
+    var email = document.querySelector("#email").value;
+    var password = document.querySelector("#password").value;
     var confirm_password = document.querySelector("#confirm_password").value;
+    var tipoUtente = document.querySelector('input[name="tipoUtente"]:checked').value;
 
 
     if(nome=="" || cognome=="" || email=="" || password=="" || confirm_password=="") {
@@ -48,9 +49,10 @@ function iscriviUtente() {
         document.getElementById("registerbtn").className="btn btn-secondary btn-lg";
         error("Attenzione! La password deve essere almeno di 6 caratteri");
     }
+
     else{
         document.getElementById("registerbtn").className="btn btn-primary btn-lg";
-        var utente = new Utente(nome, cognome,email, password,false,false,0);
+        var utente = new Utente(nome, cognome,email, password,tipoUtente,false);
         $.ajax(
             {
                 url: "/doRegister",
