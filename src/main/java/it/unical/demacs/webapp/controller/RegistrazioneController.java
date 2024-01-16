@@ -23,9 +23,11 @@ public class RegistrazioneController
     @PostMapping("/doRegister")
     public void registraUtente(HttpServletResponse res, @RequestBody Utente utente) throws SQLException
     {
+
         if(DatabaseJDBC.getInstance().getUtenteDao().Register(utente))
             res.setStatus(SC_OK);
         else
             res.setStatus(SC_SERVICE_UNAVAILABLE);
+        System.out.println("Richiesta di registrazione ricevuta: " + utente);
     }
 }

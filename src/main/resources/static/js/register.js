@@ -2,8 +2,14 @@ document.getElementById('loginButton').addEventListener('click', function() {
     window.location.href = '/login';
 });
 
-function Utente(nome,cognome,email,password,admin,bannato,google_id)
+window.addEventListener("load", function ()
 {
+    document.getElementById("registerbtn").addEventListener("click", iscriviUtente);
+
+});
+function Utente(nomeUtente,nome,cognome,email,password,admin,bannato)
+{
+    this.nomeUtente = nomeUtente;
     this.nome = nome;
     this.cognome = cognome;
     this.email = email;
