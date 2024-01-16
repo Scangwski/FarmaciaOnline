@@ -22,11 +22,11 @@ public class UtenteDaoJDBC implements UtenteDao {
             return false;
 
         PreparedStatement p=connection.prepareStatement("INSERT INTO utente VALUES(?,?,?,?,?,?);");
-        p.setString(1,utente.getEmail());
-        p.setString(2,BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
-        p.setString(3, utente.getNome());
-        p.setString(4,utente.getCognome());
-        p.setBoolean(5,false);
+        p.setString(1,utente.getNome());
+        p.setString(2,utente.getCognome());
+        p.setString(3,utente.getEmail());
+        p.setString(4,BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
+        p.setString(5,utente.getTipoUtente());
         p.setBoolean(6,false);
         p.executeUpdate();
         return true;
