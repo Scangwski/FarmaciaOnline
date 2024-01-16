@@ -2,7 +2,6 @@ package it.unical.demacs.webapp.model;
 
 public class Utente implements java.io.Serializable {
 
-    private String nomeUtente;
     private String nome;
     private String cognome;
     private String email;
@@ -10,8 +9,7 @@ public class Utente implements java.io.Serializable {
     private String tipoUtente;
     private boolean bannato = false;
 
-    public Utente(String nomeUtente, String nome, String cognome, String email, String password, String tipoUtente, boolean bannato) {
-        this.nomeUtente = nomeUtente;
+    public Utente(String nome, String cognome, String email, String password, String tipoUtente, boolean bannato) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
@@ -21,13 +19,6 @@ public class Utente implements java.io.Serializable {
 
     }
 
-    public String getNomeUtente() {
-        return nomeUtente;
-    }
-
-    public void setNomeUtente(String nomeUtente) {
-        this.nomeUtente = nomeUtente;
-    }
 
     public String getNome() {
         return nome;

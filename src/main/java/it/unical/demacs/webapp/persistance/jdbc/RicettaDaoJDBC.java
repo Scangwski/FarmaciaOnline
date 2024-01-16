@@ -19,7 +19,7 @@ public class RicettaDaoJDBC implements RicettaDao {
 
         PreparedStatement p = connection.prepareStatement("INSERT into ricetta VALUES (?,?,?)");
         p.setString(1,nomeMedico);
-        p.setString(2,utente.getNomeUtente());
+        p.setString(2,utente.getEmail());
         p.setString(3, prodotto.getId());
         p.executeUpdate();
         return true;

@@ -18,7 +18,7 @@ public class RecensioneDaoJDBC implements RecensioneDao {
             return false;
 
         PreparedStatement p = connection.prepareStatement("INSERT into recensione VALUES (?,?,?,?)");
-        p.setString(1,utente.getNomeUtente());
+        p.setString(1,utente.getEmail());
         p.setString(2,prodotto.getNome());
         p.setString(3, titolo);
         p.setString(4,descizione);
