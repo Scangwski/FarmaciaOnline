@@ -12,21 +12,20 @@ export class ProdottoServiceService {
   private backendUrl = "http://localhost:8085"
 
   constructor(private http:HttpClient,private auth:AuthServiceService) {}
-  dammiRistorantiMigliori():Observable<Prodotto[]>{
-
-    var header = {
-      headers: new HttpHeaders().set('Authorization', 'Basic ' + this.auth.token)
-    }
-
-    return this.http.get<Prodotto[]>(this.backendUrl + "/prodottiMigliori",
-        header)
+  getProduct(id: string): Observable<Prodotto> {
+    return this.http.get(`$this.http_product_url/${id}`)
+        .map((response: Response) => response.json());
   }
-
-  recensioni():Observable<Recensioni[]>{
-    var header = {
-      headers: new HttpHeaders().set('Authorization', 'Basic ' + this.auth.getToken())
-
-    }
-    return this.http.get<Recensioni[]>(this.backendUrl + "/recensioni", {withCredentials: true});
+  addProduct(context: any) {
+    return this.http.post(`$this.http_product_url`, JSON.stringify(context))
+        .map((response: Response) => response.json());
+  }
+  updateProduct(id:string, context: any) {
+    return this.http.put(`$this.http_product_url/${id}`, JSON.stringify(context))
+        .map((response: Response) => response.json());
+  }
+  deleteProduct(id: string) {
+    return this.http.delete(`$this.http_product_url/${id}`)
+        .map((response: Response) => response.json());
   }
 }
