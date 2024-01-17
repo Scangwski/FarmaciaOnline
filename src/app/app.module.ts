@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RecensioniComponent } from './recensioni/recensioni.component';
 import {HttpClientModule} from "@angular/common/http";
+import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
+import { PaginaProdottiComponent } from './pagina-prodotti/pagina-prodotti.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     RecuperaPasswordComponent,
     RegisterComponent,
-    RecensioniComponent
+    RecensioniComponent,
+    PaginaProdottoComponent,
+    PaginaProdottiComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

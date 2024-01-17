@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="it" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="it">
 <head>
-    <link rel="stylesheet" th:href="@{/css/Generali.css}" />
-    <link rel="stylesheet" th:href="@{/css/Home.css}" />
-
+    <link rel="stylesheet" href="Generali.css">
+    <link rel="stylesheet" href="../static/css/Home.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>EFarm</title>
+    <script src="../static/js/scorrimento.js"></script>
 </head>
 <body>
     <div class="content">
@@ -49,22 +49,25 @@
                     </svg>
                     <span>Carrello</span>
                 </div>
-                <div class="boxicon" id="loginButton">
-
+                <div class="boxicon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
                         <path d="M10.9626 26.3026C8.60467 27.7066 2.42227 30.5735 6.18777 34.161C8.02719 35.9133 10.0758 37.1666 12.6515 37.1666H27.3485C29.9242 37.1666 31.9728 35.9133 33.8122 34.161C37.5777 30.5735 31.3953 27.7066 29.0373 26.3026C23.508 23.0101 16.492 23.0101 10.9626 26.3026Z" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M27.5 11.3333C27.5 15.4754 24.1422 18.8333 20 18.8333C15.8579 18.8333 12.5 15.4754 12.5 11.3333C12.5 7.19112 15.8579 3.83325 20 3.83325C24.1422 3.83325 27.5 7.19112 27.5 11.3333Z" stroke="#2A332D" stroke-width="1.5"/>
                     </svg>
                     <span>Accedi</span>
-
                 </div>
             </div>
         </div>
         <div class="corpo">
             <div class="ads">
-                <div class="immagini">
-                    <img th:src="@{/img1.jpg}">
-                    <button>
+                <div class="immagini" id="adImage">
+                    <button data-index="-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="23" viewBox="0 0 10 23" fill="none">
+                            <path d="M9 21.5L0.999999 11.5L9 1.5" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <img src="img1.jpg">
+                    <button data-index="1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="23" viewBox="0 0 10 23" fill="none">
                             <path d="M0.999999 1.5L9 11.5L1 21.5" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -72,13 +75,10 @@
                 </div>
                 <div class="scorrimento">
                     <div class="radio">
-
                     </div>
                     <div class="radiov">
-                        
                     </div>
                     <div class="radiov">
-                        
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="immaginetesto">
                         <div class="immagine">
-                            <img th:src="@{/1F.webp}">
+                            <img src="1F.webp">
                         </div>
                         <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
                     </div>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="immaginetesto">
                         <div class="immagine">
-                            <img th:src="@{/1F.webp}">
+                            <img src="1F.webp">
                         </div>
                         <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
                     </div>
@@ -147,7 +147,7 @@
                 <div class="prodotto">
                     <div class="immaginetesto">
                         <div class="immagine">
-                            <img th:src="@{/1F.webp}">
+                            <img src="1F.webp">
                         </div>
                         <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
                     </div>
@@ -166,7 +166,7 @@
                     </div>
                     <div class="immaginetesto">
                         <div class="immagine">
-                            <img th:src="@{/1F.webp}">
+                            <img src="1F.webp">
                         </div>
                         <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
                     </div>
@@ -194,7 +194,7 @@
                 <div class="recensioniutenti">
                     <div class="singolarecensione">
                         <div class="pic">
-                            <img th:src="@{/img2.jpg}">
+                            <img src="img2.jpg">
                         </div>
                         <div class="testo">
                             <span>Bel sito, cosegna super rapida, prezzi imbattibili, consigliato</span>
@@ -219,7 +219,7 @@
                     </div>
                     <div class="singolarecensione">
                         <div class="pic">
-                            <img th:src="@{/img2.jpg}">
+                            <img src="img2.jpg">
                         </div>
                         <div class="testo">
                             <span>Ottimo sito</span>
@@ -244,7 +244,7 @@
                     </div>
                     <div class="singolarecensione">
                         <div class="pic">
-                            <img th:src="@{/img2.jpg}">
+                            <img src="img2.jpg">
                         </div>
                         <div class="testo">
                             <span>Bel sito</span>
@@ -269,7 +269,7 @@
                     </div>
                     <div class="singolarecensione">
                         <div class="pic">
-                            <img th:src="@{/img2.jpg}">
+                            <img src="img2.jpg">
                         </div>
                         <div class="testo">
                             <span>Tutto perfetto</span>
@@ -294,7 +294,7 @@
                     </div>
                     <div class="singolarecensione">
                         <div class="pic">
-                            <img th:src="@{/img2.jpg}">
+                            <img src="img2.jpg">
                         </div>
                         <div class="testo">
                             <span>Ottimo</span>
@@ -332,7 +332,4 @@
         </div>
     </div>
 </body>
-<script th:src="@{/js/home.js}">
-
-</script>
 </html>
