@@ -12,6 +12,8 @@ import { RecensioniComponent } from './recensioni/recensioni.component';
 import {HttpClientModule} from "@angular/common/http";
 import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
 import { PaginaProdottiComponent } from './pagina-prodotti/pagina-prodotti.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PaginaProdottiComponent } from './pagina-prodotti/pagina-prodotti.compo
     RegisterComponent,
     RecensioniComponent,
     PaginaProdottoComponent,
-    PaginaProdottiComponent
+    PaginaProdottiComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

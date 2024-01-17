@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthServiceService} from "../services/auth-service.service";
+import {Utente} from "../model/utente";
 
 @Component({
   selector: 'app-register',
@@ -8,12 +9,13 @@ import {AuthServiceService} from "../services/auth-service.service";
 })
 export class RegisterComponent {
 
-  nome: string;
-  cognome: string;
-  email: string;
-  password: string;
-  tipoUtente: string;
-  bannato: boolean;
+  @Input()regUtente?:Utente;
+  nome?: string;
+  cognome?: string;
+  email?: string;
+  password?: string;
+  tipoUtente?: string;
+  bannato?: boolean;
 
   constructor(private auth:AuthServiceService) {
   }

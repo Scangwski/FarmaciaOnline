@@ -8,13 +8,13 @@ import {Prodotto} from "../model/prodotto";
 })
 export class PaginaProdottoComponent {
 
-  @Input()prodotto?:Prodotto
-  private _azienda: string;
-  private _descrizione: string;
-  private _id: string;
-  private _immagine: string;
-  private _nome: string;
-  private _prezzo: number;
-  private _richiestaPerRicetta: string;
+  @Input()prodotto?:Prodotto;
+  azienda?: string;
+  descrizione?: string;
+  id?: string;
+  immagine?: string;
+  nome?: string;
+  prezzo?: number;
+  richiestaPerRicetta?: string;
 
 }

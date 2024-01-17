@@ -15,8 +15,8 @@ export class LoginComponent {
   }
 
   doLogin() {
-    var email = this.email.valueOf;
-    var pass = this.password.valueOf;
+    var email = this.email.value;
+    var pass = this.password.value;
 
     this.auth.login(email,pass);
   }
