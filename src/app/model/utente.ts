@@ -1,13 +1,10 @@
 export interface Utente{
-    nome?: string;
-    cognome?: string;
+    nome: string | null;
+    cognome: string | null;
     email: string;
     password: string;
-    tipoUtente?: string;
-    bannato?: boolean;
+    tipoUtente: string | null;
+    bannato: boolean;
 }
 
 
-export interface AuthToken{
-    token:string;
-}
