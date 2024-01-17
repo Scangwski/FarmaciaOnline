@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>EFarm</title>
+    <script src="scorrimento.js"></script>
 </head>
 <body>
     <div class="content">
@@ -59,9 +60,14 @@
         </div>
         <div class="corpo">
             <div class="ads">
-                <div class="immagini">
+                <div class="immagini" id="adImage">
+                    <button data-index="-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="23" viewBox="0 0 10 23" fill="none">
+                            <path d="M9 21.5L0.999999 11.5L9 1.5" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                     <img src="img1.jpg">
-                    <button>
+                    <button data-index="1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="23" viewBox="0 0 10 23" fill="none">
                             <path d="M0.999999 1.5L9 11.5L1 21.5" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -69,13 +75,10 @@
                 </div>
                 <div class="scorrimento">
                     <div class="radio">
-
                     </div>
                     <div class="radiov">
-                        
                     </div>
                     <div class="radiov">
-                        
                     </div>
                 </div>
             </div>
