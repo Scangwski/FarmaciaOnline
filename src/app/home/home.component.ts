@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  novita = "appena usciti"
+  migliori = "recensioni migliori"
 }
