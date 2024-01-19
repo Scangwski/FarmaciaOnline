@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
 
+document.getElementById('loginButton')?.addEventListener('click', () => {
+  window.location.href = '/login';
+});
+
+document.getElementById('carrelloButton')?.addEventListener('click', () => {
+  window.location.href = '/carrello';
+});
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,11 +15,5 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   constructor() { }
-
-  redirectToLogin() {
-    window.location.href = '/login';
-  }
- //TODO: In home.component.html -->
-  // <button (click)="redirectToLogin()">Login</button>
 
 }

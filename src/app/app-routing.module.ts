@@ -9,6 +9,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'carrello', component: CarrelloComponent },
     // ... altre rotte
+  ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
