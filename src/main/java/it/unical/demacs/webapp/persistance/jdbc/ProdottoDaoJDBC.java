@@ -25,8 +25,8 @@ public class ProdottoDaoJDBC implements ProdottoDao {
             p.setString(2, prodotto.getNome());
             p.setString(3, prodotto.getDescrizione());
             p.setDouble(4, prodotto.getPrezzo());
-            p.setString(5, prodotto.getRichiestaPerRicetta());
-            p.setString(6, prodotto.getAzienda());
+            p.setString(5, prodotto.getCategoria());
+            p.setInt(6, prodotto.getQuantita());
             p.setString(7, prodotto.getImmagine());
             p.executeUpdate();
             return true;
@@ -42,7 +42,7 @@ public class ProdottoDaoJDBC implements ProdottoDao {
         ArrayList<Prodotto> prodotti=new ArrayList<>();
         while(r.next())
         {
-            prodotti.add(new Prodotto(r.getString("id"),r.getString("nome"),r.getString("descrizione"),r.getDouble("prezzo"),r.getString("richiestePerRicetta"),r.getString("azienda"),r.getString("immagine")));
+            prodotti.add(new Prodotto(r.getString("id"),r.getString("nome"),r.getString("descrizione"),r.getDouble("prezzo"),r.getString("categoria"),r.getInt("quantita"),r.getString("immagine")));
         }
         return prodotti;
     }
@@ -54,7 +54,7 @@ public class ProdottoDaoJDBC implements ProdottoDao {
             p.setString(1, prodotto.getNome());
             ResultSet r = p.executeQuery();
             if (r.next())
-                return new Prodotto(r.getString("id"), r.getString("nome"), r.getString("descrizione"), r.getDouble("prezzo"), r.getString("richiestePerRicetta"), r.getString("azienda"), r.getString("immagine"));
+                return new Prodotto(r.getString("id"),r.getString("nome"),r.getString("descrizione"),r.getDouble("prezzo"),r.getString("categoria"),r.getInt("quantita"),r.getString("immagine"));
             return null;
         }
        return null;

@@ -6,19 +6,17 @@ public class Prodotto {
     private String nome;
     private String descrizione;
     private Double prezzo;
-
-    private String richiestaPerRicetta;
-
-    private String azienda;
+    private String categoria;
+    private Integer quantita;
     private String immagine;
 
-    public Prodotto(String id, String nome, String descrizione,Double prezzo, String richiestaPerRicetta,String azienda,String immagine){
+    public Prodotto(String id, String nome, String descrizione,Double prezzo, String categoria,Integer quantita,String immagine){
         this.id = id;
         this. nome = nome;
         this.descrizione=descrizione;
         this.prezzo=prezzo;
-        this.richiestaPerRicetta=richiestaPerRicetta;
-        this.azienda=azienda;
+        this.categoria=categoria;
+        this.quantita=quantita;
         this.immagine=immagine;
     }
 
@@ -30,9 +28,9 @@ public class Prodotto {
 
     public Double getPrezzo() {return prezzo;}
 
-    public String getRichiestaPerRicetta() {return richiestaPerRicetta;}
+    public String getCategoria() {return categoria;}
 
-    public String getAzienda() {return azienda;}
+    public Integer getQuantita() {return quantita;}
 
     public String getImmagine() {return immagine;}
 }
