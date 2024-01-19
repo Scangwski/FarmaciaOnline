@@ -12,7 +12,7 @@ public class RecensioneDaoJDBC implements RecensioneDao {
     Connection connection;
     public RecensioneDaoJDBC(Connection connection){this.connection=connection;}
     @Override
-    public boolean aggiungiRecensione(Utente utente, Prodotto prodotto, String titolo, String descizione) throws SQLException {
+    public boolean aggiungiRecensione(Utente utente, Prodotto prodotto, String titolo, String descrizione) throws SQLException {
 
         if(connection.isClosed() || connection==null)
             return false;
@@ -21,7 +21,7 @@ public class RecensioneDaoJDBC implements RecensioneDao {
         p.setString(1,utente.getEmail());
         p.setString(2,prodotto.getNome());
         p.setString(3, titolo);
-        p.setString(4,descizione);
+        p.setString(4,descrizione);
         p.executeUpdate();
         return true;
     }

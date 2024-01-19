@@ -21,13 +21,14 @@ public class UtenteDaoJDBC implements UtenteDao {
         if(connection==null || connection.isClosed())
             return false;
 
-        PreparedStatement p=connection.prepareStatement("INSERT INTO utente VALUES(?,?,?,?,?,?);");
+        PreparedStatement p=connection.prepareStatement("INSERT INTO utente VALUES(?,?,?,?,?,?,?);");
         p.setString(1,utente.getNome());
         p.setString(2,utente.getCognome());
         p.setString(3,utente.getEmail());
         p.setString(4,BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
         p.setString(5,utente.getTipoUtente());
         p.setBoolean(6,false);
+        p.setString(7,utente.getGoogle_id());
         p.executeUpdate();
         return true;
     }
@@ -83,7 +84,7 @@ public class UtenteDaoJDBC implements UtenteDao {
             result = BCrypt.checkpw(password, pass);
             if(result)
             {
-                utente=new Utente(r.getString("nome"),r.getString("cognome"),r.getString("email"),r.getString("password"),r.getString("tipoutente"),r.getBoolean("bannato"));
+                utente=new Utente(r.getString("nome"),r.getString("cognome"),r.getString("email"),r.getString("password"),r.getString("tipoutente"),r.getBoolean("bannato"),r.getString("google_id"));
                 return utente;
             }
         }
@@ -115,6 +116,30 @@ public class UtenteDaoJDBC implements UtenteDao {
         p.setString(1,email);
         ResultSet r=p.executeQuery();
         return r.next();
+    }
+
+    @Override
+    public boolean CheckByGoogleId(String id) throws SQLException {
+        PreparedStatement p=connection.prepareStatement("SELECT* FROM utente where google_id=?");
+        p.setString(1,id);
+        ResultSet r=p.executeQuery();
+        return r.next();
+    }
+
+    @Override
+    public Utente GoogleLogin(String id) throws SQLException {
+        PreparedStatement p=connection.prepareStatement("SELECT* from utente WHERE google_id=?");
+        p.setString(1,id);
+        ResultSet r=p.executeQuery();
+        Utente utente;
+        if(r.next())
+        {
+            utente=new Utente(r.getString("nome"),r.getString("cognome"),r.getString("email"),r.getString("password"),r.getString("tipoutente"),r.getBoolean("bannato"),r.getString("google_id"));
+            return utente;
+        }
+        p.close();
+
+        return null;
     }
 
 

@@ -8,14 +8,16 @@ public class Utente implements java.io.Serializable {
     private String password;
     private String tipoUtente;
     private boolean bannato = false;
+    private String google_id;
 
-    public Utente(String nome, String cognome, String email, String password, String tipoUtente, boolean bannato) {
+    public Utente(String nome, String cognome, String email, String password, String tipoUtente, boolean bannato,String google_id) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.password = password;
         this.tipoUtente = tipoUtente;
         this.bannato = bannato;
+        this.google_id= google_id;
 
     }
 
@@ -64,5 +66,5 @@ public class Utente implements java.io.Serializable {
         return bannato;
     }
 
-
+    public String getGoogle_id() {return google_id;}
 }

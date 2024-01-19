@@ -19,7 +19,7 @@ public class ProdottoDaoJDBC implements ProdottoDao {
     {
         if(connection.isClosed() || connection==null)
             return false;
-        if(utente.getTipoUtente()=="farmacista") {
+        if(utente.getTipoUtente()=="Farmacista" || utente.getTipoUtente()=="Admin") {
             PreparedStatement p = connection.prepareStatement("INSERT INTO prodotto VALUES(?,?,?,?,?,?,?)");
             p.setString(1, prodotto.getId());
             p.setString(2, prodotto.getNome());
@@ -49,7 +49,7 @@ public class ProdottoDaoJDBC implements ProdottoDao {
 
     @Override
     public Prodotto caricaProdotto(Utente utente,Prodotto prodotto) throws SQLException {
-        if (utente.getTipoUtente() == "farmacista") {
+        if (utente.getTipoUtente() == "Farmacista" || utente.getTipoUtente()=="Admin") {
             PreparedStatement p = connection.prepareStatement("SELECT* FROM prodotto WHERE nome=?");
             p.setString(1, prodotto.getNome());
             ResultSet r = p.executeQuery();

@@ -53,6 +53,8 @@ function iscriviUtente() {
     else{
         document.getElementById("registerbtn").className="btn btn-primary btn-lg";
         var utente = new Utente(nome, cognome,email, password,tipoUtente,false);
+
+        console.log("JSON da inviare:", JSON.stringify(utente));
         $.ajax(
             {
                 url: "/doRegister",

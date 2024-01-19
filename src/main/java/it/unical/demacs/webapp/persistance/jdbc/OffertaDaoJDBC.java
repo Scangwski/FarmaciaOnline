@@ -17,7 +17,7 @@ public class OffertaDaoJDBC implements OffertaDao {
 
         if(connection.isClosed() || connection==null)
             return false;
-        if(utente.getTipoUtente()=="farmacista") {
+        if(utente.getTipoUtente()=="Farmacista") {
             PreparedStatement p = connection.prepareStatement("INSERT into offerta VALUES (?,?,?)");
             p.setString(1, prodotto.getNome());
             p.setDouble(2, prodotto.getPrezzo());
@@ -33,7 +33,7 @@ public class OffertaDaoJDBC implements OffertaDao {
         if(connection.isClosed() ||connection==null)
             return false;
 
-        if(utente.getTipoUtente()=="farmacista") {
+        if(utente.getTipoUtente()=="Farmacista") {
             PreparedStatement p = connection.prepareStatement("DELETE FROM offerta WHERE nomeprodotto=?");
             p.setString(1, prodotto.getNome());
             p.executeUpdate();
