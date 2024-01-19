@@ -10,13 +10,15 @@
     window.location.href = '/passwordimenticata';
     });
 
-function Utente(nome,cognome,email,password,admin,bannato,google_id)
+function Utente(nome,cognome,email,password, tipoUtente ,bannato,google_id)
 {
     this.nome = nome;
     this.cognome = cognome;
     this.email = email;
     this.password =password;
+    this.tipoUtente = tipoUtente
     this.bannato=bannato;
+    this.google_id=google_id;
 
 }
 function accedi() {
@@ -28,7 +30,7 @@ function accedi() {
     }
     else
     {
-        var utente=new Utente(null,null,email,password,false,false,null);
+        var utente=new Utente(null,null,email,password,null,false,null);
         $.ajax(
             {
                 url: "/doLogin",
@@ -60,7 +62,7 @@ function accedi() {
                     }, 2300);
                     setTimeout(function ()
                     {
-                        window.location.href="http://localhost:8081";
+                        window.location.href="http://localhost:8085";
                     }, 1000);
                 },
                 error: function ()
@@ -68,7 +70,7 @@ function accedi() {
                     error("Controlla che i dati siano corretti!")
                     setTimeout(function ()
                     {
-                        window.location.href="http://localhost:8081/login";
+                        window.location.href="http://localhost:8085/login";
                     }, 1000);
                 },
             });

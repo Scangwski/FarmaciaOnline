@@ -7,7 +7,7 @@ window.addEventListener("load", function ()
     document.getElementById("registerbtn").addEventListener("click", iscriviUtente);
 
 });
-function Utente(nome,cognome,email,password,tipoUtente,bannato)
+function Utente(nome,cognome,email,password,tipoUtente,bannato,google_id)
 {
     this.nome = nome;
     this.cognome = cognome;
@@ -15,6 +15,7 @@ function Utente(nome,cognome,email,password,tipoUtente,bannato)
     this.password =password;
     this.tipoUtente= tipoUtente;
     this.bannato=false;
+    this.google_id=google_id;
 
 }
 
@@ -52,7 +53,7 @@ function iscriviUtente() {
 
     else{
         document.getElementById("registerbtn").className="btn btn-primary btn-lg";
-        var utente = new Utente(nome, cognome,email, password,tipoUtente,false);
+        var utente = new Utente(nome, cognome,email, password,tipoUtente,false, 0);
 
         console.log("JSON da inviare:", JSON.stringify(utente));
         $.ajax(
@@ -146,6 +147,40 @@ function error(s){
 
 
 }
+function googleReg(response)
+{
+    const responsePayLoad=decodeJWTResponse(response.credential);
+    var email = responsePayLoad.email;
+    var nome=responsePayLoad.given_name;
+    var cognome=responsePayLoad.family_name;
+    var id=responsePayLoad.sub;
+    var utente = new Utente(nome, cognome,email, password,tipoUtente,false,id);
+    $.ajax(
+        {
+            type: "POST",
+            url: "/checkExistsId",
+            data: id,
+            contentType:"application/json",
+            success:function () {
+                window.location.href = "/"
+            },
+            error:function ()
+            {
+                $.ajax(
+                    {
+                        type: "POST",
+                        url:"/registerGoogleUser",
+                        contentType:"application/json",
+                        data: JSON.stringify(utente),
+                        success:function () {
+                            window.location.href = "/"
+                        },
+                    })
+            }
+        });
+
+}
+
 
 function decodeJWTResponse(data)
 {
