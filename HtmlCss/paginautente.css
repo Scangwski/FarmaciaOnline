@@ -1,0 +1,430 @@
+.content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: #FFF;
+}
+
+.content > .navbar {
+    display: flex;
+    height: 110px;
+    padding: 0px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; 
+    align-self: stretch;
+    background-color: var(--Green);
+}
+
+.navbar > .menuButton {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.menuButton::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 4px;
+    background-color: var(--Icon);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+    border-radius: 5px;
+}
+
+.menuButton:hover::after {
+    width: 100%;
+}
+
+.menuButton:hover {
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.navbar > svg:hover {
+    cursor: pointer;
+}
+
+.navbar > .searchBar {
+    display: flex;
+    height: 54px;
+    padding: 13px 20px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 20px;
+    background-color: var(--Sfondo);
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.40);
+}
+
+.navbar > .searchBar > input[type="search"] {
+    border: none;
+    background-color: transparent;
+    color: var(--Icon, #2A332D);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    width: 100%;
+}
+
+.navbar > .searchBar > input[type="search"]:focus {
+    outline: none;
+}
+
+.searchBar > input[type="search"]::placeholder{
+    opacity: 0.6;
+}
+
+.navbar > .searchBar > svg:hover {
+    cursor: pointer;
+}
+
+.navbar > .icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar > .icone > .boxicon {
+    display: flex;
+    padding: 9px 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border-radius: 5px;
+    width: 100%;
+    height: 80px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.boxicon > .U {
+    display: none;
+}
+
+.boxicon > .immagine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxicon > .immagine > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 500px;
+}
+
+.boxicon::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 4px;
+    background-color: var(--Icon);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.boxicon:hover::after {
+    width: 100%;
+}
+
+.boxicon:hover {
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+}
+
+.navbar > .icone > .boxicon > .counter {
+    display: none;
+    width: 15px;
+    height: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2px;
+    top: 8px;
+    border-radius: 100px;
+    background: var(--Scorrimento);
+}
+
+.navbar > .icone > .boxicon > .counter > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.navbar > .icone > .boxicon > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    max-width: 8ch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.content > .corpo {
+    display: flex;
+    padding: 20px 35px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    min-height: 537px;
+    background: #FFF;
+}
+
+.corpo > .immagineinfo {
+    display: flex;
+    padding: 10px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: var(--Sfondo);
+}
+
+.immagineinfo > .immagineinfo2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.immagineinfo2 > .divimmagine {
+    display: flex;
+    padding: 10px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.divimmagine > img {
+    width: 250px;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 500px;
+}
+
+.immagineinfo2 > .info {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.info > .nomecognome,
+.info > .email,
+.info > .compleanno,
+.info > .lavoro {
+    display: flex;
+    padding: 25px 0px;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.info > .lavoro {
+    display: none;
+}
+
+.nomecognome > .testo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.testo > span,
+.email > span,
+.compleanno > span,
+.lavoro > span {
+    color: var(--Icon);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+
+.immagineinfo > .inventario,
+.immagineinfo > .esci {
+    display: flex;
+    padding: 6px 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 5px;
+    background: var(--Scorrimento);
+    position: relative;
+    overflow: hidden;
+}
+
+.immagineinfo > .esci {
+    background: #FF8282;
+    display: none;
+}
+
+.inventario::before,
+.esci::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Sfondo);
+    transition: transform 0.4s, color 0.4s, border 0.4s;
+}
+
+.inventario:hover::before,
+.esci:hover::before {
+    transform: translateX(100%);
+}
+
+.inventario:hover,
+.esci:hover {
+    border: 1px solid var(--Scorrimento);
+    cursor: pointer;
+}
+
+.inventario:hover span,
+.esci:hover span {
+    color: var(--Scorrimento);
+}
+
+.inventario > span,
+.esci > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    position: relative;
+}
+
+.corpo > .storicordini {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: var(--Sfondo);
+}
+
+.storicordini > span {
+    color: var(--Icon);
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.storicordini > .ordinimancanti {
+    display: flex;
+    height: 320px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    display: none;
+}
+
+.ordinimancanti > .icona {
+    display: flex;
+    padding: 0px 88px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.icona > span {
+    color: var(--Icon);
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.storicordini > .ordini {
+    display: flex;
+    height: 320px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.ordini > .ordine {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+    border-bottom: 1px solid var(--Scorrimento);
+}
+
+.ordine > .iconaenumero {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.iconaenumero > span {
+    color: var(--Icon);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.ordine > span {
+    color: var(--Icon);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.content > .footer {
+    display: flex;
+    padding: 15px 30px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: var(--Green);
+}
+
+.footer > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
