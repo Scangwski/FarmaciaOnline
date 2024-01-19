@@ -1,0 +1,702 @@
+.content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.content > .navbar {
+    display: flex;
+    height: 110px;
+    padding: 0px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; 
+    align-self: stretch;
+    background-color: var(--Green);
+}
+
+.navbar > .menuButton {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.menuButton::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 4px;
+    background-color: var(--Icon);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+    border-radius: 5px;
+}
+
+.menuButton:hover::after {
+    width: 100%;
+}
+
+.menuButton:hover {
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.navbar > svg:hover {
+    cursor: pointer;
+}
+
+.navbar > .searchBar {
+    display: flex;
+    height: 54px;
+    padding: 13px 20px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 20px;
+    background-color: var(--Sfondo);
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.40);
+}
+
+.navbar > .searchBar > input[type="search"] {
+    border: none;
+    background-color: transparent;
+    color: var(--Icon, #2A332D);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    width: 100%;
+}
+
+.navbar > .searchBar > input[type="search"]:focus {
+    outline: none;
+}
+
+.searchBar > input[type="search"]::placeholder{
+    opacity: 0.6;
+}
+
+.navbar > .searchBar > svg:hover {
+    cursor: pointer;
+}
+
+.navbar > .icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar > .icone > .boxicon {
+    display: flex;
+    padding: 9px 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.boxicon::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 4px;
+    background-color: var(--Icon);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.boxicon:hover::after {
+    width: 100%;
+}
+
+.boxicon:hover {
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+}
+
+.navbar > .icone > .boxicon > .counter {
+    display: none;
+    width: 15px;
+    height: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2px;
+    top: 8px;
+    border-radius: 100px;
+    background: var(--Scorrimento);
+}
+
+.navbar > .icone > .boxicon > .counter > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.navbar > .icone > .boxicon > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.content > .corpo {
+    display: flex;
+    padding: 20px 35px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: var(--Sfondo);
+}
+
+.corpo > .navigazione {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.navigazione > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    padding-right: 5px;
+}
+
+.navigazione > span:hover {
+    cursor: pointer;
+}
+
+.navigazione > .posizione {
+    color: var(--Icon);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.corpo > .prodotto {
+    display: flex;
+    padding: 20px 35px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.prodotto > .immagini {
+    display: flex;
+    padding: 10px 0px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 0;
+    width: 100%;
+}
+
+.immagini > .immagine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.immagine > img {
+    width: 388px;
+    height: 356px;
+}
+
+.immagini > .altreImmagini {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+}
+
+.altreImmagini:hover {
+    cursor: pointer;
+}
+
+.selezionata {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.15) inset, -1px -1px 2px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.altreImmagini > .altraImmagineN {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.altraImmagine > img,
+.altraImmagineN > img {
+    width: 100px;
+    height: 100px;
+}
+
+.prodotto > .testoeaggiuntacarrello {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.testoeaggiuntacarrello > .titolo {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+
+.titolo > span {
+    color: var(--Icon);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    flex: 1 0 0;
+}
+
+.testoeaggiuntacarrello > .descrizione {
+    display: flex;
+    width: 415px;
+    padding: 0px 10px;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.descrizione > span {
+    color: var(--Icon);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    flex: 1 0 0;
+}
+
+.testoeaggiuntacarrello > .prezzoecarrello {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--Sfondo);
+}
+
+.prezzoecarrello > .prezzoesconto {
+    display: flex;
+    padding: 5px;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.prezzoesconto > .prezzo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.prezzo > span {
+    color: var(--Icon);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.prezzo > .st {
+    color: var(--Icon);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.prezzoesconto > span {
+    color: var(--Green);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.prezzoecarrello > .counterecarrello {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.counterecarrello > .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--Scorrimento);
+    user-select: none;
+}
+
+.counter > .meno {
+    display: flex;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.meno:hover,
+.piu:hover {
+    cursor: pointer;
+}
+
+.counter > .numero {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: #FFF;
+    align-self: stretch;
+}
+
+.numero > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.counter > .piu {
+    display: flex;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.counterecarrello > .bcarrello {
+    display: flex;
+    padding: 6px 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: var(--Scorrimento);
+    position: relative;
+    overflow: hidden;
+}
+
+.bcarrello::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Sfondo);
+    border-radius: 5px;
+    transition: transform 0.4s, color 0.4s, border 0.4s;
+}
+
+.bcarrello:hover::before {
+    transform: translateX(100%);
+}
+
+.bcarrello:hover {
+    border: 1px solid var(--Scorrimento);
+    cursor: pointer;
+}
+
+.bcarrello:hover span {
+    color: var(--Scorrimento);
+}
+
+.bcarrello > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    position: relative;
+}
+
+.testoeaggiuntacarrello > .prescrizione {
+    display: flex;
+    padding: 10px 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--Sfondo);
+}
+
+.prescrizione > .necessaria {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 20px;
+    display: none;
+}
+
+.prescrizione > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.prescrizione > .campocodice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.campocodice > .codice {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: #FFF;
+}
+
+.codice > input[type="text"] {
+    border: none;
+    background-color: transparent;
+    color: var(--Icon, #2A332D);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+}
+
+.codice > input[type="text"]:focus {
+    outline: none;
+}
+
+.codice > input[type="text"]::placeholder{
+    opacity: 0.6;
+}
+
+.campocodice > .bcodice {
+    display: flex;
+    padding: 8px 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: var(--Scorrimento);
+    position: relative;
+    overflow: hidden;
+}
+
+.bcodice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Sfondo);
+    border-radius: 5px;
+    transition: transform 0.4s, color 0.4s, border 0.4s;
+}
+
+.bcodice:hover::before {
+    transform: translateX(100%);
+}
+
+.bcodice:hover {
+    border: 1px solid var(--Scorrimento);
+    cursor: pointer;
+}
+
+.bcodice:hover span {
+    color: var(--Scorrimento);
+}
+
+.bcodice > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    position: relative;
+}
+
+.prodotto > .infoespedizione {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: var(--Sfondo);
+}
+
+.infoespedizione > .info {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px;
+    width: 100%;
+}
+
+.info > span::before {
+    content: attr(data-code);
+    color: var(--Icon);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    padding-right: 5px;
+}
+
+.info > span {
+    color: var(--Icon);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.infoespedizione > .spedizione {
+    display: flex;
+    padding: 18px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+    border-radius: 10px;
+    background: var(--Scorrimento);
+}
+
+.spedizione > .sp1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.sp1 > .testo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.testo > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.testo > .t2 {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.spedizione > .sp2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.sp2 > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.spedizione > .sp3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sp3 > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+
+.content > .footer {
+    display: flex;
+    padding: 15px 30px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: var(--Green);
+}
+
+.footer > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
