@@ -1,0 +1,568 @@
+.content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.content > .navbar {
+    display: flex;
+    height: 110px;
+    padding: 0px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    align-self: stretch;
+    background-color: var(--Green);
+}
+
+.navbar > .menuButton {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.menuButton::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 4px;
+    background-color: var(--Icon);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+    border-radius: 5px;
+}
+
+.menuButton:hover::after {
+    width: 100%;
+}
+
+.menuButton:hover {
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.navbar > svg:hover {
+    cursor: pointer;
+}
+
+.navbar > .searchBar {
+    display: flex;
+    height: 54px;
+    padding: 13px 20px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 20px;
+    background-color: var(--Sfondo);
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.40);
+}
+
+.navbar > .searchBar > input[type="search"] {
+    border: none;
+    background-color: transparent;
+    color: var(--Icon, #2A332D);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    width: 100%;
+}
+
+.navbar > .searchBar > input[type="search"]:focus {
+    outline: none;
+}
+
+.searchBar > input[type="search"]::placeholder{
+    opacity: 0.6;
+}
+
+.navbar > .searchBar > svg:hover {
+    cursor: pointer;
+}
+
+.navbar > .icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar > .icone > .boxicon {
+    display: flex;
+    padding: 9px 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.boxicon::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 4px;
+    background-color: var(--Icon);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.boxicon:hover::after {
+    width: 100%;
+}
+
+.boxicon:hover {
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
+}
+
+.navbar > .icone > .boxicon > .counter {
+    display: none;
+    width: 15px;
+    height: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2px;
+    top: 8px;
+    border-radius: 100px;
+    background: var(--Scorrimento);
+}
+
+.navbar > .icone > .boxicon > .counter > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.navbar > .icone > .boxicon > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.content > .corpo {
+    display: flex;
+    padding: 10px 35px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    min-height: 537px;
+    background: var(--Sfondo);
+}
+
+.corpo > .carrello {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    flex: 1 0 0;
+    border-radius: 10px;
+}
+
+.carrello > .numprodotti {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.numprodotti > span {
+    color: var(--Icon);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.numprodotti > .num {
+    color: var(--Icon);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.carrello > .prodotti {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF;
+    max-height: 390px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.prodotti.empty-cart {
+    overflow-y: hidden;
+}
+
+.prodotti:not(.empty-cart) {
+    overflow-y: scroll;
+}
+
+
+.prodotti > span {
+    color: var(--Icon);
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    display: none;
+}
+
+.prodotti > .prodotto {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 0.5px solid var(--Scorrimento);
+    position: relative;
+    user-select: none;
+}
+
+.prodotto > img {
+    display: flex;
+    width: 180px;
+    height: 160px;
+    align-items: center;
+}
+
+.prodotto > img:hover {
+    cursor: pointer;
+}
+
+.prodotto > .info {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.info > span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    width: 100%;
+    overflow: hidden;
+    color: var(--Icon);
+    text-overflow: ellipsis;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.info > span:hover {
+    cursor: pointer;
+}
+
+.info > .countereprezzo {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.countereprezzo > .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--Scorrimento);
+    user-select: none;
+}
+
+.counter > .meno {
+    display: flex;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.meno:hover,
+.piu:hover {
+    cursor: pointer;
+}
+
+.counter > .numero {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: #FFF;
+    align-self: stretch;
+}
+
+.numero > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.counter > .piu {
+    display: flex;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.countereprezzo > span {
+    color: var(--Green);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.countereprezzo > .prezzo {
+    display: flex;
+    height: 46px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.prezzo > .t1 {
+    color: var(--Icon);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.prezzo > .t2 {
+    color: var(--Icon);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.prodotto > svg {
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 1%;
+    top: 5%;
+    transform: translate(-1% , -5%);
+}
+
+.prodotto > svg:hover {
+    cursor: pointer;
+}
+
+.corpo > .totaleavviso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    width: 100%;
+}
+
+.totaleavviso > .totale {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex: 1 0 0;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.totale > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.totale > .prezzoprodotti,
+.totale > .prezzospedizione,
+.totale > .prezzototale {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 0.5px solid var(--Scorrimento);
+}
+
+.prezzoprodotti > span {
+    color: var(--Icon);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.prezzoprodotti > .t2 {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.prezzospedizione > .iconaespan {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.iconaespan > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.prezzospedizione > .S {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.totale > .prezzototale > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.prezzototale > .t2 {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.totale > .bacquista {
+    display: flex;
+    padding: 6px 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 5px;
+    background: var(--Scorrimento);
+    position: relative;
+    overflow: hidden;
+}
+
+.bacquista::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Sfondo);
+    transition: transform 0.4s, color 0.4s, border 0.4s;
+}
+
+.bacquista:hover::before {
+    transform: translateX(100%);
+}
+
+.bacquista:hover {
+    border: 1px solid var(--Scorrimento);
+    cursor: pointer;
+}
+
+.bacquista:hover span {
+    color: var(--Scorrimento);
+}
+
+.bacquista > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    position: relative;
+}
+
+.bacquista.disabled-button {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.totaleavviso > .avviso {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF;
+    display: none;
+}
+
+.avviso > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.content > .footer {
+    display: flex;
+    padding: 15px 30px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: var(--Green);
+}
+
+.footer > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
