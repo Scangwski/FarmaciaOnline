@@ -14,6 +14,7 @@ import { ImmaginiComponent } from './immagini/immagini.component';
 import { HomeComponent } from './home/home.component';
 import { TendinaComponent } from './tendina/tendina.component';
 import { TimerComponent } from './timer/timer.component';
+import { PagineComponent } from './pagine/pagine.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { TimerComponent } from './timer/timer.component';
     HomeComponent,
     TendinaComponent,
     TimerComponent,
+    PagineComponent,
 
   ],
   imports: [
