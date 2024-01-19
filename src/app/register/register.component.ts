@@ -5,17 +5,13 @@ document.getElementById('loginButton')?.addEventListener('click', () => {
   window.location.href = '/login';
 });
 
-window.addEventListener('load', () => {
-  document.getElementById('registerbtn')?.addEventListener('click', iscriviUtente);
-});
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  iscriviUtente() {
+  iscriviUtente = () => {
     const nome = (document.querySelector('#nome') as HTMLInputElement)?.value;
     const cognome = (document.querySelector('#cognome') as HTMLInputElement)?.value;
     const email = (document.querySelector('#email') as HTMLInputElement)?.value;
@@ -89,9 +85,16 @@ export class RegisterComponent {
 
             document.getElementById('registration_form')?.before(messageContainer);
 
-            setTimeout(() => {
-              document.getElementById('message_container')?.fadeOut();
-            }, 2000);
+            // rimpiazzo fadeOut siccome non esiste come proprietà in HTMLElement
+            document.getElementById('message_container');
+            if (messageContainer) {
+              messageContainer.style.transition = 'opacity 2s'; // Adjust the duration as needed
+              messageContainer.style.opacity = '0';
+
+              setTimeout(() => {
+                messageContainer.remove();
+              }, 2000);
+            }
             setTimeout(() => {
               document.getElementById('message_container')?.remove();
             }, 2300);
@@ -112,14 +115,28 @@ export class RegisterComponent {
             messageContainer.append(icon, message);
             document.getElementById('registration_form')?.before(messageContainer);
 
-            setTimeout(() => {
-              document.getElementById('message_container')?.fadeOut();
-            }, 2000);
+            // rimpiazzo fadeOut siccome non esiste come proprietà in HTMLElement
+            document.getElementById('message_container');
+            if (messageContainer) {
+              messageContainer.style.transition = 'opacity 2s'; // Adjust the duration as needed
+              messageContainer.style.opacity = '0';
+
+              setTimeout(() => {
+                messageContainer.remove();
+              }, 2000);
+            }
             setTimeout(() => {
               document.getElementById('message_container')?.remove();
             }, 2300);
           });
     }
+  }
+
+  ngOnInit(): void {
+    window.addEventListener('load', () => {
+      document.getElementById('registerbtn')?.addEventListener('click', this.iscriviUtente);
+      // ...
+    });
   }
 
   error(s: string) {
@@ -138,9 +155,16 @@ export class RegisterComponent {
     messageContainer.append(icon, message);
     document.getElementById('registration_form')?.before(messageContainer);
 
-    setTimeout(() => {
-      document.getElementById('message_container')?.fadeOut();
-    }, 2000);
+    // rimpiazzo fadeOut siccome non esiste come proprietà in HTMLElement
+    document.getElementById('message_container');
+    if (messageContainer) {
+      messageContainer.style.transition = 'opacity 2s'; // Adjust the duration as needed
+      messageContainer.style.opacity = '0';
+
+      setTimeout(() => {
+        messageContainer.remove();
+      }, 2000);
+    }
     setTimeout(() => {
       document.getElementById('message_container')?.remove();
     }, 2300);
