@@ -94,14 +94,21 @@
     display: flex;
     height: 110px;
     padding: 0px 30px;
-    justify-content: center;
     align-items: center;
-    gap: 60px; 
+    gap: 40px; 
     align-self: stretch;
     background-color: var(--Green);
 }
 
-.navbar > .menuButton {
+.navbar > .menuelogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+}
+
+.navbar > .menuelogo > .menuButton {
     display: flex;
     padding: 10px;
     align-items: center;
@@ -135,11 +142,19 @@
     cursor: pointer;
 }
 
-.navbar > svg:hover {
+.navbar > .menuelogo > svg:hover {
     cursor: pointer;
 }
 
-.navbar > .searchBar {
+.navbar > .searchbareicone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.navbar > .searchbareicone > .searchBar {
     display: flex;
     height: 54px;
     padding: 13px 20px;
@@ -151,7 +166,7 @@
     box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.40);
 }
 
-.navbar > .searchBar > input[type="search"] {
+.searchBar > input[type="search"] {
     border: none;
     background-color: transparent;
     color: var(--Icon, #2A332D);
@@ -161,7 +176,7 @@
     width: 100%;
 }
 
-.navbar > .searchBar > input[type="search"]:focus {
+.searchBar > input[type="search"]:focus {
     outline: none;
 }
 
@@ -169,18 +184,18 @@
     opacity: 0.6;
 }
 
-.navbar > .searchBar > svg:hover {
+.searchBar > svg:hover {
     cursor: pointer;
 }
 
-.navbar > .icone {
+.navbar > .searchbareicone > .icone {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
 }
 
-.navbar > .icone > .boxicon {
+.searchbareicone > .icone > .boxicon {
     display: flex;
     padding: 9px 6px;
     flex-direction: column;
@@ -232,7 +247,7 @@
     box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
 }
 
-.navbar > .icone > .boxicon > .counter {
+.navbar > .searchbareicone > .icone > .boxicon > .counter {
     display: none;
     width: 15px;
     height: 15px;
@@ -246,7 +261,7 @@
     background: var(--Scorrimento);
 }
 
-.navbar > .icone > .boxicon > .counter > span {
+.icone > .boxicon > .counter > span {
     color: var(--Sfondo);
     text-align: center;
     font-size: 9px;
@@ -254,7 +269,7 @@
     font-weight: 600;
 }
 
-.navbar > .icone > .boxicon > span {
+.icone > .boxicon > span {
     color: var(--Icon);
     text-align: center;
     font-size: 18px;
@@ -511,4 +526,60 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
+}
+
+@media screen and (max-width: 1000px) {
+    .navbar > svg,
+    .navbar > .menuButton {
+       display: none;
+    }
+
+    .content > .navbar {
+        display: flex;
+        height: 160px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .navbar > .menuelogo {
+        padding-top: 20px;
+    }
+
+    .navbar > .searchbareicone {
+        padding-bottom: 15px;
+    }
+
+    .content > .corpo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .immagineinfo2 > .divimmagine > img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .testo > span,
+    .email > span,
+    .compleanno > span,
+    .lavoro > span {
+        font-size: 20px;
+    }
+
+    .corpo > .immagineinfo {
+        align-self: stretch;
+    }
+
+    .corpo > .storicordini {
+        align-self: stretch;
+    }
+
+    .content > .footer > span {
+        font-size: 15px;
+    }
+    
 }
