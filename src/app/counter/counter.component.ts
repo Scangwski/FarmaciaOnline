@@ -1,35 +1,47 @@
-import { Component } from '@angular/core';
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Ottieni riferimenti agli elementi del counter
-  const counterValueElement = document.getElementById("counterValue") as HTMLElement;
-  const incrementButton = document.querySelector(".counter > .piu") as HTMLElement;
-  const decrementButton = document.querySelector(".counter > .meno") as HTMLElement;
-
-  // Inizializza il contatore
-  let counterValue = 1;
-  counterValueElement.textContent = counterValue.toString();
-
-  // Aggiungi event listener per l'incremento
-  incrementButton.addEventListener("click", () => {
-    counterValue++;
-    counterValueElement.textContent = counterValue.toString();
-  });
-
-  // Aggiungi event listener per il decremento
-  decrementButton.addEventListener("click", () => {
-    if (counterValue > 1) {
-      counterValue--;
-      counterValueElement.textContent = counterValue.toString();
-    }
-  });
-});
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
-  styleUrl: './counter.component.css'
+  styleUrls: ['./counter.component.css']
 })
-export class CounterComponent {
+export class CounterComponent implements AfterViewInit {
+  counterValue: number = 1;
 
+  ngAfterViewInit() {
+    // Si esegue dopo che la vista del componente è stata completamente inizializzata
+    const counterValueElement = document.getElementById("counterValue") as HTMLElement;
+    const incrementButton = document.querySelector(".counter > .piu") as HTMLElement;
+    const decrementButton = document.querySelector(".counter > .meno") as HTMLElement;
+
+    // Inizializza il contatore
+    counterValueElement.textContent = this.counterValue.toString();
+
+    // Aggiungi event listener per l'incremento
+    incrementButton.addEventListener("click", () => {
+      this.incrementButton();
+    });
+
+    // Aggiungi event listener per il decremento
+    decrementButton.addEventListener("click", () => {
+      this.decrementButton();
+    });
+  }
+
+  incrementButton() {
+    this.counterValue++;
+    this.updateCounterValue();
+  }
+
+  decrementButton() {
+    if (this.counterValue > 1) {
+      this.counterValue--;
+      this.updateCounterValue();
+    }
+  }
+
+  private updateCounterValue() {
+    const counterValueElement = document.getElementById("counterValue") as HTMLElement;
+    counterValueElement.textContent = this.counterValue.toString();
+  }
 }

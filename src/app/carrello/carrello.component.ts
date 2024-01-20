@@ -29,7 +29,6 @@ export class CarrelloComponent implements OnInit {
       });
     }
   }
-
   updateCartStatus() {
     const prodotti = document.querySelectorAll('.prodotto');
     const emptyCartSpan = document.querySelector('.prodotti > span') as HTMLElement | null;
@@ -118,4 +117,6 @@ export class CarrelloComponent implements OnInit {
     prodottoDiv.remove();
     this.updateCartStatus();
   }
+
+  protected readonly Component = Component;
 }

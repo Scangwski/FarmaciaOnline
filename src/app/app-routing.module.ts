@@ -8,7 +8,11 @@ import {CounterComponent} from "./counter/counter.component";
 import {TendinaComponent} from "./tendina/tendina.component";
 import {ScorrimentoComponent} from "./scorrimento/scorrimento.component";
 import {PaginaProdottoComponent} from "./pagina-prodotto/pagina-prodotto.component";
-import {RecuperaPasswordComponent} from "./recupera-password/recupera-password.component"; // Importa CarrelloComponent
+import {RecuperaPasswordComponent} from "./recupera-password/recupera-password.component";
+import {RegisterComponent} from "./register/register.component";
+import {PaginaUtenteComponent} from "./pagina-utente/pagina-utente.component";
+import {Counter2Component} from "./counter2/counter2.component";
+import {InventarioComponent} from "./inventario/inventario.component"; // Importa CarrelloComponent
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Reindirizza il path vuoto alla home
@@ -18,10 +22,14 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: "recupera-password", component: RecuperaPasswordComponent},
   { path: "counter", component: CounterComponent},
+  { path: "counter2", component: Counter2Component},
   { path: "tendina", component: TendinaComponent},
-  {path: "scorrimento", component: ScorrimentoComponent},
-  {path:"paginaProdotto", component: PaginaProdottoComponent},
-  {path:"paginaProdotti", component: PaginaProdottoComponent}
+  { path: "scorrimento", component: ScorrimentoComponent},
+  { path:"paginaProdotto", component: PaginaProdottoComponent},
+  { path:"paginaProdotti", component: PaginaProdottoComponent},
+  { path: "register", component: RegisterComponent},
+  { path: "paginaUtente", component: PaginaUtenteComponent},
+  { path: "inventario", component: InventarioComponent},
   ]
 
 @NgModule({

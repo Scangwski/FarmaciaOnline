@@ -18,6 +18,11 @@ import { PagineComponent } from './pagine/pagine.component';
 import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
 import { PaginaProdottiComponent } from './pagina-prodotti/pagina-prodotti.component';
 import { RecuperaPasswordComponent } from './recupera-password/recupera-password.component';
+import { PaginaUtenteComponent } from './pagina-utente/pagina-utente.component';
+import { InventarioComponent } from './inventario/inventario.component';
+import { MenuLateraleComponent } from './menu-laterale/menu-laterale.component';
+import { MenuProdottiComponent } from './menu-prodotti/menu-prodotti.component';
+import { Counter2Component } from './counter2/counter2.component';
 
 
 @NgModule({
@@ -38,7 +43,12 @@ import { RecuperaPasswordComponent } from './recupera-password/recupera-password
       PaginaProdottiComponent,
       PaginaProdottoComponent,
       PaginaProdottiComponent,
-      RecuperaPasswordComponent
+      RecuperaPasswordComponent,
+      PaginaUtenteComponent,
+      InventarioComponent,
+      MenuLateraleComponent,
+      MenuProdottiComponent,
+      Counter2Component
 
   ],
   imports: [
