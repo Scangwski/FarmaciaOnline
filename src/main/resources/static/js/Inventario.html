@@ -2,39 +2,41 @@
 <html lang="it">
 <head>
     <link rel="stylesheet" href="Generali.css">
-    <link rel="stylesheet" href="Register.css">
+    <link rel="stylesheet" href="Inventario.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <meta name="viewport" content="width= , initial-scale=1.0">
     <title>EFarm</title>
     <script src="menulaterale.js"></script>
+    <script src="counter.js"></script>
+    <script src="Counter2.js"></script>
 </head>
 <body>
+    <div id="menuContent" class="menuContent">
+        <div class="opzioni">
+            <span>Farmaci da banco</span>
+        </div>
+        <div class="opzioni">
+            <span>Cosmetici</span>
+        </div>
+        <div class="opzioni">
+            <span>Igiene e benessere</span>
+        </div>
+        <div class="opzioni">
+            <span>Integratori</span>
+        </div>
+        <div class="opzioni">
+            <span>Mamma e bambino</span>
+        </div>
+        <div class="opzioni">
+            <span>Naturopatia</span>
+        </div>
+        <div id="closeButton" class="closeButton">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16" fill="none">
+                <path d="M15 1L1 15M1 1L15 15" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>   
     <div class="content">
-        <div id="menuContent" class="menuContent">
-            <div class="opzioni">
-                <span>Farmaci da banco</span>
-            </div>
-            <div class="opzioni">
-                <span>Cosmetici</span>
-            </div>
-            <div class="opzioni">
-                <span>Igiene e benessere</span>
-            </div>
-            <div class="opzioni">
-                <span>Integratori</span>
-            </div>
-            <div class="opzioni">
-                <span>Mamma e bambino</span>
-            </div>
-            <div class="opzioni">
-                <span>Naturopatia</span>
-            </div>
-            <div id="closeButton" class="closeButton">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16" fill="none">
-                    <path d="M15 1L1 15M1 1L15 15" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-        </div>   
         <div class="navbar">
             <div class="menuelogo">
                 <div class="menuButton">
@@ -91,57 +93,68 @@
             </div>             
         </div>
         <div class="corpo">
-            <div class="testoeregister">
-                <span class="spanT">Entra nel mondo di EFarm!</span>
-                <span class="spanSt">Hai già un account?</span>
-                <div class="bregister">
-                    <span>Accedi</span>
+            <div class="aggiuntascorte">
+                <span>Aggiungi scorte</span>
+                <div class="campoidecounter">
+                    <div class="campoid">
+                        <input type="text" placeholder="Inserisci ID prodotto">
+                    </div>
+                    <div class="counter">
+                        <div class="meno">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.6668 10H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="numero">
+                            <span id="counterValue">1</span>
+                        </div>
+                        <div class="piu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20" fill="none">
+                                <path d="M10.0002 3.3335V16.6668M16.6668 10.0002H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="bscorte">
+                    <span>Aggiungi scorte</span>
                 </div>
             </div>
-            <div class="register">
-                <span>Inserisci i tuoi dati</span>
-                <div class="dati">
-                    <div class="nomecognome">
+            <div class="aggiuntaprodotto">
+                <span>Aggiungi prodotto</span>
+                <div class="campiprodotto">
+                    <div class="idenome">
+                        <div class="id">
+                            <input type="text" placeholder="ID prodotto">
+                        </div>
                         <div class="nome">
-                            <input type="text" placeholder="Nome">
-                        </div>
-                        <div class="cognome">
-                            <input type="text" placeholder="Cognome">
+                            <input type="text" placeholder="Nome prodotto">
                         </div>
                     </div>
-                    <div class="genere">
-                        <input type="radio" class="radio" id="uomo" name="genere">
-                        <label for="uomo">Uomo</label>
-
-                        <input type="radio" class="radio" id="donna" name="genere">
-                        <label for="donna">Donna</label>
-
-                        <input type="radio" class="radio" id="altro" name="genere">
-                        <label for="altro">Altro</label>
+                    <div class="descrizione">
+                        <textarea placeholder="Aggiungi una descrizione del prodotto"></textarea>
                     </div>
-                    <div class="datanascita">
-                        <input type="date" placeholder="Data di nascita*">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M18 2V4M6 2V4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11.9955 13H12.0045M11.9955 17H12.0045M15.991 13H16M8 13H8.00897M8 17H8.00897" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3.5 8H20.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M2.5 12.2432C2.5 7.88594 2.5 5.70728 3.75212 4.35364C5.00424 3 7.01949 3 11.05 3H12.95C16.9805 3 18.9958 3 20.2479 4.35364C21.5 5.70728 21.5 7.88594 21.5 12.2432V12.7568C21.5 17.1141 21.5 19.2927 20.2479 20.6464C18.9958 22 16.9805 22 12.95 22H11.05C7.01949 22 5.00424 22 3.75212 20.6464C2.5 19.2927 2.5 17.1141 2.5 12.7568V12.2432Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3 8H21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="email">
-                        <input type="email" placeholder="Email*">
-                    </div>
-                    <div class="password">
-                        <input type="password" placeholder="Password*">
-                    </div>
-                    <div class="confermapassword">
-                        <input type="password" placeholder="Conferma Password*">
-                    </div>
-                    <div class="creaccount">
-                        <div class="bcrea">
-                            <span>Crea il tuo account EFarm</span>
+                    <div class="categoriaequantita">
+                        <div class="categoria">
+                            <input type="text" placeholder="Inserisci categoria">
                         </div>
+                        <div class="counter2">
+                            <div class="meno2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20" fill="none">
+                                    <path d="M16.6668 10H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="numero2">
+                                <span id="counterValue2">1</span>
+                            </div>
+                            <div class="piu2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10.0002 3.3335V16.6668M16.6668 10.0002H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bcrea">
+                        <span>Crea prodotto</span>
                     </div>
                 </div>
             </div>
