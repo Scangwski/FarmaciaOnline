@@ -15,9 +15,9 @@ import { HomeComponent } from './home/home.component';
 import { TendinaComponent } from './tendina/tendina.component';
 import { TimerComponent } from './timer/timer.component';
 import { PagineComponent } from './pagine/pagine.component';
-import {Recuperapassword} from "./recupera-password/recupera-password";
-import {PaginaProdotto} from "./pagina-prodotto/pagina-prodotto";
-import {PaginaProdotti} from "./pagina-prodotti/pagina-prodotti";
+import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
+import { PaginaProdottiComponent } from './pagina-prodotti/pagina-prodotti.component';
+import { RecuperaPasswordComponent } from './recupera-password/recupera-password.component';
 
 
 @NgModule({
@@ -33,9 +33,12 @@ import {PaginaProdotti} from "./pagina-prodotti/pagina-prodotti";
     TendinaComponent,
     TimerComponent,
     PagineComponent,
-      Recuperapassword,
-      PaginaProdotto,
-      PaginaProdotti
+      RecuperaPasswordComponent,
+      PaginaProdottoComponent,
+      PaginaProdottiComponent,
+      PaginaProdottoComponent,
+      PaginaProdottiComponent,
+      RecuperaPasswordComponent
 
   ],
   imports: [
