@@ -15,7 +15,7 @@ import {Counter2Component} from "./counter2/counter2.component";
 import {InventarioComponent} from "./inventario/inventario.component"; // Importa CarrelloComponent
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Reindirizza il path vuoto alla home
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Reindirizza il path vuoto al login
   { path: 'home', component: HomeComponent },
   { path: 'carrello', component: CarrelloComponent },
   { path: 'pagine', component: PagineComponent},
