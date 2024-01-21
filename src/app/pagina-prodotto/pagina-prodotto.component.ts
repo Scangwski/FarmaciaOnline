@@ -11,6 +11,9 @@ export class PaginaProdottoComponent {
     const ricettaButton = document.getElementById('ricettaButton');
     const ricetta= document.getElementById('ricetta')
     const prezzo= document.getElementById('prezzo')
+    const aggiungiCarrello= document.getElementById('aggiungiCarrello')
+    const risparmio = document.getElementById('risparmio')
+
     if (ricettaButton) {
       ricettaButton.addEventListener('click', () => {
         // @ts-ignore
@@ -18,8 +21,20 @@ export class PaginaProdottoComponent {
         if(valoreInput.length==8) {
           // @ts-ignore
           prezzo.textContent = '0€'
+          // @ts-ignore
+          risparmio.textContent= 'Risparmio del 100% (Ricetta)'
         }
+      });
+    }
 
+    if(aggiungiCarrello){
+      aggiungiCarrello.addEventListener('click',() =>{
+        // @ts-ignore
+        if(prezzo.textContent== '0€') {
+          window.location.href = '/carrell0';
+        } else {
+          window.location.href = '/carrello';
+        }
 
       });
     }

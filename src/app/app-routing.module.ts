@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
 import { HomeComponent } from './home/home.component'; // Importa HomeComponent
 import { CarrelloComponent } from './carrello/carrello.component';
+import {Carrell0Component} from './carrello-/carrello.component';
 import {PagineComponent} from "./pagine/pagine.component";
 import {CounterComponent} from "./counter/counter.component";
 import {TendinaComponent} from "./tendina/tendina.component";
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Reindirizza il path vuoto al login
   { path: 'home', component: HomeComponent },
   { path: 'carrello', component: CarrelloComponent },
+  { path: 'carrell0', component: Carrell0Component },
   { path: 'pagine', component: PagineComponent},
   { path: 'login', component: LoginComponent},
   { path: "recupera-password", component: RecuperaPasswordComponent},
