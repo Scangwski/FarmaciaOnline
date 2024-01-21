@@ -628,6 +628,10 @@
     cursor: pointer;
 }
 
+.bcrea:hover > span {
+    color: var(--Scorrimento);
+}
+
 .bcrea > span {
     color: var(--Sfondo);
     text-align: center;

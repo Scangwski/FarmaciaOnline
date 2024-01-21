@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     const altreImmaginiContainer = document.querySelector('.altreImmagini');
-    const immaginePrincipale = document.querySelector('.immagine > img');
+    const immaginePrincipale = document.querySelector('.prodotto > .immagini > .immagine > img');
     let currentIndex = 0;
 
-    const nuoveImmagini = document.querySelectorAll('.altraImmagineN > img');
+    // Seleziona solo gli elementi <img> con l'ID "foto"
+    const nuoveImmagini = document.querySelectorAll('img#foto');
     const numImmagini = nuoveImmagini.length;
 
     function setInitialSelected() {
@@ -42,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
 
 
 
