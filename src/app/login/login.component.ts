@@ -1,18 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Utente} from "../model/utente";
+import { Router } from '@angular/router';
 
-document.getElementById('registerButton')?.addEventListener('click', () => {
-  window.location.href = '/registrazione';
-});
-
-document.getElementById('loginButton')?.addEventListener('click', () => {
-  window.location.href = '/pagina-di-login';
-});
-
-document.getElementById('passwordimenticataButton')?.addEventListener('click', () => {
-  window.location.href = '/passwordimenticata';
-});
 
 
 @Component({
@@ -22,7 +12,7 @@ document.getElementById('passwordimenticataButton')?.addEventListener('click', (
 })
 export class LoginComponent {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router:Router) {}
 
   accedi() {
     const email = (document.querySelector("#email") as HTMLInputElement)?.value;
@@ -76,6 +66,10 @@ export class LoginComponent {
           );
     }
   }
+
+  via() {
+      this.router.navigate(['/home']);
+    }
 
   error(s: string) {
     const messageContainer = document.createElement('div');
