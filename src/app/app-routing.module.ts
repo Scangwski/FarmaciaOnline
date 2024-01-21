@@ -8,6 +8,7 @@ import {CounterComponent} from "./counter/counter.component";
 import {TendinaComponent} from "./tendina/tendina.component";
 import {ScorrimentoComponent} from "./scorrimento/scorrimento.component";
 import {PaginaProdottoComponent} from "./pagina-prodotto/pagina-prodotto.component";
+import {PaginaProdottiComponent} from "./pagina-prodotti/pagina-prodotti.component";
 import {RecuperaPasswordComponent} from "./recupera-password/recupera-password.component";
 import {RegisterComponent} from "./register/register.component";
 import {PaginaUtenteComponent} from "./pagina-utente/pagina-utente.component";
@@ -25,8 +26,8 @@ const routes: Routes = [
   { path: "counter2", component: Counter2Component},
   { path: "tendina", component: TendinaComponent},
   { path: "scorrimento", component: ScorrimentoComponent},
-  { path:"paginaProdotto", component: PaginaProdottoComponent},
-  { path:"paginaProdotti", component: PaginaProdottoComponent},
+  { path:"prodotto/:id", component: PaginaProdottoComponent},
+  { path:"paginaProdotti", component: PaginaProdottiComponent},
   { path: "register", component: RegisterComponent},
   { path: "paginaUtente", component: PaginaUtenteComponent},
   { path: "inventario", component: InventarioComponent},

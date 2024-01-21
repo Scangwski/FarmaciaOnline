@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {windowToggle} from "rxjs";
 import {AuthService} from "../auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,9 @@ import {AuthService} from "../auth.service";
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  constructor(private authService: AuthService) { }
+  prodotti = [{id: 1, nome: 'Prodotto 1', prezzo: '29,99€'},
+            { id: 2, nome: 'Prodotto 2', prezzo: '39,99€'},];
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     const loginButton = document.getElementById('loginButton');
@@ -34,6 +37,12 @@ export class HomeComponent {
     return this.authService.getUsername() ?? "Utente non autenticato";
 
   }
+
+  vaiAllaPaginaProdotto(idProdotto: number) {
+          this.router.navigate(['/prodotto', idProdotto]);
+      }
+
+
 
     protected readonly windowToggle = windowToggle;
     protected readonly ToggleEvent = ToggleEvent;
