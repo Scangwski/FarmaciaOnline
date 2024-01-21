@@ -2,20 +2,23 @@
     window.location.href = '/registrazione';
     });
 
-    document.getElementById('loginButton').addEventListener('click', function() {
-    window.location.href = '/pagina-di-login';
-    });
+
+
+    window.addEventListener("load", function ()
+    {
+        document.getElementById("loginButton").addEventListener("click", accedi);
 
     document.getElementById('passwordimenticataButton').addEventListener('click', function() {
     window.location.href = '/passwordimenticata';
     });
 
-function Utente(nome,cognome,email,password,admin,bannato,google_id)
+function Utente(nome,cognome,email,password,tipoUtente,bannato)
 {
     this.nome = nome;
     this.cognome = cognome;
     this.email = email;
     this.password =password;
+    this.tipoUtente= tipoUtente
     this.bannato=bannato;
 
 }
@@ -27,8 +30,8 @@ function accedi() {
         error("Attenzione! Compila tutti i campi");
     }
     else
-    {
-        var utente=new Utente(null,null,email,password,false,false,null);
+    {   document.getElementById("loginButton").className="btn btn-primary btn-lg";
+        var utente=new Utente(null,null,email,password,null,false);
         $.ajax(
             {
                 url: "/doLogin",
