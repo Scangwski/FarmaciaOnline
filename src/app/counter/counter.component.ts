@@ -2,7 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
-  templateUrl: './counter.component.html',
+  templateUrl: '../carrello/carrello.component.html',
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent implements AfterViewInit {

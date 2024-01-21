@@ -49,7 +49,6 @@ import { Counter2Component } from './counter2/counter2.component';
       MenuLateraleComponent,
       MenuProdottiComponent,
       Counter2Component
-
   ],
   imports: [
     BrowserModule,

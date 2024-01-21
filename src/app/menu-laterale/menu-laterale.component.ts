@@ -23,7 +23,7 @@ export class MenuLateraleComponent implements OnInit {
     });
   }
 
-  toggleMenuContent() {
+  public toggleMenuContent() {
     // Alterna la visibilità del contenuto del menu
     this.menuContentVisible = !this.menuContentVisible;
   }

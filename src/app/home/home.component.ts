@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-
-document.getElementById('loginButton')?.addEventListener('click', () => {
-  window.location.href = '/login';
-});
-
-document.getElementById('carrelloButton')?.addEventListener('click', () => {
-  window.location.href = '/carrello';
-});
+import {windowToggle} from "rxjs";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-home',
@@ -14,6 +8,33 @@ document.getElementById('carrelloButton')?.addEventListener('click', () => {
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
+  ngOnInit(): void {
+    const loginButton = document.getElementById('loginButton');
+    if (loginButton) {
+      loginButton.addEventListener('click', () => {
+        window.location.href = '/login';
+      });
+    }
+
+    const carrelloButton = document.getElementById('carrelloButton');
+    if (carrelloButton) {
+      carrelloButton.addEventListener('click', () => {
+        window.location.href = '/carrello';
+      });
+    }
+  }
+
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  getUsername(): string {
+    return this.authService.getUsername() ?? "Utente non autenticato";
+
+  }
+
+    protected readonly windowToggle = windowToggle;
+    protected readonly ToggleEvent = ToggleEvent;
 }
