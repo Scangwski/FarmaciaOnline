@@ -9,8 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  prodotti = [{id: 1, nome: 'Prodotto 1', prezzo: '29,99€'},
-            { id: 2, nome: 'Prodotto 2', prezzo: '39,99€'},];
+  prodotti = [{id: 1, nome: 'Prodotto 1', prezzo: '29,99€'}];
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {

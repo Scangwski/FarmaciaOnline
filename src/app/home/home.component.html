@@ -125,7 +125,7 @@
                     <div class="immagine">
                         <img src="1F.webp">
                     </div>
-                    <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml  </span>
                 </div>
                 <div class="prezzoecarrello">
                     <div class="prezzo">
@@ -137,56 +137,56 @@
                     </div>
                 </div>
             </div>
-            <div class="prodotto">
+            <div class="prodotto" *ngFor="let prodotto of prodotti" (click)="vaiAllaPaginaProdotto(prodotto.id)">
                 <div class="cifrasconto">
                     <span>-15%</span>
                 </div>
                 <div class="immaginetesto">
                     <div class="immagine">
-                        <img src="1F.webp">
+                        <img src="oki.webp">
                     </div>
-                    <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    <span>Oki 160mg</span>
                 </div>
                 <div class="prezzoecarrello">
                     <div class="prezzo">
-                        <span class="span1">29,99€</span>
-                        <span class="span2">25,49€</span>
+                        <span class="span1">6,70€</span>
+                        <span class="span2">5,70€</span>
                     </div>
                     <div class="bcarrello">
                         <span>Aggiungi al Carrello</span>
                     </div>
                 </div>
             </div>
-            <div class="prodotto">
+            <div class="prodotto" *ngFor="let prodotto of prodotti" (click)="vaiAllaPaginaProdotto(prodotto.id)">
                 <div class="immaginetesto">
                     <div class="immagine">
-                        <img src="1F.webp">
+                        <img src="tachi.webp">
                     </div>
-                    <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    <span>Tachipirina 500</span>
                 </div>
                 <div class="prezzoecarrello">
                     <div class="prezzo">
-                        <span class="span2">25,49€</span>
+                        <span class="span2">6,49€</span>
                     </div>
                     <div class="bcarrello">
                         <span>Aggiungi al Carrello</span>
                     </div>
                 </div>
             </div>
-            <div class="prodotto">
+            <div class="prodotto" *ngFor="let prodotto of prodotti" (click)="vaiAllaPaginaProdotto(prodotto.id)">
                 <div class="cifrasconto">
                     <span>-15%</span>
                 </div>
                 <div class="immaginetesto">
                     <div class="immagine">
-                        <img src="1F.webp">
+                        <img src="brufen.webp">
                     </div>
-                    <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    <span>Brufen 200mg</span>
                 </div>
                 <div class="prezzoecarrello">
                     <div class="prezzo">
-                        <span class="span1">29,99€</span>
-                        <span class="span2">25,49€</span>
+                        <span class="span1">10</span>
+                        <span class="span2">8,80€</span>
                     </div>
                     <div class="bcarrello">
                         <span>Aggiungi al Carrello</span>
@@ -194,6 +194,7 @@
                 </div>
             </div>
         </div>
+
         <div class="recensioni">
             <div class="testoebottone">
                 <span>Lascia una recensione</span>
