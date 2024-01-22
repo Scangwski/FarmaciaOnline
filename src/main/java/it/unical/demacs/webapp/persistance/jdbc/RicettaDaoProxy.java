@@ -10,10 +10,15 @@ public class RicettaDaoProxy implements RicettaDao {
     private RicettaDaoJDBC ricetta = new RicettaDaoJDBC(DatabaseJDBC.getInstance().getConnection());
 
     @Override
-    public boolean inserisciRicetta(Utente utente, Prodotto prodotto, String nomeMedico) throws SQLException {
-       if(prodotto.getId().length()==8){
-           ricetta.inserisciRicetta(utente,prodotto,nomeMedico);
+    public boolean inserisciRicetta(String codiceRicetta) throws SQLException {
+       if(codiceRicetta.length()==8 && ricetta.codiceGiaPresente(codiceRicetta)==false){
+           ricetta.inserisciRicetta(codiceRicetta);
        }
+        return false;
+    }
+
+    @Override
+    public boolean codiceGiaPresente(String codiceRicetta) throws SQLException {
         return false;
     }
 }

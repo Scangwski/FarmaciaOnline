@@ -7,5 +7,7 @@ import java.sql.SQLException;
 
 public interface RicettaDao {
 
-    public boolean inserisciRicetta(Utente utente,Prodotto prodotto, String nomeMedico) throws SQLException;
+    public boolean inserisciRicetta(String codiceRicetta) throws SQLException;
+
+    public boolean codiceGiaPresente(String codiceRicetta) throws SQLException;
 }
