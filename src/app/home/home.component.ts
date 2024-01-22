@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
 import {windowToggle} from "rxjs";
 import {AuthService} from "../auth.service";
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -39,10 +38,9 @@ export class HomeComponent {
 
   vaiAllaPaginaProdotto(idProdotto: number) {
           this.router.navigate(['/prodotto', idProdotto]);
-      }
-
-
+  }
 
     protected readonly windowToggle = windowToggle;
     protected readonly ToggleEvent = ToggleEvent;
+  protected readonly input = input;
 }
