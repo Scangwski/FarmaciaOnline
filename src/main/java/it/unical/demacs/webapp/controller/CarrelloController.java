@@ -23,6 +23,11 @@ public class CarrelloController {
     {
         Utente u=(Utente)req.getSession().getAttribute("utente");
         ArrayList<Carrello> contenuto=DatabaseJDBC.getInstance().getCarrelloDao().prelevaCarrello(u);
+        if(contenuto.isEmpty())
+            res.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
+        else
+            res.setStatus(HttpServletResponse.SC_OK);
+
 
 
         return contenuto;
