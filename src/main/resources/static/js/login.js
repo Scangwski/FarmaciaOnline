@@ -3,12 +3,12 @@
     });
 
 
+window.addEventListener("load", function ()
+{
+    document.getElementById("loginButton").addEventListener("click", accedi);
+        });
 
-    window.addEventListener("load", function ()
-    {
-        document.getElementById("loginButton").addEventListener("click", accedi);
-
-    document.getElementById('passwordimenticataButton').addEventListener('click', function() {
+document.getElementById('passwordimenticataButton').addEventListener('click', function() {
     window.location.href = '/passwordimenticata';
     });
 
@@ -24,7 +24,7 @@ function Utente(nome,cognome,email,password,tipoUtente,bannato)
 }
 function accedi() {
     var email = document.querySelector("#email").value;
-    var password = document.querySelector("#pass").value;
+    var password = document.querySelector("#password").value;
     if ((email === "") || (password === "") || (email === " ") || (password === " "))
     {
         error("Attenzione! Compila tutti i campi");
@@ -63,7 +63,7 @@ function accedi() {
                     }, 2300);
                     setTimeout(function ()
                     {
-                        window.location.href="http://localhost:8081";
+                        window.location.href="http://localhost:8085";
                     }, 1000);
                 },
                 error: function ()
@@ -71,7 +71,7 @@ function accedi() {
                     error("Controlla che i dati siano corretti!")
                     setTimeout(function ()
                     {
-                        window.location.href="http://localhost:8081/login";
+                        window.location.href="http://localhost:8085/login";
                     }, 1000);
                 },
             });
