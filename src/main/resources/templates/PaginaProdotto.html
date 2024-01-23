@@ -2,12 +2,13 @@
 <html lang="it">
 <head>
     <link rel="stylesheet" href="Generali.css">
-    <link rel="stylesheet" href="RecuperaPassword.css">
+    <link rel="stylesheet" href="../static/css/PaginaProdotto.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <meta name="viewport" content="width= , initial-scale=1.0">
     <title>EFarm</title>
-    <script src="timer.js"></script>
-    <script src="menulaterale.js"></script>
+    <script src="../static/js/immagini.js"></script>
+    <script src="../static/js/counter.js"></script>
+    <script src="../static/js/menulaterale.js"></script>
 </head>
 <body>
     <div class="content">
@@ -80,7 +81,7 @@
                     </div>
                     <div class="boxicon">
                         <div class="immagine">
-                            <img src="img2.jpg">
+                            <img id="pic" src="img2.jpg">
                         </div>
                         <svg class="U" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 41" fill="none">
                             <path d="M10.9626 26.3026C8.60467 27.7066 2.42227 30.5735 6.18777 34.161C8.02719 35.9133 10.0758 37.1666 12.6515 37.1666H27.3485C29.9242 37.1666 31.9728 35.9133 33.8122 34.161C37.5777 30.5735 31.3953 27.7066 29.0373 26.3026C23.508 23.0101 16.492 23.0101 10.9626 26.3026Z" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -92,22 +93,123 @@
             </div>             
         </div>
         <div class="corpo">
-            <div class="recuperapassword">
-                <span>Recupera la tua password</span>
-                <div class="emailecounter">
-                    <span>Invieremo un codice di recupero a questa Email</span>
-                    <div class="email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
-                            <path d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
-                        </svg>
-                        <input type="email" placeholder="Email">
+            <div class="navigazione">
+                <span>Home</span>
+                <span>></span>
+                <span class="posizione">Crema viso</span>
+            </div>
+            <div class="prodotto">
+                <div class="immagini">
+                    <div class="immagine">
+                        <img src="../static/pngegg.png">
                     </div>
-                    <span class="timer">02:00</span>
+                    <div class="altreImmagini">
+                        <svg data-index="0" data-direction="sinistra" xmlns="http://www.w3.org/2000/svg" width="17" height="28" viewBox="0 0 17 28" fill="none">
+                            <path d="M15.9999 26.5C15.9999 26.5 0.999999 17.294 0.999999 14C1 10.7058 16 1.5 16 1.5" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div class="altraImmagineN">
+                            <img id="foto" src="../static/pngegg.png">
+                        </div>
+                        <div class="altraImmagineN">
+                            <img id="foto" src="1F.webp">
+                        </div>
+                        <div class="altraImmagineN">
+                            <img id="foto" src="../static/2F.webp">
+                        </div>
+                        <svg data-index="1" data-direction="destra" xmlns="http://www.w3.org/2000/svg" width="17" height="28" viewBox="0 0 17 28" fill="none">
+                            <path d="M1.00012 1.5C1.00012 1.5 16 10.706 16 14C16 17.2942 1 26.5 1 26.5" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                 </div>
-                <div class="inviacodice">
-                    <div class="bcodice" onclick="bcodiceClick()">
-                        <span>Invia codice</span>
+                <div class="testoeaggiuntacarrello">
+                    <div class="titolo">
+                        <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    </div>
+                    <div class="descrizione">
+                        <span>Prova la crema Booster Idratazione 72 Vichy Minéral 89. La sua applicazione aiuta ad idratare in profondità la cute donandogli un aspetto più luminoso e rimpolpato.</span>
+                    </div>
+                    <div class="prezzoecarrello">
+                        <div class="prezzoesconto">
+                            <div class="prezzo">
+                                <span class="st">29,99€</span>
+                                <span>25,49€</span>
+                            </div>
+                            <span>Risparmio del 15%</span>
+                        </div>
+                        <div class="counterecarrello">
+                            <div class="counter">
+                                <div class="meno">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M16.6668 10H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="numero">
+                                    <span id="counterValue">1</span>
+                                </div>
+                                <div class="piu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10.0002 3.3335V16.6668M16.6668 10.0002H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bcarrello">
+                                <span>Aggiungi al carrello</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prescrizione">
+                        <span class="necessaria">Per questo prodotto non è necessaria prescrizione</span>
+                        <span>Inserisci codice prescrizione</span>
+                        <div class="campocodice">
+                            <div class="codice">
+                                <input type="text" placeholder="c6wgdwud">
+                            </div>
+                            <div class="bcodice">
+                                <span>Applica</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="infoespedizione">
+                    <div class="info">
+                        <span data-code="Codice:">987362347</span>
+                        <span data-code="Formato:">Vasetto</span>
+                        <span data-code="Marchio:">Vichy</span>
+                        <span data-code="Formulazione:">Crema</span>
+                        <span data-code="Produttore:">L'Oreal</span>
+                        <span data-code="Trattamento:">Anti-rossore</span>
+                        <span data-code="Azione:">Idratante/Emoliente</span>
+                        <span data-code="Capacità:">50 ml</span>
+                    </div>
+                    <div class="spedizione">
+                        <div class="sp1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                <path d="M19.5 18C19.5 19.3807 18.3807 20.5 17 20.5C15.6193 20.5 14.5 19.3807 14.5 18C14.5 16.6193 15.6193 15.5 17 15.5C18.3807 15.5 19.5 16.6193 19.5 18Z" stroke="#F7F6F0" stroke-width="1.5"/>
+                                <path d="M9.5 18C9.5 19.3807 8.38071 20.5 7 20.5C5.61929 20.5 4.5 19.3807 4.5 18C4.5 16.6193 5.61929 15.5 7 15.5C8.38071 15.5 9.5 16.6193 9.5 18Z" stroke="#F7F6F0" stroke-width="1.5"/>
+                                <path d="M14.5 18H9.5M19.5 18H20.2632C20.4831 18 20.5931 18 20.6855 17.9885C21.3669 17.9036 21.9036 17.3669 21.9885 16.6855C22 16.5931 22 16.4831 22 16.2632V13.5C22 9.91015 19.0899 7 15.5 7M15 16V7.5C15 6.08579 15 5.37868 14.5607 4.93934C14.1213 4.5 13.4142 4.5 12 4.5H5C3.58579 4.5 2.87868 4.5 2.43934 4.93934C2 5.37868 2 6.08579 2 7.5V15.5C2 16.4346 2 16.9019 2.20096 17.25C2.33261 17.478 2.52197 17.6674 2.75 17.799C3.09808 18 3.56538 18 4.5 18" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="testo">
+                                <span>Spedizione in tutta Italia</span>
+                                <span class="t2">Gratuita a partire da 19,99€</span>
+                            </div>
+                        </div>
+                        <div class="sp2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M11.9982 2C8.99043 2 7.04018 4.01899 4.73371 4.7549C3.79589 5.05413 3.32697 5.20374 3.1372 5.41465C2.94743 5.62556 2.89186 5.93375 2.78072 6.55013C1.59143 13.146 4.1909 19.244 10.3903 21.6175C11.0564 21.8725 11.3894 22 12.0015 22C12.6135 22 12.9466 21.8725 13.6126 21.6175C19.8116 19.2439 22.4086 13.146 21.219 6.55013C21.1078 5.93364 21.0522 5.6254 20.8624 5.41449C20.6726 5.20358 20.2037 5.05405 19.2659 4.75499C16.9585 4.01915 15.0061 2 11.9982 2Z" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.5 10.375C9.5 10.7892 9.83579 11.125 10.25 11.125C10.6642 11.125 11 10.7892 11 10.375H9.5ZM13 10.375C13 10.7892 13.3358 11.125 13.75 11.125C14.1642 11.125 14.5 10.7892 14.5 10.375H13ZM11.125 11.125H12.875V9.625H11.125V11.125ZM12.875 15.25H11.125V16.75H12.875V15.25ZM11.125 15.25C10.7063 15.25 10.4325 15.2495 10.2222 15.2342C10.0196 15.2193 9.93381 15.1936 9.88454 15.1718L9.27607 16.5428C9.5484 16.6637 9.82724 16.7093 10.1128 16.7302C10.3905 16.7505 10.7283 16.75 11.125 16.75V15.25ZM7.75 13.1875C7.75 13.6147 7.74965 13.9702 7.76817 14.2611C7.78706 14.5577 7.82777 14.839 7.93367 15.113L9.33275 14.5721C9.30544 14.5014 9.27955 14.3921 9.26514 14.1658C9.25035 13.9336 9.25 13.6339 9.25 13.1875H7.75ZM9.88454 15.1718C9.64711 15.0664 9.44273 14.8566 9.33275 14.5721L7.93367 15.113C8.17892 15.7474 8.6559 16.2676 9.27607 16.5428L9.88454 15.1718ZM14.75 13.1875C14.75 13.6339 14.7496 13.9336 14.7349 14.1658C14.7205 14.3921 14.6946 14.5014 14.6672 14.5721L16.0663 15.113C16.1722 14.839 16.2129 14.5577 16.2318 14.2611C16.2504 13.9702 16.25 13.6147 16.25 13.1875H14.75ZM12.875 16.75C13.2717 16.75 13.6095 16.7505 13.8872 16.7302C14.1728 16.7093 14.4516 16.6637 14.7239 16.5428L14.1155 15.1718C14.0662 15.1936 13.9804 15.2193 13.7778 15.2342C13.5675 15.2495 13.2937 15.25 12.875 15.25V16.75ZM14.6672 14.5721C14.5573 14.8566 14.3529 15.0664 14.1155 15.1718L14.7239 16.5428C15.3441 16.2676 15.8211 15.7474 16.0663 15.113L14.6672 14.5721ZM12.875 11.125C13.2937 11.125 13.5675 11.1255 13.7778 11.1408C13.9804 11.1557 14.0662 11.1814 14.1155 11.2032L14.7239 9.8322C14.4516 9.71134 14.1728 9.66571 13.8872 9.64484C13.6095 9.62453 13.2717 9.625 12.875 9.625V11.125ZM16.25 13.1875C16.25 12.7603 16.2504 12.4048 16.2318 12.1139C16.2129 11.8173 16.1722 11.536 16.0663 11.262L14.6672 11.8029C14.6946 11.8736 14.7205 11.9829 14.7349 12.2092C14.7496 12.4414 14.75 12.7411 14.75 13.1875H16.25ZM14.1155 11.2032C14.3529 11.3086 14.5573 11.5184 14.6672 11.8029L16.0663 11.262C15.8211 10.6277 15.3441 10.1074 14.7239 9.8322L14.1155 11.2032ZM11.125 9.625C10.7283 9.625 10.3905 9.62453 10.1128 9.64484C9.82724 9.66571 9.5484 9.71134 9.27607 9.8322L9.88454 11.2032C9.93381 11.1814 10.0196 11.1557 10.2222 11.1408C10.4325 11.1255 10.7063 11.125 11.125 11.125V9.625ZM9.25 13.1875C9.25 12.7411 9.25035 12.4414 9.26514 12.2092C9.27955 11.9829 9.30544 11.8736 9.33275 11.8029L7.93367 11.262C7.82777 11.536 7.78706 11.8173 7.76817 12.1139C7.74965 12.4048 7.75 12.7603 7.75 13.1875H9.25ZM9.27607 9.8322C8.6559 10.1074 8.17892 10.6277 7.93367 11.262L9.33275 11.8029C9.44273 11.5184 9.64711 11.3086 9.88454 11.2032L9.27607 9.8322ZM11 10.375V8.6875H9.5V10.375H11ZM13 8.6875V10.375H14.5V8.6875H13ZM12 7.75C12.5782 7.75 13 8.19521 13 8.6875H14.5C14.5 7.31583 13.3548 6.25 12 6.25V7.75ZM11 8.6875C11 8.19521 11.4218 7.75 12 7.75V6.25C10.6452 6.25 9.5 7.31583 9.5 8.6875H11Z" fill="#F7F6F0"/>
+                            </svg>
+                            <span>Pagamenti sicuri al 100%</span>
+                        </div>
+                        <div class="sp3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8954 18.1046 16 17 16C15.8954 16 15 16.8954 15 18C15 19.1046 15.8954 20 17 20Z" stroke="#F7F6F0" stroke-width="1.5"/>
+                                <path d="M7 20C8.10457 20 9 19.1046 9 18C9 16.8954 8.10457 16 7 16C5.89543 16 5 16.8954 5 18C5 19.1046 5.89543 20 7 20Z" stroke="#F7F6F0" stroke-width="1.5"/>
+                                <path d="M19 11H22V13C22 15.357 22 16.5355 21.2678 17.2678C20.7809 17.7546 20.0967 17.9178 19 17.9724M5 17.9724C3.90328 17.9178 3.2191 17.7546 2.73223 17.2678C2 16.5355 2 15.357 2 13V9C2 6.64298 2 5.46447 2.73223 4.73223C3.46447 4 4.64298 4 7 4H10.3C11.4168 4 11.9752 4 12.4271 4.14683C13.3404 4.44358 14.0564 5.15964 14.3532 6.07295C14.5 6.52485 14.5 7.08323 14.5 8.2C14.5 9.42079 14.5 10.0312 14.1657 10.444C14.0998 10.5254 14.0254 10.5998 13.944 10.6657C13.5312 11 12.9208 11 11.7 11H8M15 18H9" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10.4869 12.4295C10.802 12.6985 10.8394 13.1719 10.5705 13.4869C10.3015 13.802 9.82814 13.8394 9.51309 13.5705L10.4869 12.4295ZM9.51309 8.42956C9.82814 8.16064 10.3015 8.19805 10.5705 8.5131C10.8394 8.82815 10.802 9.30155 10.4869 9.57046L9.51309 8.42956ZM9.31534 11.4295L10.4869 12.4295L9.51309 13.5705L8.34151 12.5705L9.31534 11.4295ZM10.4869 9.57046L9.31534 10.5705L8.34151 9.42956L9.51309 8.42956L10.4869 9.57046ZM8.34151 12.5705C8.08218 12.3491 7.8279 12.1342 7.64794 11.9329C7.45843 11.7209 7.25 11.4155 7.25 11H8.75C8.75 10.8774 8.67964 10.8363 8.76628 10.9332C8.86246 11.0408 9.02239 11.1795 9.31534 11.4295L8.34151 12.5705ZM9.31534 10.5705C9.02239 10.8205 8.86246 10.9592 8.76628 11.0668C8.67964 11.1637 8.75 11.1226 8.75 11H7.25C7.25 10.5845 7.45843 10.2791 7.64794 10.0671C7.8279 9.8658 8.08218 9.65091 8.34151 9.42956L9.31534 10.5705Z" fill="#F7F6F0"/>
+                                <path d="M14.5 6H16.3212C17.7766 6 18.5042 6 19.0964 6.35371C19.6886 6.70742 20.0336 7.34811 20.7236 8.6295L22 11" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Reso facile e veloce fino a 14gg</span>
+                        </div>
                     </div>
                 </div>
             </div>

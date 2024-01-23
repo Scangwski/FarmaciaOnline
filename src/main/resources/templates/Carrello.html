@@ -2,12 +2,13 @@
 <html lang="it">
 <head>
     <link rel="stylesheet" href="Generali.css">
-    <link rel="stylesheet" href="RecuperaPassword.css">
+    <link rel="stylesheet" href="../static/css/Carrello.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <meta name="viewport" content="width= , initial-scale=1.0">
     <title>EFarm</title>
-    <script src="timer.js"></script>
-    <script src="menulaterale.js"></script>
+    <script src="../static/js/counter.js"></script>
+    <script src="../static/js/carrello.js"></script>
+    <script src="../static/js/menulaterale.js"></script>
 </head>
 <body>
     <div class="content">
@@ -92,23 +93,176 @@
             </div>             
         </div>
         <div class="corpo">
-            <div class="recuperapassword">
-                <span>Recupera la tua password</span>
-                <div class="emailecounter">
-                    <span>Invieremo un codice di recupero a questa Email</span>
-                    <div class="email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
-                            <path d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
-                        </svg>
-                        <input type="email" placeholder="Email">
-                    </div>
-                    <span class="timer">02:00</span>
+            <div class="carrello">
+                <div class="numprodotti">
+                    <span>Hai</span>
+                    <span class="num">2 prodotti</span>
+                    <span>nel tuo carrello</span>
                 </div>
-                <div class="inviacodice">
-                    <div class="bcodice" onclick="bcodiceClick()">
-                        <span>Invia codice</span>
+                <div class="prodotti">
+                    <span>Il carrello è vuoto</span>
+                    <div class="prodotto">
+                        <img src="../static/pngegg.png">
+                        <div class="info">
+                            <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                            <div class="countereprezzo">
+                                <div class="counter">
+                                    <div class="meno">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M16.6668 10H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="numero">
+                                        <span id="counterValue">1</span>
+                                    </div>
+                                    <div class="piu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M10.0002 3.3335V16.6668M16.6668 10.0002H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="prezzoesconto">
+                                    <span>Sconto del 15%</span>
+                                    <div class="prezzo">
+                                        <span class="t1">29,99€</span>
+                                        <span class="P">5,49€</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16" fill="none">
+                            <path d="M15 1L1 15M1 1L15 15" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
+                    <div class="prodotto">
+                        <img src="../static/pngegg.png">
+                        <div class="info">
+                            <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                            <div class="countereprezzo">
+                                <div class="counter">
+                                    <div class="meno">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M16.6668 10H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="numero">
+                                        <span id="counterValue">1</span>
+                                    </div>
+                                    <div class="piu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M10.0002 3.3335V16.6668M16.6668 10.0002H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="prezzoesconto">
+                                    <span>Sconto del 15%</span>
+                                    <div class="prezzo">
+                                        <span class="t1">29,99€</span>
+                                        <span class="P">5,49€</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16" fill="none">
+                            <path d="M15 1L1 15M1 1L15 15" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="prodotto">
+                        <img src="../static/pngegg.png">
+                        <div class="info">
+                            <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                            <div class="countereprezzo">
+                                <div class="counter">
+                                    <div class="meno">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M16.6668 10H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="numero">
+                                        <span id="counterValue">1</span>
+                                    </div>
+                                    <div class="piu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M10.0002 3.3335V16.6668M16.6668 10.0002H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="prezzoesconto">
+                                    <span>Sconto del 15%</span>
+                                    <div class="prezzo">
+                                        <span class="t1">29,99€</span>
+                                        <span class="P">5,49€</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16" fill="none">
+                            <path d="M15 1L1 15M1 1L15 15" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="prodotto">
+                        <img src="../static/pngegg.png">
+                        <div class="info">
+                            <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                            <div class="countereprezzo">
+                                <div class="counter">
+                                    <div class="meno">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M16.6668 10H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="numero">
+                                        <span id="counterValue">1</span>
+                                    </div>
+                                    <div class="piu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <path d="M10.0002 3.3335V16.6668M16.6668 10.0002H3.3335" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="prezzoesconto">
+                                    <span>Sconto del 15%</span>
+                                    <div class="prezzo">
+                                        <span class="t1">29,99€</span>
+                                        <span class="P">5,49€</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16" fill="none">
+                            <path d="M15 1L1 15M1 1L15 15" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="totaleavviso">
+                <div class="totale">
+                    <span>Riepilogo ordine</span>
+                    <div class="prezzoprodotti">
+                        <span>Totale prodotti:</span>
+                        <span class="t2">0€</span>
+                    </div>
+                    <div class="prezzospedizione">
+                        <div class="iconaespan">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M32.5001 29.1667C32.5001 31.4678 30.6346 33.3333 28.3334 33.3333C26.0322 33.3333 24.1667 31.4678 24.1667 29.1667C24.1667 26.8655 26.0322 25 28.3334 25C30.6346 25 32.5001 26.8655 32.5001 29.1667Z" stroke="#2A332D" stroke-width="1.5"/>
+                                <path d="M15.8333 29.1667C15.8333 31.4678 13.9678 33.3333 11.6667 33.3333C9.36548 33.3333 7.5 31.4678 7.5 29.1667C7.5 26.8655 9.36548 25 11.6667 25C13.9678 25 15.8333 26.8655 15.8333 29.1667Z" stroke="#2A332D" stroke-width="1.5"/>
+                                <path d="M24.1666 29.1665H15.8333M32.4999 29.1665H33.7719C34.1384 29.1665 34.3217 29.1665 34.4757 29.1473C35.6114 29.0058 36.5059 28.1113 36.6474 26.9757C36.6666 26.8217 36.6666 26.6383 36.6666 26.2718V21.6665C36.6666 15.6834 31.8164 10.8332 25.8333 10.8332M24.9999 25.8332V11.6665C24.9999 9.30949 24.9999 8.13097 24.2678 7.39874C23.5354 6.6665 22.3569 6.6665 19.9999 6.6665H8.33325C5.97624 6.6665 4.79772 6.6665 4.06549 7.39874C3.33325 8.13097 3.33325 9.30949 3.33325 11.6665V24.9998C3.33325 26.5575 3.33325 27.3363 3.66819 27.9165C3.8876 28.2965 4.2032 28.6122 4.58325 28.8315C5.16339 29.1665 5.94222 29.1665 7.49992 29.1665" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Spedizione:</span>
+                        </div>
+                        <span class="S">4,99€</span>
+                    </div>
+                    <div class="prezzototale">
+                        <span>Totale:</span>
+                        <span class="tot">150,99€</span>
+                    </div>
+                    <div class="bacquista">
+                        <span>Acquista</span>
+                    </div>
+                </div>
+                <div class="avviso">
+                    <span>Ordine completato!</span>
                 </div>
             </div>
         </div>

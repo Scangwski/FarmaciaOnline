@@ -1,323 +1,3 @@
-<<<<<<< HEAD:src/main/resources/static/css/RecuperaPassword.css
-.content {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    background-color: #FFF;
-}
-
-.content > .navbar {
-    display: flex;
-    height: 110px;
-    padding: 0px 30px;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    align-self: stretch;
-    background-color: var(--Green);
-}
-
-.navbar > .menuButton {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    height: 80%;
-    position: relative;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease, color 0.3s ease;
-}
-
-.menuButton::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0%;
-    height: 4px;
-    background-color: var(--Icon);
-    transform: translateX(-50%);
-    transition: width 0.3s;
-    border-radius: 5px;
-}
-
-.menuButton:hover::after {
-    width: 100%;
-}
-
-.menuButton:hover {
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
-}
-
-.navbar > svg:hover {
-    cursor: pointer;
-}
-
-.navbar > .searchBar {
-    display: flex;
-    height: 54px;
-    padding: 13px 20px;
-    align-items: center;
-    gap: 10px;
-    flex: 1 0 0;
-    border-radius: 20px;
-    background-color: var(--Sfondo);
-    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.40);
-}
-
-.navbar > .searchBar > input[type="search"] {
-    border: none;
-    background-color: transparent;
-    color: var(--Icon, #2A332D);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    width: 100%;
-}
-
-.navbar > .searchBar > input[type="search"]:focus {
-    outline: none;
-}
-
-.navbar > .searchBar > svg:hover {
-    cursor: pointer;
-}
-
-.navbar > .icone {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-}
-
-.navbar > .icone > .boxicon {
-    display: flex;
-    padding: 9px 6px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2px;
-    border-radius: 5px;
-    flex-shrink: 0;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    transition: box-shadow 0.3s ease, color 0.3s ease;
-}
-
-.boxicon::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0%;
-    height: 4px;
-    background-color: var(--Icon);
-    transform: translateX(-50%);
-    transition: width 0.3s;
-}
-
-.boxicon:hover::after {
-    width: 100%;
-}
-
-.boxicon:hover {
-    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
-}
-
-.navbar > .icone > .boxicon > .counter {
-    display: none;
-    width: 15px;
-    height: 15px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: 2px;
-    top: 8px;
-    border-radius: 100px;
-    background: var(--Scorrimento);
-}
-
-.navbar > .icone > .boxicon > .counter > span {
-    color: var(--Sfondo);
-    text-align: center;
-    font-size: 9px;
-    font-style: normal;
-    font-weight: 600;
-}
-
-.navbar > .icone > .boxicon > span {
-    color: var(--Icon);
-    text-align: center;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-}
-
-.content > .corpo {
-    display: flex;
-    padding: 15px 35px;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    width: 100%;
-    background: #FFF;
-    min-height: 537px;
-}
-
-.corpo > .recuperapassword {
-    display: flex;
-    padding: 30px 20px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border-radius: 10px;
-    background: var(--Sfondo);
-}
-
-.corpo > .recuperapassword > span {
-    color: var(--Icon);
-    text-align: center;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    width: 100%;
-}
-
-.recuperapassword > .emailecounter {
-    display: flex;
-    padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    width: 100%
-}
-
-.emailecounter > span {
-    color: var(--Icon);
-    text-align: center;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 300;
-}
-
-.emailecounter > .email {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    border-radius: 10px;
-    background: #FFF;
-}
-
-.email > input[type="email"] {
-    border: none;
-    background-color: transparent;
-    color: var(--Icon, #2A332D);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    width: 100%;
-}
-
-.email > input[type="email"]:focus {
-    outline: none;
-}
-
-.emailecounter > .timer {
-    color: var(--Icon);
-    text-align: center;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
-    display: none;
-}
-
-.recuperapassword > .inviacodice {
-    display: flex;
-    padding: 10px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    width: 100%;
-}
-
-.inviacodice > .bcodice {
-    display: flex;
-    padding: 9px 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    border-radius: 5px;
-    background: var(--Scorrimento);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.disabled {
-    pointer-events: none;
-    opacity: 0.6;
-}
-
-.bcodice > span {
-    color: var(--Sfondo);
-    text-align: center;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    position: relative;
-}
-
-.bcodice:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: var(--Sfondo);
-    transition: transform 0.4s, color 0.4s;
-}
-
-.bcodice:hover::before {
-    transform: translateX(100%);
-}
-
-.bcodice:hover {
-    cursor: pointer;
-    border: 1px solid var(--Scorrimento);
-}
-
-.bcodice:hover span {
-    color: var(--Scorrimento);
-}
-
-.content > .footer {
-    display: flex;
-    padding: 15px 30px;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background: var(--Green);
-}
-
-.footer > span {
-    color: var(--Sfondo);
-    text-align: center;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-=======
 .menuContent {
     position: fixed;
     display: flex;
@@ -415,7 +95,7 @@
     height: 110px;
     padding: 0px 30px;
     align-items: center;
-    gap: 40px;
+    gap: 40px; 
     align-self: stretch;
     background-color: var(--Green);
 }
@@ -602,64 +282,53 @@
 
 .content > .corpo {
     display: flex;
-    padding: 15px 35px;
+    padding: 20px 35px;
     justify-content: center;
-    align-items: center;
-    gap: 50px;
+    align-items: flex-start;
+    gap: 30px;
     width: 100%;
-    background: #FFF;
     min-height: 537px;
+    background: #FFF;
 }
 
-.corpo > .recuperapassword {
+.corpo > .aggiuntascorte {
     display: flex;
-    padding: 30px 20px;
+    padding: 10px;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
+    flex: 1 0 0;
     border-radius: 10px;
     background: var(--Sfondo);
 }
 
-.corpo > .recuperapassword > span {
+.aggiuntascorte > span {
     color: var(--Icon);
-    text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
+}
+
+.aggiuntascorte > .campoidecounter {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
     width: 100%;
 }
 
-.recuperapassword > .emailecounter {
-    display: flex;
-    padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    width: 100%
-}
-
-.emailecounter > span {
-    color: var(--Icon);
-    text-align: center;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 300;
-}
-
-.emailecounter > .email {
+.campoidecounter > .campoid {
     display: flex;
     padding: 10px;
     align-items: center;
     gap: 10px;
-    width: 100%;
+    flex: 1 0 0;
     border-radius: 10px;
     background: #FFF;
 }
 
-.email > input[type="email"] {
+.campoid > input[type="text"] {
     border: none;
     background-color: transparent;
     color: var(--Icon, #2A332D);
@@ -669,31 +338,64 @@
     width: 100%;
 }
 
-.email > input[type="email"]:focus {
+.campoid > input[type="text"]:focus {
     outline: none;
 }
 
-.emailecounter > .timer {
-    color: var(--Icon);
-    text-align: center;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 500;
-    display: none;
+.campoid > input[type="text"]::placeholder{
+    opacity: 0.6;
 }
 
-.recuperapassword > .inviacodice {
+.campoidecounter > .counter {
     display: flex;
-    padding: 10px;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--Scorrimento);
+    user-select: none;
+}
+
+.counter > .meno {
+    display: flex;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.meno:hover,
+.piu:hover {
+    cursor: pointer;
+}
+
+.counter > .numero {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     width: 100%;
+    background: #FFF;
+    align-self: stretch;
 }
 
-.inviacodice > .bcodice {
+.numero > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.counter > .piu {
     display: flex;
-    padding: 9px 10px;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.aggiuntascorte > .bscorte {
+    display: flex;
+    padding: 6px 7px;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -702,24 +404,9 @@
     background: var(--Scorrimento);
     position: relative;
     overflow: hidden;
-    cursor: pointer;
 }
 
-.disabled {
-    pointer-events: none;
-    opacity: 0.6;
-}
-
-.bcodice > span {
-    color: var(--Sfondo);
-    text-align: center;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    position: relative;
-}
-
-.bcodice:before {
+.bscorte::before {
     content: '';
     position: absolute;
     top: 0;
@@ -727,20 +414,231 @@
     width: 100%;
     height: 100%;
     background-color: var(--Sfondo);
-    transition: transform 0.4s, color 0.4s;
+    transition: transform 0.4s, color 0.4s, border 0.4s;
 }
 
-.bcodice:hover::before {
+.bscorte:hover::before {
     transform: translateX(100%);
 }
 
-.bcodice:hover {
-    cursor: pointer;
+.bscorte:hover {
     border: 1px solid var(--Scorrimento);
+    cursor: pointer;
 }
 
-.bcodice:hover span {
+.bscorte > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    position: relative;
+}
+
+.bscorte:hover span {
     color: var(--Scorrimento);
+}
+
+.corpo > .aggiuntaprodotto {
+    display: flex;
+    padding: 10px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    flex: 1 0 0;
+    width: 100%;
+    border-radius: 10px;
+    background: var(--Sfondo);
+}
+
+.aggiuntaprodotto > span {
+    color: var(--Icon);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.aggiuntaprodotto > .campiprodotto {
+    display: flex;
+    padding: 0px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.campiprodotto > .idenome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.idenome > .id,
+.idenome > .nome {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.id > input[type="text"],
+.nome > input[type="text"],
+.descrizione > textarea,
+.categoriaequantita > .categoria > input[type="text"] {
+    border: none;
+    background-color: transparent;
+    color: var(--Icon, #2A332D);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    width: 100%;
+}
+
+.descrizione > textarea {
+    height: 100%;
+    resize: none;
+}
+
+.id > input[type="text"]:focus,
+.nome > input[type="text"]:focus,
+.descrizione > textarea:focus,
+.categoriaequantita > .categoria > input[type="text"]:focus {
+    outline: none;
+}
+
+.id > input[type="text"]::placeholder, 
+.nome > input[type="text"]::placeholder,
+.descrizione > textarea::placeholder,
+.categoriaequantita > .categoria > input[type="text"]::placeholder {
+    opacity: 0.6;
+}
+
+.campiprodotto > .descrizione {
+    display: flex;
+    height: 150px;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.campiprodotto > .categoriaequantita {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.categoriaequantita > .categoria {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.categoriaequantita > .counter2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--Scorrimento);
+    user-select: none;
+}
+
+.counter2 > .meno2 {
+    display: flex;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter2 > .meno2:hover,
+.counter2 > .piu2:hover {
+    cursor: pointer;
+}
+
+.counter2 > .numero2 {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background: #FFF;
+    align-self: stretch;
+}
+
+.counter2 > .numero2 > span {
+    color: var(--Icon);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.counter2 > .piu2 {
+    display: flex;
+    padding: 5px 7px;
+    justify-content: center;
+    align-items: center;
+}
+
+.campiprodotto > .bcrea {
+    display: flex;
+    padding: 6px 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 5px;
+    background: var(--Scorrimento);
+    position: relative;
+    overflow: hidden;
+}
+
+.bcrea::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Sfondo);
+    transition: transform 0.4s, color 0.4s, border 0.4s;
+}
+
+.bcrea:hover::before {
+    transform: translateX(100%);
+}
+
+.bcrea:hover {
+    border: 1px solid var(--Scorrimento);
+    cursor: pointer;
+}
+
+.bcrea:hover > span {
+    color: var(--Scorrimento);
+}
+
+.bcrea > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    position: relative;
 }
 
 .content > .footer {
@@ -786,8 +684,19 @@
         padding-bottom: 15px;
     }
 
+    .content > .corpo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .content > .corpo > .aggiuntascorte {
+        width: 100%;
+    }
+
     .content > .footer > span {
         font-size: 15px;
     }
->>>>>>> Html-e-css:HtmlCss/RecuperaPassword.css
+    
 }

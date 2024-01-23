@@ -2,40 +2,39 @@
 <html lang="it">
 <head>
     <link rel="stylesheet" href="Generali.css">
-    <link rel="stylesheet" href="RecuperaPassword.css">
+    <link rel="stylesheet" href="../static/css/paginautente.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <meta name="viewport" content="width= , initial-scale=1.0">
     <title>EFarm</title>
-    <script src="timer.js"></script>
-    <script src="menulaterale.js"></script>
+    <script src="../static/js/menulaterale.js"></script>
 </head>
 <body>
+    <div id="menuContent" class="menuContent">
+        <div class="opzioni">
+            <span>Farmaci da banco</span>
+        </div>
+        <div class="opzioni">
+            <span>Cosmetici</span>
+        </div>
+        <div class="opzioni">
+            <span>Igiene e benessere</span>
+        </div>
+        <div class="opzioni">
+            <span>Integratori</span>
+        </div>
+        <div class="opzioni">
+            <span>Mamma e bambino</span>
+        </div>
+        <div class="opzioni">
+            <span>Naturopatia</span>
+        </div>
+        <div id="closeButton" class="closeButton">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16" fill="none">
+                <path d="M15 1L1 15M1 1L15 15" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </div>   
     <div class="content">
-        <div id="menuContent" class="menuContent">
-            <div class="opzioni">
-                <span>Farmaci da banco</span>
-            </div>
-            <div class="opzioni">
-                <span>Cosmetici</span>
-            </div>
-            <div class="opzioni">
-                <span>Igiene e benessere</span>
-            </div>
-            <div class="opzioni">
-                <span>Integratori</span>
-            </div>
-            <div class="opzioni">
-                <span>Mamma e bambino</span>
-            </div>
-            <div class="opzioni">
-                <span>Naturopatia</span>
-            </div>
-            <div id="closeButton" class="closeButton">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16" fill="none">
-                    <path d="M15 1L1 15M1 1L15 15" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-        </div>   
         <div class="navbar">
             <div class="menuelogo">
                 <div class="menuButton">
@@ -92,22 +91,139 @@
             </div>             
         </div>
         <div class="corpo">
-            <div class="recuperapassword">
-                <span>Recupera la tua password</span>
-                <div class="emailecounter">
-                    <span>Invieremo un codice di recupero a questa Email</span>
-                    <div class="email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
-                            <path d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
-                        </svg>
-                        <input type="email" placeholder="Email">
+            <div class="immagineinfo">
+                <div class="immagineinfo2">
+                    <div class="divimmagine">
+                        <img src="img2.jpg">
                     </div>
-                    <span class="timer">02:00</span>
+                    <div class="info">
+                        <div class="nomecognome">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M10.9626 25.8024C8.60467 27.2064 2.42227 30.0732 6.18777 33.6607C8.02719 35.413 10.0758 36.6664 12.6515 36.6664H27.3485C29.9242 36.6664 31.9728 35.413 33.8122 33.6607C37.5777 30.0732 31.3953 27.2064 29.0373 25.8024C23.508 22.5099 16.492 22.5099 10.9626 25.8024Z" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M27.5 10.833C27.5 14.9751 24.1422 18.333 20 18.333C15.8579 18.333 12.5 14.9751 12.5 10.833C12.5 6.69087 15.8579 3.33301 20 3.33301C24.1422 3.33301 27.5 6.69087 27.5 10.833Z" stroke="#2A332D" stroke-width="1.5"/>
+                            </svg>
+                            <div class="testo">
+                                <span id="nome">Giovanni</span>
+                                <span id="cognome">Rossi</span>
+                            </div>
+                        </div>
+                        <div class="email">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M3.33325 10L14.855 16.5283C19.1026 18.935 20.8973 18.935 25.1449 16.5283L36.6666 10" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M3.35954 22.459C3.46849 27.5683 3.52297 30.1228 5.40819 32.0153C7.29339 33.9077 9.91714 33.9735 15.1646 34.1053C18.3988 34.1867 21.6011 34.1867 24.8353 34.1053C30.0828 33.9735 32.7064 33.9077 34.5918 32.0153C36.4769 30.1228 36.5314 27.5683 36.6403 22.459C36.6754 20.8162 36.6754 19.1832 36.6403 17.5403C36.5314 12.4311 36.4769 9.87649 34.5918 7.98411C32.7064 6.09173 30.0828 6.02581 24.8353 5.89396C21.6011 5.81269 18.3988 5.81269 15.1646 5.89394C9.91713 6.02578 7.29339 6.09169 5.40817 7.98409C3.52295 9.87648 3.46849 12.4311 3.35952 17.5403C3.32449 19.1832 3.3245 20.8162 3.35954 22.459Z" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                            <span>giovanni@gmail.com</span>
+                        </div>
+                        <div class="compleanno">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M22.5 7.49967C22.5 8.88039 21.3807 9.99967 20 9.99967C18.6193 9.99967 17.5 8.88039 17.5 7.49967C17.5 6.11896 20 3.33301 20 3.33301C20 3.33301 22.5 6.11896 22.5 7.49967Z" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M20 10V15" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M29.4444 23.3333C32.0524 23.3333 34.1666 21.4678 34.1666 19.1667C34.1666 16.8655 32.0524 15 29.4444 15H10.5555C7.94747 15 5.83325 16.8655 5.83325 19.1667C5.83325 21.4678 7.94747 23.3333 10.5555 23.3333C12.8401 23.3333 14.8402 21.9018 15.2777 20C15.7152 21.9018 17.7154 23.3333 19.9999 23.3333C22.2844 23.3333 24.2846 21.9018 24.7221 20C25.1598 21.9018 27.1598 23.3333 29.4444 23.3333Z" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M8.33325 23.333L9.2014 27.6323C10.0755 31.961 10.5125 34.1253 11.9934 35.3958C13.4743 36.6663 15.5601 36.6663 19.7316 36.6663H20.2683C24.4398 36.6663 26.5256 36.6663 28.0064 35.3958C29.4874 34.1253 29.9244 31.961 30.7984 27.6323L31.6666 23.333" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>20/10/1998</span>
+                        </div>
+                        <div class="lavoro">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M22.5 6.25V1.25H17.5V6.25H7.5V38.75H32.5V6.25H22.5ZM20 2.5C20.1642 2.50004 20.3268 2.53242 20.4785 2.59529C20.6301 2.65817 20.7679 2.7503 20.884 2.86643C21.0001 2.98256 21.0921 3.12042 21.1549 3.27213C21.2177 3.42384 21.25 3.58643 21.25 3.75062C21.25 3.91482 21.2176 4.0774 21.1547 4.22907C21.0918 4.38075 20.9997 4.51856 20.8836 4.63464C20.7674 4.75071 20.6296 4.84277 20.4779 4.90557C20.3262 4.96837 20.1636 5.00067 19.9994 5.00063C19.6678 5.00054 19.3498 4.86873 19.1154 4.6342C18.8809 4.39966 18.7493 4.0816 18.7494 3.75C18.7495 3.4184 18.8813 3.10041 19.1158 2.86599C19.3503 2.63157 19.6684 2.49992 20 2.5ZM31.25 37.5H8.75V7.5H17.5V11.25H22.5V7.5H31.25V37.5Z" fill="black"/>
+                                <path d="M20 13.75C16.5481 13.75 13.75 16.5481 13.75 20C13.75 23.4519 16.5481 26.25 20 26.25C23.4519 26.25 26.25 23.4519 26.25 20C26.25 16.5481 23.4519 13.75 20 13.75ZM20 25C17.2431 25 15 22.7569 15 20C15 17.2431 17.2431 15 20 15C22.7569 15 25 17.2431 25 20C25 22.7569 22.7569 25 20 25ZM15 28.75C14.337 28.75 13.7011 29.0134 13.2322 29.4822C12.7634 29.9511 12.5 30.587 12.5 31.25V33.75H27.5V31.25C27.5 30.587 27.2366 29.9511 26.7678 29.4822C26.2989 29.0134 25.663 28.75 25 28.75H15Z" fill="black"/>
+                            </svg>
+                            <span>Farmacista</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="inviacodice">
-                    <div class="bcodice" onclick="bcodiceClick()">
-                        <span>Invia codice</span>
+                <div class="inventario">
+                    <span>Gestisci inventario</span>
+                </div>
+                <div class="esci">
+                    <span>Esci</span>
+                </div>
+            </div>
+            <div class="storicordini">
+                <span>Storico ordini</span>
+                <div class="ordinimancanti">
+                    <div class="icona">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
+                            <path d="M5.83337 39.1664V23.333H64.1667V39.1664C64.1667 50.9515 64.1667 56.844 60.3701 60.505C56.5732 64.1663 50.4625 64.1663 38.2407 64.1663H31.7593C19.5377 64.1663 13.4269 64.1663 9.63014 60.505C5.83337 56.844 5.83337 50.9515 5.83337 39.1664Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5.83337 23.333L8.63787 16.6022C10.8129 11.3822 11.9004 8.77213 14.1047 7.30257C16.3091 5.83301 19.1366 5.83301 24.7917 5.83301H45.2084C50.8635 5.83301 53.6909 5.83301 55.8953 7.30257C58.0997 8.77213 59.1871 11.3822 61.3623 16.6022L64.1667 23.333" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M35 23.333V5.83301" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M29.1666 35H40.8333" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Nessun ordine presente</span>
+                    </div>
+                </div>
+                <div class="ordini">
+                    <div class="ordine">
+                        <div class="iconaenumero">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                <path d="M2.91675 19.5837V11.667H32.0834V19.5837C32.0834 25.4762 32.0834 28.4225 30.1851 30.253C28.2866 32.0837 25.2313 32.0837 19.1204 32.0837H15.8797C9.76892 32.0837 6.71352 32.0837 4.81513 30.253C2.91675 28.4225 2.91675 25.4762 2.91675 19.5837Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.91675 11.667L4.31899 8.30161C5.4065 5.69157 5.95027 4.38655 7.05244 3.65177C8.1546 2.91699 9.56838 2.91699 12.3959 2.91699H22.6042C25.4318 2.91699 26.8455 2.91699 27.9477 3.65177C29.0499 4.38655 29.5936 5.69157 30.6812 8.30161L32.0834 11.667" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M17.5 11.667V2.91699" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14.5833 17.5H20.4166" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>#4532</span>
+                        </div>
+                        <span>150,99€</span>
+                    </div>
+                    <div class="ordine">
+                        <div class="iconaenumero">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                <path d="M2.91675 19.5837V11.667H32.0834V19.5837C32.0834 25.4762 32.0834 28.4225 30.1851 30.253C28.2866 32.0837 25.2313 32.0837 19.1204 32.0837H15.8797C9.76892 32.0837 6.71352 32.0837 4.81513 30.253C2.91675 28.4225 2.91675 25.4762 2.91675 19.5837Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.91675 11.667L4.31899 8.30161C5.4065 5.69157 5.95027 4.38655 7.05244 3.65177C8.1546 2.91699 9.56838 2.91699 12.3959 2.91699H22.6042C25.4318 2.91699 26.8455 2.91699 27.9477 3.65177C29.0499 4.38655 29.5936 5.69157 30.6812 8.30161L32.0834 11.667" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M17.5 11.667V2.91699" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14.5833 17.5H20.4166" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>#4532</span>
+                        </div>
+                        <span>150,99€</span>
+                    </div>
+                    <div class="ordine">
+                        <div class="iconaenumero">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                <path d="M2.91675 19.5837V11.667H32.0834V19.5837C32.0834 25.4762 32.0834 28.4225 30.1851 30.253C28.2866 32.0837 25.2313 32.0837 19.1204 32.0837H15.8797C9.76892 32.0837 6.71352 32.0837 4.81513 30.253C2.91675 28.4225 2.91675 25.4762 2.91675 19.5837Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.91675 11.667L4.31899 8.30161C5.4065 5.69157 5.95027 4.38655 7.05244 3.65177C8.1546 2.91699 9.56838 2.91699 12.3959 2.91699H22.6042C25.4318 2.91699 26.8455 2.91699 27.9477 3.65177C29.0499 4.38655 29.5936 5.69157 30.6812 8.30161L32.0834 11.667" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M17.5 11.667V2.91699" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14.5833 17.5H20.4166" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>#4532</span>
+                        </div>
+                        <span>150,99€</span>
+                    </div>
+                    <div class="ordine">
+                        <div class="iconaenumero">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                <path d="M2.91675 19.5837V11.667H32.0834V19.5837C32.0834 25.4762 32.0834 28.4225 30.1851 30.253C28.2866 32.0837 25.2313 32.0837 19.1204 32.0837H15.8797C9.76892 32.0837 6.71352 32.0837 4.81513 30.253C2.91675 28.4225 2.91675 25.4762 2.91675 19.5837Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.91675 11.667L4.31899 8.30161C5.4065 5.69157 5.95027 4.38655 7.05244 3.65177C8.1546 2.91699 9.56838 2.91699 12.3959 2.91699H22.6042C25.4318 2.91699 26.8455 2.91699 27.9477 3.65177C29.0499 4.38655 29.5936 5.69157 30.6812 8.30161L32.0834 11.667" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M17.5 11.667V2.91699" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14.5833 17.5H20.4166" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>#4532</span>
+                        </div>
+                        <span>150,99€</span>
+                    </div>
+                    <div class="ordine">
+                        <div class="iconaenumero">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                <path d="M2.91675 19.5837V11.667H32.0834V19.5837C32.0834 25.4762 32.0834 28.4225 30.1851 30.253C28.2866 32.0837 25.2313 32.0837 19.1204 32.0837H15.8797C9.76892 32.0837 6.71352 32.0837 4.81513 30.253C2.91675 28.4225 2.91675 25.4762 2.91675 19.5837Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.91675 11.667L4.31899 8.30161C5.4065 5.69157 5.95027 4.38655 7.05244 3.65177C8.1546 2.91699 9.56838 2.91699 12.3959 2.91699H22.6042C25.4318 2.91699 26.8455 2.91699 27.9477 3.65177C29.0499 4.38655 29.5936 5.69157 30.6812 8.30161L32.0834 11.667" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M17.5 11.667V2.91699" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14.5833 17.5H20.4166" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>#4532</span>
+                        </div>
+                        <span>150,99€</span>
+                    </div>
+                    <div class="ordine">
+                        <div class="iconaenumero">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                                <path d="M2.91675 19.5837V11.667H32.0834V19.5837C32.0834 25.4762 32.0834 28.4225 30.1851 30.253C28.2866 32.0837 25.2313 32.0837 19.1204 32.0837H15.8797C9.76892 32.0837 6.71352 32.0837 4.81513 30.253C2.91675 28.4225 2.91675 25.4762 2.91675 19.5837Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2.91675 11.667L4.31899 8.30161C5.4065 5.69157 5.95027 4.38655 7.05244 3.65177C8.1546 2.91699 9.56838 2.91699 12.3959 2.91699H22.6042C25.4318 2.91699 26.8455 2.91699 27.9477 3.65177C29.0499 4.38655 29.5936 5.69157 30.6812 8.30161L32.0834 11.667" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M17.5 11.667V2.91699" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M14.5833 17.5H20.4166" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>#4532</span>
+                        </div>
+                        <span>150,99€</span>
                     </div>
                 </div>
             </div>

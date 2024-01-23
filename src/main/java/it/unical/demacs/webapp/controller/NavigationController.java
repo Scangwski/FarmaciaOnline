@@ -22,13 +22,13 @@ public class NavigationController {
     }
 
     @GetMapping("/")
-    public String homePage() {
-        return "home";
-    }
-
-    @GetMapping("/login")
     public String loginPage() {
         return "login";
+    }
+
+    @GetMapping("/home")
+    public String homePag() {
+        return "home";
     }
 }
 

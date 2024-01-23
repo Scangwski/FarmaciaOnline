@@ -63,7 +63,7 @@ function accedi() {
                     }, 2300);
                     setTimeout(function ()
                     {
-                        window.location.href="http://localhost:8085";
+                        window.location.href="http://localhost:8085/home";
                     }, 1000);
                 },
                 error: function ()
@@ -71,7 +71,7 @@ function accedi() {
                     error("Controlla che i dati siano corretti!")
                     setTimeout(function ()
                     {
-                        window.location.href="http://localhost:8085/login";
+                        window.location.href="http://localhost:8085";
                     }, 1000);
                 },
             });

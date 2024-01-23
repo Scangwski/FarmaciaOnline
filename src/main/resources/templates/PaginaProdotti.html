@@ -2,12 +2,13 @@
 <html lang="it">
 <head>
     <link rel="stylesheet" href="Generali.css">
-    <link rel="stylesheet" href="RecuperaPassword.css">
+    <link rel="stylesheet" href="../static/css/PaginaProdotti.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=100%, initial-scale=1.0">
     <title>EFarm</title>
-    <script src="timer.js"></script>
-    <script src="menulaterale.js"></script>
+    <script src="../static/js/Tendina.js"></script>
+    <script src="../static/js/pagine.js"></script>
+    <script src="../static/js/menulaterale.js"></script>
 </head>
 <body>
     <div class="content">
@@ -92,23 +93,172 @@
             </div>             
         </div>
         <div class="corpo">
-            <div class="recuperapassword">
-                <span>Recupera la tua password</span>
-                <div class="emailecounter">
-                    <span>Invieremo un codice di recupero a questa Email</span>
-                    <div class="email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 6L8.91302 9.91697C11.4616 11.361 12.5384 11.361 15.087 9.91697L22 6" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
-                            <path d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
-                        </svg>
-                        <input type="email" placeholder="Email">
-                    </div>
-                    <span class="timer">02:00</span>
+            <div class="navigazione">
+                <span>Home</span>
+                <span>></span>
+                <span class="posizione">Crema viso</span>
+            </div>
+            <div class="testoefiltri">
+                <div class="tspan">
+                    <span>Risultati della ricerca per:</span>
+                    <span class="risultato">crema viso</span>
                 </div>
-                <div class="inviacodice">
-                    <div class="bcodice" onclick="bcodiceClick()">
-                        <span>Invia codice</span>
+                <div class="filtri">
+                    <div class="tendina">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                            <path d="M13 1.00005C13 1.00005 8.5811 7 7 7C5.4188 7 1 1 1 1" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div class="dropdown-content">
+                            <a href="#" data-text="Crescente">Crescente</a>
+                            <a href="#" data-text="Decrescente">Decrescente</a>
+                        </div>
                     </div>
+                    <div class="fil">
+                        <span>Nome</span> 
+                    </div>
+                    <div class="fil">
+                        <span>Prezzo</span>
+                    </div>
+                    <div class="sconto">
+                        <span>Sconto</span>
+                    </div>
+                </div>
+            </div>
+            <div class="prodottitrovati">
+                <div class="errormessage">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+                        <path d="M116.667 116.667L137.5 137.5" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M136.944 154.377C132.13 149.562 132.13 141.757 136.944 136.944C141.757 132.13 149.562 132.13 154.377 136.944L179.722 162.29C184.537 167.104 184.537 174.909 179.722 179.722C174.909 184.537 167.104 184.537 162.29 179.722L136.944 154.377Z" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M133.333 75C133.333 42.7834 107.217 16.6666 75.0001 16.6666C42.7835 16.6666 16.6667 42.7834 16.6667 75C16.6667 107.217 42.7835 133.333 75.0001 133.333C107.217 133.333 133.333 107.217 133.333 75Z" stroke="#2A332D" stroke-width="1.5" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Nessun prodotto trovato</span>
+                    <span class="altro">Prova un altro nome</span>
+                </div>
+                <div class="prodotto">
+                    <div class="cifrasconto">
+                        <span>-15%</span>
+                    </div>
+                    <div class="immaginetesto">
+                        <div class="immagine">
+                            <img src="../static/pngegg.png">
+                        </div>
+                        <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    </div>
+                    <div class="prezzoecarrello">
+                        <div class="prezzo">
+                            <span class="span1">29,99€</span>
+                            <span class="span2">25,49€</span>
+                        </div>
+                        <div class="bcarrello">
+                            <span>Aggiungi al Carrello</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="prodotto">
+                    <div class="cifrasconto">
+                        <span>-15%</span>
+                    </div>
+                    <div class="immaginetesto">
+                        <div class="immagine">
+                            <img src="../static/pngegg.png">
+                        </div>
+                        <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    </div>
+                    <div class="prezzoecarrello">
+                        <div class="prezzo">
+                            <span class="span1">29,99€</span>
+                            <span class="span2">25,49€</span>
+                        </div>
+                        <div class="bcarrello">
+                            <span>Aggiungi al Carrello</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="prodotto">
+                    <div class="cifrasconto">
+                        <span>-15%</span>
+                    </div>
+                    <div class="immaginetesto">
+                        <div class="immagine">
+                            <img src="../static/pngegg.png">
+                        </div>
+                        <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    </div>
+                    <div class="prezzoecarrello">
+                        <div class="prezzo">
+                            <span class="span1">29,99€</span>
+                            <span class="span2">25,49€</span>
+                        </div>
+                        <div class="bcarrello">
+                            <span>Aggiungi al Carrello</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="prodotto">
+                    <div class="cifrasconto">
+                        <span>-15%</span>
+                    </div>
+                    <div class="immaginetesto">
+                        <div class="immagine">
+                            <img src="../static/pngegg.png">
+                        </div>
+                        <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    </div>
+                    <div class="prezzoecarrello">
+                        <div class="prezzo">
+                            <span class="span1">29,99€</span>
+                            <span class="span2">25,49€</span>
+                        </div>
+                        <div class="bcarrello">
+                            <span>Aggiungi al Carrello</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="prodotto">
+                    <div class="cifrasconto">
+                        <span>-15%</span>
+                    </div>
+                    <div class="immaginetesto">
+                        <div class="immagine">
+                            <img src="../static/pngegg.png">
+                        </div>
+                        <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                    </div>
+                    <div class="prezzoecarrello">
+                        <div class="prezzo">
+                            <span class="span1">29,99€</span>
+                            <span class="span2">25,49€</span>
+                        </div>
+                        <div class="bcarrello">
+                            <span>Aggiungi al Carrello</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scorrimento">
+                <div class="testo">
+                    <span>8</span>
+                    <span>di</span>
+                    <span>24</span>
+                </div>
+                <div class="pagine">
+                    <div class="frecces" onclick="cambiaPagina('prev')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                            <path d="M6.49996 11C6.49996 11 1.5 7.31758 1.5 6C1.5 4.68233 6.5 1 6.5 1" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="paginaC" id="paginaAttuale">
+                        <span>1</span>
+                    </div>
+                    
+                    <div class="frecced" onclick="cambiaPagina('next')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+                            <path d="M1.50004 1C1.50004 1 6.5 4.68242 6.5 6C6.5 7.31767 1.5 11 1.5 11" stroke="#F7F6F0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="hidden-reference">
+                    <span class="hidden-reference-span">1</span>
                 </div>
             </div>
         </div>
