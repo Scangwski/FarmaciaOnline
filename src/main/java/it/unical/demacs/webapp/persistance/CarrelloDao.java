@@ -11,5 +11,7 @@ public interface CarrelloDao {
     public boolean inserisciNelCarrello(Utente utente, Prodotto prodotto) throws SQLException;
     public ArrayList<Carrello> prelevaCarrello(Utente utente)throws  SQLException;
     public void eliminaArticolo(Utente utente, Prodotto prodotto) throws  SQLException;
+
+
 }
 

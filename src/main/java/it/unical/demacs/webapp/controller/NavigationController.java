@@ -27,8 +27,43 @@ public class NavigationController {
     }
 
     @GetMapping("/home")
-    public String homePag() {
+    public String homePage() {
         return "home";
     }
+
+    @GetMapping("/PaginaProdotto")
+    public String prodottoPage()
+    {
+        return "paginaprodotto";
+    }
+
+    @GetMapping("/inventario")
+    public String inventarioPage() {
+        return "inventario";
+    }
+
+    @GetMapping("/PaginaProdotti")
+    public String prodottipage(){
+        return "paginaprodotti";
+    }
+
+    @GetMapping("/paginautente")
+    public String utentepage(){
+        return "paginautente";
+    }
+
+    @GetMapping("/recuperapassword")
+    public String recuperapassword(){
+        return "recuperapassword";
+    }
+
+    @GetMapping("/carrello")
+    public String apriCarrello(){
+        return "carrello";
+    }
+
+
+
+
 }
 
