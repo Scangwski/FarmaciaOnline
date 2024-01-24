@@ -34,7 +34,7 @@ public class NavigationController {
     @GetMapping("/PaginaProdotto")
     public String prodottoPage()
     {
-        return "paginaprodotto";
+        return "PaginaProdotto";
     }
 
     @GetMapping("/inventario")

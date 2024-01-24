@@ -7,5 +7,5 @@ import java.sql.SQLException;
 
 public interface RecensioneDao {
 
-    public boolean aggiungiRecensione(Utente utente, Prodotto prodotto, String titolo, String descrizione) throws SQLException;
+    public boolean aggiungiRecensione(Utente utente, Prodotto prodotto, String descrizione , Integer valutazione) throws SQLException;
 }
