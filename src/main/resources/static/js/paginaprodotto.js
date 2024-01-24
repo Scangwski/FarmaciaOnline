@@ -21,6 +21,10 @@ function inserisciRicetta() {
             contentType: "text/plain",
             data: ricettaValue,
             success: function () {
+                var prezzo = document.getElementById("prezzo");
+                var sconto= document.getElementById("sconto");
+                prezzo.innerText="0€"
+                sconto.innerText="Risparmio del 100% (Ricetta)"
                 alert("Ricetta inserita con successo!");
             },
             error: function (xhr, status, error) {
