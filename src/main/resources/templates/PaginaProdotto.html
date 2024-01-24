@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="../static/css/Generali.css">
-    <link rel="stylesheet" href="../static/css/PaginaProdotto.css">
+    <link rel="stylesheet" th:href="@{/css/Generali.css}" />
+    <link rel="stylesheet" th:href="@{/css/PaginaProdotto.css}" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>EFarm</title>
@@ -81,7 +82,7 @@
                     </div>
                     <div class="boxicon">
                         <div class="immagine">
-                            <img id="pic" src="img2.jpg">
+                            <img id="pic" src="../static/img2.jpg">
                         </div>
                         <svg class="U" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 41" fill="none">
                             <path d="M10.9626 26.3026C8.60467 27.7066 2.42227 30.5735 6.18777 34.161C8.02719 35.9133 10.0758 37.1666 12.6515 37.1666H27.3485C29.9242 37.1666 31.9728 35.9133 33.8122 34.161C37.5777 30.5735 31.3953 27.7066 29.0373 26.3026C23.508 23.0101 16.492 23.0101 10.9626 26.3026Z" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -108,13 +109,13 @@
                             <path d="M15.9999 26.5C15.9999 26.5 0.999999 17.294 0.999999 14C1 10.7058 16 1.5 16 1.5" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <div class="altraImmagineN">
-                            <img id="foto" src="../static/pngegg.png">
+                            <img id="foto1" src="../static/pngegg.png">
                         </div>
                         <div class="altraImmagineN">
-                            <img id="foto" src="1F.webp">
+                            <img id="foto2" src="../static/1F.webp">
                         </div>
                         <div class="altraImmagineN">
-                            <img id="foto" src="../static/2F.webp">
+                            <img id="foto3" src="../static/2F.webp">
                         </div>
                         <svg data-index="1" data-direction="destra" xmlns="http://www.w3.org/2000/svg" width="17" height="28" viewBox="0 0 17 28" fill="none">
                             <path d="M1.00012 1.5C1.00012 1.5 16 10.706 16 14C16 17.2942 1 26.5 1 26.5" stroke="#2A332D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

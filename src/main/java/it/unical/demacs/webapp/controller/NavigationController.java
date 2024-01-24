@@ -31,10 +31,10 @@ public class NavigationController {
         return "home";
     }
 
-    @GetMapping("/PaginaProdotto")
+    @GetMapping("/paginaProdotto")
     public String prodottoPage()
     {
-        return "PaginaProdotto";
+        return "paginaprodotto";
     }
 
     @GetMapping("/inventario")
