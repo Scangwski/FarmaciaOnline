@@ -30,24 +30,24 @@ function iscriviUtente() {
 
     if(nome=="" || cognome=="" || email=="" || password=="" || confirm_password=="") {
         document.getElementById("registerbtn").className="btn btn-secondary btn-lg";
-        error("Attenzione! Sono presenti campi vuoti");
+        alert("Attenzione! Sono presenti campi vuoti");
     }
     else if(nome==" " || cognome==" " || email==" ") {
         document.getElementById("registerbtn").className="btn btn-secondary btn-lg";
-        error("Attenzione! Sono presenti campi vuoti");
+        alert("Attenzione! Sono presenti campi vuoti");
     }
     else if(!validaEmail(email)){
         document.getElementById("registerbtn").className="btn btn-secondary btn-lg";
-        error("Attenzione! Email non valida");
+        alert("Attenzione! Email non valida");
     }
 
     else if(password!=confirm_password){
         document.getElementById("registerbtn").className="btn btn-secondary btn-lg";
-        error("Attenzione! Le password non coincidono");
+        alert("Attenzione! Le password non coincidono");
     }
     else if(password.length<6){
         document.getElementById("registerbtn").className="btn btn-secondary btn-lg";
-        error("Attenzione! La password deve essere almeno di 6 caratteri");
+        alert("Attenzione! La password deve essere almeno di 6 caratteri");
     }
 
     else{
@@ -60,6 +60,7 @@ function iscriviUtente() {
                 contentType: "application/json",
                 data: JSON.stringify(utente),
                 success: function () {
+                    alert("Ricetta inserita con successo!");
                     var messageContainer = document.createElement("div");
                     messageContainer.id = "message_container";
                     messageContainer.className = "alert alert-primary d-flex align-items-center mb-3";
@@ -92,6 +93,7 @@ function iscriviUtente() {
                     }, 2300);
                 },
                 error: function (){
+                    alert("Errore!");
                     var messageContainer = document.createElement("div");
                     messageContainer.id = "message_container";
                     messageContainer.className = "alert alert-danger d-flex align-items-center mb-3";

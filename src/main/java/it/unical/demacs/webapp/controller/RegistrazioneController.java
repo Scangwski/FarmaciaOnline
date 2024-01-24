@@ -6,10 +6,7 @@ import it.unical.demacs.webapp.persistance.jdbc.UtenteDaoJDBC;
 import it.unical.demacs.webapp.persistance.jdbc.DatabaseJDBC;
 import it.unical.demacs.webapp.model.Utente;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
@@ -17,7 +14,7 @@ import java.sql.SQLException;
 import static jakarta.servlet.http.HttpServletResponse.*;
 import static jakarta.servlet.http.HttpServletResponse.SC_OK;
 
-@Controller
+@RestController
 public class RegistrazioneController
 {
     @PostMapping("/doRegister")

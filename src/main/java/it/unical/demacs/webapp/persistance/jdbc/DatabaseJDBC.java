@@ -50,17 +50,17 @@ public class DatabaseJDBC implements Database {
 
     @Override
     public RicettaDao getRicettaDao() {
-        return null;
+        return new RicettaDaoJDBC(connection);
     }
 
     @Override
     public RecensioneDao getRecensioneDao() {
-        return null;
+        return new RecensioneDaoJDBC(connection);
     }
 
     @Override
     public ProdottoDao getProdottoDao() {
-        return null;
+        return new ProdottoDaoJDBC(connection);
     }
 
     @Override
@@ -70,11 +70,11 @@ public class DatabaseJDBC implements Database {
 
     @Override
     public OffertaDao getOffertaDao() {
-        return null;
+        return new OffertaDaoJDBC(connection);
     }
 
     @Override
     public CarrelloDao getCarrelloDao() {
-        return null;
+        return new CarrelloDaoJDBC(connection);
     }
 }

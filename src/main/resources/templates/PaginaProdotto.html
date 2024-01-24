@@ -10,6 +10,7 @@
     <script src="../static/js/immagini.js"></script>
     <script src="../static/js/counter.js"></script>
     <script src="../static/js/menulaterale.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="content">
@@ -163,10 +164,10 @@
                         <span>Inserisci codice prescrizione</span>
                         <div class="campocodice">
                             <div class="codice">
-                                <input type="text" placeholder="c6wgdwud">
+                                <input type="text" placeholder="ab123cd" id ="ricetta">
                             </div>
-                            <div class="bcodice">
-                                <span>Applica</span>
+                            <div class="bcodice" >
+                                <span id="ricettaButton">Applica</span>
                             </div>
                         </div>
                     </div>
@@ -252,4 +253,5 @@
         </div>
     </div>
 </body>
+<script th:src="@{/js/paginaprodotto.js}"></script>
 </html>
