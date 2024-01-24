@@ -12,7 +12,7 @@ public class RicettaDaoProxy implements RicettaDao {
     private RicettaDao ricettaDao;
 
     @Override
-    public boolean inserisciRicetta(String codiceRicetta) throws SQLException {
+    public boolean inserisciRicetta(String emailutente,String codiceRicetta) throws SQLException {
         if (ricettaDao == null) {
             synchronized (this) {
                 if (ricettaDao == null) {
@@ -20,14 +20,14 @@ public class RicettaDaoProxy implements RicettaDao {
                 }
             }
         }
-       if(!isValidFormat(codiceRicetta) && !ricettaDao.codiceGiaPresente(codiceRicetta)){
-           return ricettaDao.inserisciRicetta(codiceRicetta);
+       if(!isValidFormat(codiceRicetta) && !ricettaDao.codiceGiaPresente(emailutente,codiceRicetta)){
+           return ricettaDao.inserisciRicetta(emailutente,codiceRicetta);
        }
         return false;
     }
 
     @Override
-    public boolean codiceGiaPresente(String codiceRicetta) throws SQLException {
+    public boolean codiceGiaPresente(String emailutente,String codiceRicetta) throws SQLException {
         if (ricettaDao == null) {
             synchronized (this) {
                 if (ricettaDao == null) {
@@ -35,7 +35,7 @@ public class RicettaDaoProxy implements RicettaDao {
                 }
             }
         }
-        return ricettaDao.codiceGiaPresente(codiceRicetta);
+        return ricettaDao.codiceGiaPresente(emailutente,codiceRicetta);
     }
 
     @Override

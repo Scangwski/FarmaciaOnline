@@ -2,8 +2,8 @@ window.addEventListener("load", function ()
 {
     document.getElementById("ricettaButton").addEventListener("click", inserisciRicetta);
 });
-function Ricetta(codice){
-    this.codice=codice;
+function Ricetta(codicericetta){
+    this.codicericetta=codicericetta;
 }
 function inserisciRicetta() {
     var ricettaValue = document.querySelector("#ricetta").value;
@@ -18,8 +18,8 @@ function inserisciRicetta() {
         {
             url: "/inserisciRicetta",
             type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(ricetta),
+            contentType: "text/plain",
+            data: ricettaValue,
             success: function () {
                 alert("Ricetta inserita con successo!");
             },

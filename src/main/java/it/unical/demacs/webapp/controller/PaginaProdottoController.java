@@ -6,6 +6,7 @@ import it.unical.demacs.webapp.persistance.RicettaDao;
 import it.unical.demacs.webapp.persistance.jdbc.DatabaseJDBC;
 import it.unical.demacs.webapp.persistance.jdbc.RicettaDaoJDBC;
 import it.unical.demacs.webapp.persistance.jdbc.RicettaDaoProxy;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,11 +20,11 @@ import static jakarta.servlet.http.HttpServletResponse.SC_SERVICE_UNAVAILABLE;
 @RestController
 public final class PaginaProdottoController {
     @PostMapping("/inserisciRicetta")
-    public void inserisciRicetta(HttpServletResponse res, @RequestBody String s) throws SQLException
+    public void inserisciRicetta(HttpServletRequest req,HttpServletResponse res, @RequestBody String s) throws SQLException
     {
         RicettaDaoProxy ricetta = new RicettaDaoProxy();
-
-        if(ricetta.inserisciRicetta(s))
+        Utente u=(Utente)req.getSession().getAttribute("utente");
+        if(ricetta.inserisciRicetta(u.getEmail(),s))
             res.setStatus(SC_OK);
         else
             res.setStatus(SC_SERVICE_UNAVAILABLE);
