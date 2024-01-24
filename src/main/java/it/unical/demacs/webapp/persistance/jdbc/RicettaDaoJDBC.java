@@ -1,7 +1,5 @@
 package it.unical.demacs.webapp.persistance.jdbc;
 
-import it.unical.demacs.webapp.model.Prodotto;
-import it.unical.demacs.webapp.model.Utente;
 import it.unical.demacs.webapp.persistance.RicettaDao;
 
 import java.sql.Connection;
@@ -35,6 +33,10 @@ public class RicettaDaoJDBC implements RicettaDao {
                 return count > 0;
             }
         }
+        return false;
+    }
+   @Override
+   public boolean isValidFormat(String codiceRicetta) {
         return false;
     }
 }

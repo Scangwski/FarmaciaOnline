@@ -10,4 +10,6 @@ public interface RicettaDao {
     public boolean inserisciRicetta(String codiceRicetta) throws SQLException;
 
     public boolean codiceGiaPresente(String codiceRicetta) throws SQLException;
+
+    public boolean isValidFormat(String codiceRicetta);
 }

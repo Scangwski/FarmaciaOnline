@@ -5,20 +5,49 @@ import it.unical.demacs.webapp.model.Utente;
 import it.unical.demacs.webapp.persistance.RicettaDao;
 
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RicettaDaoProxy implements RicettaDao {
-    private RicettaDaoJDBC ricetta = new RicettaDaoJDBC(DatabaseJDBC.getInstance().getConnection());
+    private RicettaDao ricettaDao;
 
     @Override
     public boolean inserisciRicetta(String codiceRicetta) throws SQLException {
-       if(codiceRicetta.length()==8 && ricetta.codiceGiaPresente(codiceRicetta)==false){
-           ricetta.inserisciRicetta(codiceRicetta);
+        if (ricettaDao == null) {
+            synchronized (this) {
+                if (ricettaDao == null) {
+                    ricettaDao = new RicettaDaoJDBC(DatabaseJDBC.getInstance().getConnection());
+                }
+            }
+        }
+       if(!isValidFormat(codiceRicetta) && !ricettaDao.codiceGiaPresente(codiceRicetta)){
+           return ricettaDao.inserisciRicetta(codiceRicetta);
        }
         return false;
     }
 
     @Override
     public boolean codiceGiaPresente(String codiceRicetta) throws SQLException {
-        return false;
+        if (ricettaDao == null) {
+            synchronized (this) {
+                if (ricettaDao == null) {
+                    ricettaDao = new RicettaDaoJDBC(DatabaseJDBC.getInstance().getConnection());
+                }
+            }
+        }
+        return ricettaDao.codiceGiaPresente(codiceRicetta);
+    }
+
+    @Override
+    public boolean isValidFormat(String codiceRicetta) {
+        if (ricettaDao == null) {
+            synchronized (this) {
+                if (ricettaDao == null) {
+                    ricettaDao = new RicettaDaoJDBC(DatabaseJDBC.getInstance().getConnection());
+                }
+            }
+        }
+        String regex = "^[a-zA-Z]{2}\\d{3}[a-zA-Z]{2}$";
+        return codiceRicetta.matches(regex);
     }
 }
