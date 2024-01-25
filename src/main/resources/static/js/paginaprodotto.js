@@ -1,5 +1,9 @@
-window.addEventListener("load", function ()
-{
+
+document.getElementById("homeButton").addEventListener("click", function (){
+    window.location.href = '/home';
+});
+
+window.addEventListener("click",function (){
     document.getElementById("ricettaButton").addEventListener("click", inserisciRicetta);
 });
 function Ricetta(codicericetta){
