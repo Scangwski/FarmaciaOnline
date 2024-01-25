@@ -148,7 +148,7 @@ public class UtenteDaoJDBC implements UtenteDao {
         if (connection.isClosed() || connection == null)
             return false;
 
-        PreparedStatement p = connection.prepareStatement("UPDATE utente SET tipoUtente='amministratore' WHERE email=?");
+        PreparedStatement p = connection.prepareStatement("UPDATE utente SET tipoUtente='Amministratore' WHERE email=?");
         p.setString(1, emailUtente);
 
         int rowsUpdated = p.executeUpdate();
