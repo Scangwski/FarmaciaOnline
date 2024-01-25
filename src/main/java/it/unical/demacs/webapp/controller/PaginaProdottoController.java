@@ -42,4 +42,9 @@ public final class PaginaProdottoController {
         else
             res.setStatus(SC_SERVICE_UNAVAILABLE);
     }
+
+    @PostMapping("/caricaProdotto")
+    public void caricaProdotto(HttpServletResponse res,HttpServletRequest req, @RequestBody String s) throws SQLException{
+
+    }
 }
