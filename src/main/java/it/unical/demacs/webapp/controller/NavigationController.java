@@ -21,7 +21,7 @@ public class NavigationController {
         return "register";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String loginPage() {
         return "login";
     }
