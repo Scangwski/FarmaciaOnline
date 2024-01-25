@@ -28,7 +28,7 @@ public class GestioneInventarioController {
     public void rimuoviProdotto(HttpServletResponse res, @RequestBody Utente utente, @RequestBody Prodotto prodotto) throws SQLException {
 
         if(utente!=null && prodotto!=null) {
-            if(DatabaseJDBC.getInstance().getProdottoDao().aggiungiProdotto(utente, prodotto)) {
+            if(DatabaseJDBC.getInstance().getProdottoDao().rimuoviProdotto(utente, prodotto)) {
                 res.setStatus(HttpServletResponse.SC_OK);
             }
             else {
