@@ -12,4 +12,6 @@ public interface ProdottoDao {
     public Prodotto caricaProdotto(Utente utente,Prodotto prodotto) throws SQLException;
 
     public boolean rimuoviProdotto(Utente utente, Prodotto prodotto) throws SQLException;
+
+    public ArrayList<Prodotto> ricercaProdotti(String filtro, String ordinamento) throws SQLException;
 }

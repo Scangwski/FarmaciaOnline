@@ -71,4 +71,34 @@ public class ProdottoDaoJDBC implements ProdottoDao {
         }
         return false;
     }
+
+    public ArrayList<Prodotto> ricercaProdotti(String filtro, String ordinamento) throws SQLException {
+        String query = "SELECT * FROM prodotto WHERE id LIKE ? OR nome LIKE ? OR categoria LIKE ?";
+
+        if (ordinamento != null && !ordinamento.isEmpty()) {
+            query += " ORDER BY prezzo " + ordinamento;
+        }
+
+        PreparedStatement p = connection.prepareStatement(query);
+        p.setString(1, "%" + filtro + "%");
+        p.setString(2, "%" + filtro + "%");
+
+        ResultSet r = p.executeQuery();
+
+        ArrayList<Prodotto> prodotti = new ArrayList<>();
+        while (r.next()) {
+            prodotti.add(new Prodotto(
+                    r.getString("id"),
+                    r.getString("nome"),
+                    r.getString("descrizione"),
+                    r.getDouble("prezzo"),
+                    r.getString("categoria"),
+                    r.getInt("quantita"),
+                    r.getString("immagine")));
+        }
+
+        return prodotti;
+    }
+
+
 }
