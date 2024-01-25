@@ -59,4 +59,16 @@ public class ProdottoDaoJDBC implements ProdottoDao {
         }
        return null;
     }
+
+    @Override
+    public boolean rimuoviProdotto(Utente utente,Prodotto prodotto) throws SQLException {
+        if (utente.getTipoUtente() == "Farmacista" || utente.getTipoUtente()=="Admin") {
+            PreparedStatement p = connection.prepareStatement("DELETE FROM prodotto WHERE nome=?");
+            p.setString(1, prodotto.getNome());
+            int rowsDeleted = p.executeUpdate();
+
+            return rowsDeleted > 0;
+        }
+        return false;
+    }
 }
