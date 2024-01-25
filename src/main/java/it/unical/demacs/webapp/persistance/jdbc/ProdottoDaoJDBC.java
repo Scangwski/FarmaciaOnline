@@ -76,7 +76,17 @@ public class ProdottoDaoJDBC implements ProdottoDao {
         String query = "SELECT * FROM prodotto WHERE id LIKE ? OR nome LIKE ? OR categoria LIKE ?";
 
         if (ordinamento != null && !ordinamento.isEmpty()) {
-            query += " ORDER BY prezzo " + ordinamento;
+            if (ordinamento.equalsIgnoreCase("prezzoCrescente")) {
+                query += " ORDER BY prezzo ASC";
+            } else if (ordinamento.equalsIgnoreCase("prezzoDecrescente")) {
+                query += " ORDER BY prezzo DESC";
+            } else if (ordinamento.equalsIgnoreCase("alfabeticoCrescente")) {
+                query += " ORDER BY nome ASC";
+            }
+            else if (ordinamento.equalsIgnoreCase("alfabeticoDecrescente")) {
+                query += " ORDER BY nome DESC";
+            }
+
         }
 
         PreparedStatement p = connection.prepareStatement(query);
