@@ -515,9 +515,8 @@ button:hover svg {
 
 .content > .corpo > .recensioni {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
-    flex: 1 0 0;
     width: 100%;
     background: var(--Sfondo);
 }
@@ -526,13 +525,14 @@ button:hover svg {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
+    width:50%;
 }
 
 .testoebottone > span {
     color: var(--Icon);
-    text-align: center;
+    text-align: flex-start;
     font-size: 40px;
     font-style: normal;
     font-weight: 600;

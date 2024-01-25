@@ -37,3 +37,33 @@ function inserisciRicetta() {
             },
         });
 }
+
+function inviaRecensione() {
+    var commento = document.querySelector("#formRecensione textarea[name='comment']").value;
+    var valutazione = document.querySelector("#formRecensione input[name='rating']:checked").value;
+
+    if (!commento || !valutazione) {
+        alert("Per favore, compila tutti i campi della recensione.");
+        return;
+    }
+
+    var recensione = {
+        commento: commento,
+        valutazione: valutazione
+    };
+
+    $.ajax({
+        url: "/inserisciRecensione",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(recensione),
+        success: function () {
+            alert("Recensione inviata con successo!");
+            // Qui puoi aggiungere codice per pulire il form o aggiornare la pagina
+        },
+        error: function (xhr, status, error) {
+            // Gestisci gli errori
+            alert("Errore durante l'invio della recensione. Stato: " + status + ", Errore: " + error);
+        }
+    });
+}

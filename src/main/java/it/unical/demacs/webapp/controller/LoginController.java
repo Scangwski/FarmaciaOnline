@@ -25,6 +25,7 @@ public final class LoginController
         {
             HttpSession session = req.getSession(true);
             session.setAttribute("utente",u);
+            System.out.println("Utente loggato: " + u.getEmail());
             res.setStatus(HttpServletResponse.SC_OK);
         }
         else

@@ -12,7 +12,7 @@ public class Prodotto {
 
     public Prodotto(String id, String nome, String descrizione,Double prezzo, String categoria,Integer quantita,String immagine){
         this.id = id;
-        this. nome = nome;
+        this.nome = nome;
         this.descrizione=descrizione;
         this.prezzo=prezzo;
         this.categoria=categoria;

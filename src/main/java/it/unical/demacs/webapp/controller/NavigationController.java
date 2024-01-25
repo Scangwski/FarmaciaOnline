@@ -16,6 +16,11 @@ import java.io.IOException;
 
 @Controller
 public class NavigationController {
+
+    private boolean isLogged(HttpServletRequest req) {
+        HttpSession session = req.getSession(false);
+        return (session != null && session.getAttribute("utente") != null);
+    }
     @GetMapping("/registrazione")
     public String regPage() {
         return "register";
