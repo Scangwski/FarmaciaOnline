@@ -21,7 +21,7 @@ public class NavigationController {
         return "register";
     }
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String loginPage() {
         return "login";
     }
@@ -61,9 +61,6 @@ public class NavigationController {
     public String apriCarrello(){
         return "carrello";
     }
-
-
-
 
 }
 

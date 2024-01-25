@@ -15,4 +15,6 @@ public interface UtenteDao {
     public Utente GoogleLogin(String id) throws SQLException;
 
     public boolean bannaUtente(String email)throws SQLException;
+
+    public boolean promuoviAdAmministratore(String emailUtente) throws SQLException;
 }

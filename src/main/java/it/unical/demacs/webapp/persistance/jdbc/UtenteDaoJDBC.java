@@ -70,6 +70,7 @@ public class UtenteDaoJDBC implements UtenteDao {
         return true;
     }
 
+
     @Override
     public Utente Login(String email, String password) throws SQLException
     {
@@ -140,6 +141,19 @@ public class UtenteDaoJDBC implements UtenteDao {
         p.close();
 
         return null;
+    }
+
+    @Override
+    public boolean promuoviAdAmministratore(String emailUtente) throws SQLException {
+        if (connection.isClosed() || connection == null)
+            return false;
+
+        PreparedStatement p = connection.prepareStatement("UPDATE utente SET tipoUtente='amministratore' WHERE email=?");
+        p.setString(1, emailUtente);
+
+        int rowsUpdated = p.executeUpdate();
+
+        return rowsUpdated > 0;
     }
 
 
