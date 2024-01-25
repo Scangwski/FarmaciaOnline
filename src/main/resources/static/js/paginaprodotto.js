@@ -32,7 +32,7 @@ function inserisciRicetta() {
             },
             error: function (xhr, status, error) {
                 // Gestisci gli errori
-                alert("Errore durante l'inserimento della ricetta. Stato: " + status + ", Errore: " + error);
+                alert("Codice non valido o gia usato!");
             },
         });
 }
