@@ -5,10 +5,12 @@ import it.unical.demacs.webapp.persistance.jdbc.DatabaseJDBC;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.xml.crypto.Data;
 import java.sql.SQLException;
 
+@RestController
 public class GestioneAccountController {
 
     @PostMapping("/espulsione")
