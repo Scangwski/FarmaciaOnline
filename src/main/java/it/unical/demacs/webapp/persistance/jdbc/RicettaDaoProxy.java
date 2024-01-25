@@ -4,11 +4,16 @@ import it.unical.demacs.webapp.model.Prodotto;
 import it.unical.demacs.webapp.model.Utente;
 import it.unical.demacs.webapp.persistance.RicettaDao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RicettaDaoProxy implements RicettaDao {
+    Connection connection;
+    public RicettaDaoProxy(Connection connection){this.connection=connection;}
     private RicettaDao ricettaDao;
 
     @Override
@@ -20,7 +25,7 @@ public class RicettaDaoProxy implements RicettaDao {
                 }
             }
         }
-       if(!isValidFormat(codiceRicetta) && !ricettaDao.codiceGiaPresente(emailutente,codiceRicetta)){
+       if(isValidFormat(codiceRicetta) && !codiceGiaPresente(emailutente,codiceRicetta)){
            return ricettaDao.inserisciRicetta(emailutente,codiceRicetta);
        }
         return false;
@@ -32,6 +37,19 @@ public class RicettaDaoProxy implements RicettaDao {
             synchronized (this) {
                 if (ricettaDao == null) {
                     ricettaDao = new RicettaDaoJDBC(DatabaseJDBC.getInstance().getConnection());
+                }
+            }
+        }
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM ricetta WHERE codicericetta = ? AND emailutente=?");
+        preparedStatement.setString(1, codiceRicetta);
+        preparedStatement.setString(2,emailutente);
+
+        try (ResultSet resultSet = preparedStatement.executeQuery()) {
+            if (resultSet.next()) {
+                int count = resultSet.getInt(1);
+
+                if(count>0){
+                    return true;
                 }
             }
         }

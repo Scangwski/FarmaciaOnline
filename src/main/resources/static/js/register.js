@@ -60,7 +60,7 @@ function iscriviUtente() {
                 contentType: "application/json",
                 data: JSON.stringify(utente),
                 success: function () {
-                    alert("Ricetta inserita con successo!");
+                    alert("Registrazione avvenuta con successo!");
                     var messageContainer = document.createElement("div");
                     messageContainer.id = "message_container";
                     messageContainer.className = "alert alert-primary d-flex align-items-center mb-3";
