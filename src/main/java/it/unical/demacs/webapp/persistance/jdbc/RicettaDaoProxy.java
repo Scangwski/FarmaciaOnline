@@ -31,12 +31,12 @@ public class RicettaDaoProxy implements RicettaDao {
 
     @Override
     public boolean codiceGiaPresente(String emailutente, String codiceRicetta) throws SQLException {
-        return false;
+        return ricettaDao.codiceGiaPresente(emailutente,codiceRicetta);
     }
 
     @Override
     public boolean isValidFormat(String codiceRicetta) {
-        return false;
+       return ricettaDao.isValidFormat(codiceRicetta);
     }
 
 

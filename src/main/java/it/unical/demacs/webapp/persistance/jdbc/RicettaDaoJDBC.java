@@ -30,16 +30,20 @@ public class RicettaDaoJDBC implements RicettaDao {
     @Override
     public boolean codiceGiaPresente(String emailutente,String codiceRicetta) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM ricetta WHERE codicericetta = ? AND emailutente=?");
-        preparedStatement.setString(1, emailutente);
-        preparedStatement.setString(2,codiceRicetta);
+        preparedStatement.setString(1, codiceRicetta);
+        preparedStatement.setString(2,emailutente);
+        boolean result = false;
 
         try (ResultSet resultSet = preparedStatement.executeQuery()) {
             if (resultSet.next()) {
                 int count = resultSet.getInt(1);
-                return count > 0;
+                if(count > 0) {
+                   result=true;
+                }
             }
+            return result;
         }
-        return false;
+
     }
    @Override
    public boolean isValidFormat(String codiceRicetta) {
