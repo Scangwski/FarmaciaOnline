@@ -45,6 +45,8 @@ public final class PaginaProdottoController {
 
     @PostMapping("/caricaProdotto")
     public void caricaProdotto(HttpServletResponse res,HttpServletRequest req, @RequestBody String s) throws SQLException{
+        HttpSession session = req.getSession(false);
+        Utente u = (Utente) session.getAttribute("utente");
 
     }
 }
