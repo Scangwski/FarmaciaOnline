@@ -13,43 +13,63 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class NavigationController {
+
+    @GetMapping("/controlloLogin")
+    @ResponseBody
+    public Map<String, Object> checkLoginStatus(HttpServletRequest req){
+        Map<String, Object> response = new HashMap<>();
+        // aggiungo se l'utente è loggato
+        response.put("logged", isLogged(req));
+
+        HttpSession session = req.getSession(false);
+        if(session != null && session.getAttribute("utente") != null) {
+            Utente utente = (Utente) session.getAttribute("utente");
+            // aggiungo il ruolo dell'utente
+            response.put("tipoUtente", utente.getTipoUtente());
+        }
+        return response;
+    }
 
     private boolean isLogged(HttpServletRequest req) {
         HttpSession session = req.getSession(false);
         return (session != null && session.getAttribute("utente") != null);
     }
+
+
     @GetMapping("/registrazione")
     public String regPage() {
-        return "register";
+        return "Register";
     }
 
     @GetMapping("/")
     public String loginPage() {
-        return "login";
+        return "Login";
     }
 
     @GetMapping("/home")
     public String homePage() {
-        return "home";
+        return "Home";
     }
 
     @GetMapping("/paginaProdotto")
     public String prodottoPage()
     {
-        return "paginaprodotto";
+        return "PaginaProdotto";
     }
 
     @GetMapping("/inventario")
     public String inventarioPage() {
-        return "inventario";
+        return "Inventario";
     }
 
     @GetMapping("/PaginaProdotti")
     public String prodottipage(){
-        return "paginaprodotti";
+        return "PaginaProdotti";
     }
 
     @GetMapping("/paginautente")
@@ -59,12 +79,12 @@ public class NavigationController {
 
     @GetMapping("/recuperapassword")
     public String recuperapassword(){
-        return "recuperapassword";
+        return "RecuperaPassword";
     }
 
     @GetMapping("/carrello")
     public String apriCarrello(){
-        return "carrello";
+        return "Carrello";
     }
 
 }

@@ -25,8 +25,6 @@ public class RicercaFiltroProdottiController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
         }
-
-
     }
 
 }
