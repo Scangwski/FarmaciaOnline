@@ -16,10 +16,14 @@ public class RicettaDaoJDBC implements RicettaDao {
         if(connection.isClosed() || connection==null)
             return false;
 
-        PreparedStatement p = connection.prepareStatement("INSERT into ricetta VALUES (?,?)");
-        p.setString(1,emailutente);
-        p.setString(2,codiceRicetta);
-        p.executeUpdate();
+        if(isValidFormat(codiceRicetta) && !codiceGiaPresente(emailutente,codiceRicetta)) {
+
+            PreparedStatement p = connection.prepareStatement("INSERT into ricetta VALUES (?,?)");
+            p.setString(1, emailutente);
+            p.setString(2, codiceRicetta);
+            p.executeUpdate();
+            return true;
+        }
         return true;
     }
 
@@ -39,6 +43,7 @@ public class RicettaDaoJDBC implements RicettaDao {
     }
    @Override
    public boolean isValidFormat(String codiceRicetta) {
-        return false;
+       String regex = "^[a-zA-Z]{2}\\d{3}[a-zA-Z]{2}$";
+       return codiceRicetta.matches(regex);
     }
 }

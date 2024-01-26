@@ -35,7 +35,7 @@ public final class PaginaProdottoController {
         }
         System.out.println("Utente recuperato: " + u.getEmail());
 
-        RicettaDaoProxy ricetta = new RicettaDaoProxy(DatabaseJDBC.getInstance().getConnection());
+        RicettaDaoProxy ricetta = new RicettaDaoProxy();
 
         if(ricetta.inserisciRicetta(u.getEmail(),s))
             res.setStatus(SC_OK);
