@@ -48,9 +48,9 @@ public class ProdottoDaoJDBC implements ProdottoDao {
     }
 
     @Override
-    public Prodotto caricaProdotto(Prodotto prodotto) throws SQLException {
+    public Prodotto caricaProdotto(String nomeProdotto) throws SQLException {
             PreparedStatement p = connection.prepareStatement("SELECT* FROM prodotto WHERE nome=?");
-            p.setString(1, prodotto.getNome());
+            p.setString(1, nomeProdotto);
             ResultSet r = p.executeQuery();
             if (r.next())
                 return new Prodotto(r.getString("id"),r.getString("nome"),r.getString("descrizione"),r.getDouble("prezzo"),r.getString("categoria"),r.getInt("quantita"),r.getString("immagine"));

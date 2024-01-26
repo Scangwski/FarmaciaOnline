@@ -8,6 +8,8 @@ window.addEventListener("click",function (){
 function Ricetta(codicericetta){
     this.codicericetta=codicericetta;
 }
+
+
 function inserisciRicetta() {
     var ricettaValue = document.querySelector("#ricetta").value;
 

@@ -1,5 +1,6 @@
 package it.unical.demacs.webapp.controller;
 
+import it.unical.demacs.webapp.model.Prodotto;
 import it.unical.demacs.webapp.model.Ricetta;
 import it.unical.demacs.webapp.model.Utente;
 import it.unical.demacs.webapp.persistance.RicettaDao;
@@ -44,9 +45,18 @@ public final class PaginaProdottoController {
     }
 
     @PostMapping("/caricaProdotto")
-    public void caricaProdotto(HttpServletResponse res,HttpServletRequest req, @RequestBody String s) throws SQLException{
+    public Prodotto caricaProdotto(HttpServletResponse res,HttpServletRequest req, @RequestBody String nomeProdotto) throws SQLException{
         HttpSession session = req.getSession(false);
         Utente u = (Utente) session.getAttribute("utente");
+        nomeProdotto=nomeProdotto.replaceAll("\"","");
+        Prodotto p=DatabaseJDBC.getInstance().getProdottoDao().caricaProdotto(nomeProdotto);
+        if(p!=null)
+            res.setStatus(HttpServletResponse.SC_OK);
+        else
+            res.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
+
+        return p;
 
     }
 }
+
