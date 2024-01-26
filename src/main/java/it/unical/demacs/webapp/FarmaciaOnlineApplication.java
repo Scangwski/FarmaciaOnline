@@ -17,6 +17,6 @@ import java.sql.SQLException;
 @SpringBootApplication
 public class FarmaciaOnlineApplication {
 
-	public static void main(String[] args) throws SQLException {SpringApplication.run(FarmaciaOnlineApplication.class, args);}
-
+	public static void main(String[] args) throws SQLException {
+		SpringApplication.run(FarmaciaOnlineApplication.class, args);}
 }

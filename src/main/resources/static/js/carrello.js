@@ -6,7 +6,6 @@ function caricaCarrello()
             url:"/caricaCarrello",
             success:function(carrello)
             {
-                alert("nessun carrello");
                 var index=0;
                 while(index!==carrello.length)
                 {
@@ -16,7 +15,7 @@ function caricaCarrello()
                             type:"POST",
                             url:"/caricaProdotto",
                             contentType: "application/json",
-                            data: JSON.stringify(carrello[index++].nome),
+                            data: JSON.stringify(carrello[index++].prodotti),
                             success:function (prodotto)
                             {
                                 $("#articolo_qui").append(creaCarrello(prodotto,qnt));
@@ -26,35 +25,43 @@ function caricaCarrello()
             }
         })
 }
+
 let totale=0;
 function creaCarrello(prodotto,qnt)
 {
     let doc=document.createElement("div");
-
     totale=totale+prodotto.prezzo*qnt;
     doc.innerHTML="<hr class=\"my-4\">\n" +
-        "                                    <div class=\"row mb-4 d-flex justify-content-between align-items-center\">\n" +
-        "                                        <div class=\"col-md-2 col-lg-2 col-xl-2\">\n" +
-        "                                            <img\n" +
-        "                                                    src='"+prodotto.immagini+"'\n" +
-        "                                                    class=\"img-fluid rounded-3\" alt=\"Cotton T-shirt\">\n" +
-        "                                        </div>\n" +
-        "                                        <div class=\"col-md-3 col-lg-3 col-xl-3\">\n" +
-        "                                            <h6 class=\"text-black mb-0\">"+prodotto.nome+"</h6>\n" +
-        "                                        </div>\n" +
-        "                                        <div class=\"col-md-3 col-lg-3 col-xl-2 d-flex\">\n" +
-        "                                            <input readonly value="+qnt+"\n" +
-        "                                                   class=\"form-control form-control-sm\" />\n" +
-        "                                        </div>\n"+
-        "                                        <div class=\"col-md-3 col-lg-2 col-xl-2 offset-lg-1\">\n" +
-        "                                            <h6 class=\"mb-0\">&euro;"+parseFloat(prodotto.prezzo*qnt).toFixed(2)+"</h6>\n" +
-        "                                        </div>\n" +
-        "                                        <div class=\"col-md-2 col-lg-2 col-xl-2 text-end\">\n" +
-        "                                            <a> <button onclick=eliminaArticolo("+ '"' + prodotto.nome + '"' + ")" + " type=\"button\" class=\"btn btn-outline-dark\">Rimuovi</button></a>\n" +
+        "                                    <div class=\"prodotto\">\n" +
+        "                                        <img\n"  + "src='"+ prodotto.immagini +"'\n" +
+        "                                        <div class=\"info\">\n" +
+        "                                            <span>" +
+        "                                                      "+prodotto.nome+"</span>\n" +
+        "                                            <div class=\"countereprezzo\">\n" +
+        "                                                <div class=\"counter\">\n" +
+        "                                                    <div class=\"meno\">\n" +
+        "                                                        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\">\n" +
+        "                                                            <path d=\"M16.6668 10H3.3335\" stroke=\"#F7F6F0\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n" +
+        "                                                        </svg>\n" +
+        "                                                    </div>\n" +
+        "                                                    <div class=\"numero\">\n" +
+        "                                                        <span id=\"counterValue\">1</span>\n" +
+        "                                                    </div>\n" +
+        "                                                    <div class=\"piu\">\n" +
+        "                                                        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\">\n" +
+        "                                                            <path d=\"M10.0002 3.3335V16.6668M16.6668 10.0002H3.3335\" stroke=\"#F7F6F0\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n" +
+        "                                                        </svg>\n" +
+        "                                                    </div>\n" +
+        "                                                </div>\n" +
+        "                                                    <div class=\"prezzo\">\n" +
+        "                                                        <span class=\"t1\"></span>\n" +
+        "                                                        <span class=\"P\">"+prodotto.prezzo+"€</span>\n" +
+        "                                                    </div>\n" +
+        "                                                </div>\n" +
+        "                                            </div>\n" +
         "                                        </div>\n" +
         "                                    </div>\n" +
         "                                    <hr class=\"my-4\">";
-    document.getElementById("totale").innerText=parseFloat(totale).toFixed(2);
     return doc;
 }
 

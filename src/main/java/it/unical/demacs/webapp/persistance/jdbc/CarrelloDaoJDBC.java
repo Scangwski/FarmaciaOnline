@@ -73,7 +73,7 @@ public class CarrelloDaoJDBC implements CarrelloDao {
         ArrayList<Carrello> contenuto=new ArrayList<>();
 
         while(r.next())
-            contenuto.add(new Carrello(r.getString("nomeprodotto"),r.getString("emailUtente"),r.getInt("quantita"),r.getDouble("prezzoTotale")));
+            contenuto.add(new Carrello(r.getString("prodotti"),r.getString("emailUtente"),r.getInt("quantita"),r.getDouble("prezzoTotale")));
 
         return contenuto;
 

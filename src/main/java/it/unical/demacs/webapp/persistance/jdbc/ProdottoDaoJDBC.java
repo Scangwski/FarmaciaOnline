@@ -53,7 +53,7 @@ public class ProdottoDaoJDBC implements ProdottoDao {
             p.setString(1, nomeProdotto);
             ResultSet r = p.executeQuery();
             if (r.next())
-                return new Prodotto(r.getString("id"),r.getString("nome"),r.getString("descrizione"),r.getDouble("prezzo"),r.getString("categoria"),r.getInt("quantita"),r.getString("immagine"));
+                return new Prodotto(r.getString("id"),r.getString("nome"),r.getString("descrizione"),r.getDouble("prezzo"),r.getString("categoria"),r.getInt("quantita"),"immagine");
             return null;
     }
 
