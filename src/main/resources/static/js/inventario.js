@@ -8,6 +8,7 @@ function creaProdotto() {
 
     var prezzoProdottoString = document.getElementById('prezzoProdotto').value;
     var prezzoProdotto = parseFloat(prezzoProdottoString.replace(',', '.'));
+    // check di prezzo
     if (isNaN(prezzoProdotto)) {
         alert("prezzo inserito non valido!");
     }
