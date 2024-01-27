@@ -1,6 +1,6 @@
 document.getElementById('inventario').addEventListener('click', function () {
     checkLoginStatus().then(function(response) {
-        if (response.tipoUtente === 'farmacista') {
+        if (response.tipoUtente === 'Farmacista') {
             // consenti accesso a GestisciInventario
             window.location.href = '/inventario'
         }
