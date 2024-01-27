@@ -2,6 +2,11 @@
 document.getElementById("homeButton").addEventListener("click", function (){
     window.location.href = '/home';
 });
+
+document.getElementById("carr").addEventListener("click",function (){
+    window.location.href='/carrello';
+})
+
 window.addEventListener("click",function (){
     document.getElementById("ricettaButton").addEventListener("click", inserisciRicetta);
 });
@@ -9,6 +14,14 @@ function Ricetta(codicericetta){
     this.codicericetta=codicericetta;
 }
 
+var prodottoSelezionato = JSON.parse(localStorage.getItem('prodottoSelezionato'));
+console.log(prodottoSelezionato);
+
+function caricaProdotto(){
+    var nome= document.getElementById("nome").innerText=prodottoSelezionato.nome;
+    var descrizione=document.getElementById("descrizione").innerText=prodottoSelezionato.descrizione;
+    var prezzo= document.getElementById("prezzo").innerText=prodottoSelezionato.prezzo +"€";
+}
 
 function inserisciRicetta() {
     var ricettaValue = document.querySelector("#ricetta").value;
@@ -67,4 +80,20 @@ function inviaRecensione() {
             alert("Errore durante l'invio della recensione. Stato: " + status + ", Errore: " + error);
         }
     });
+}
+
+function aggiungiNelCarrello(nomeProdotto)
+{
+    console.log();
+    $.ajax(
+        {
+            type:"POST",
+            url:"/aggiungiNelCarrello",
+            contentType: "application/json",
+            data: JSON.stringify(prodottoSelezionato.nome),
+            success: function()
+            {
+                alert("Prodotto correttamente aggiunto nel carrello!");
+            }
+        })
 }

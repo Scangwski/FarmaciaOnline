@@ -15,14 +15,14 @@ public class CarrelloDaoJDBC implements CarrelloDao {
     Connection connection;
     public CarrelloDaoJDBC(Connection connection){this.connection=connection;}
     @Override
-    public boolean inserisciNelCarrello(Utente utente, Prodotto prodotto) throws SQLException
+    public boolean inserisciNelCarrello(String emailUtente, String nomeProdotto) throws SQLException
     {
         if(connection.isClosed() || connection==null)
             return false;
 
         PreparedStatement p=connection.prepareStatement("SELECT* FROM carrello where emailutente=? AND prodotti=?");
-        p.setString(1,utente.getEmail());
-        p.setString(2,prodotto.getNome());
+        p.setString(1,emailUtente);
+        p.setString(2,nomeProdotto);
         ResultSet r=p.executeQuery();
 
         if(r.next())
@@ -32,8 +32,8 @@ public class CarrelloDaoJDBC implements CarrelloDao {
 
             p=connection.prepareStatement("UPDATE carrello SET quantita=? WHERE emailutente=? AND prodotti=?");
             p.setInt(1,q);
-            p.setString(2,utente.getEmail());
-            p.setString(3,prodotto.getNome());
+            p.setString(2,emailUtente);
+            p.setString(3,nomeProdotto);
             p.executeUpdate();
             return true;
         }
@@ -41,22 +41,22 @@ public class CarrelloDaoJDBC implements CarrelloDao {
         if(r.next())
         {
             double q=r.getDouble("prezzototale");
-            q= q +prodotto.getPrezzo();
+            q++;
 
             p=connection.prepareStatement("UPDATE carrello SET prezzototale=? WHERE emailutente=? AND prodotti=?");
             p.setDouble(1,q);
-            p.setString(2,utente.getEmail());
-            p.setString(3,prodotto.getNome());
+            p.setString(2,emailUtente);
+            p.setString(3,nomeProdotto);
             p.executeUpdate();
             return true;
         }
 
 
         p=connection.prepareStatement("INSERT INTO carrello VALUES(?,?,?,?)");
-        p.setString(1, prodotto.getNome());
-        p.setString(2,utente.getEmail());
+        p.setString(1,nomeProdotto);
+        p.setString(2,emailUtente);
         p.setInt(3,1);
-        p.setDouble(4,prodotto.getPrezzo());
+        p.setDouble(4,10);
 
         p.executeUpdate();
 

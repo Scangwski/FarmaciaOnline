@@ -20,6 +20,16 @@ import static jakarta.servlet.http.HttpServletResponse.SC_SERVICE_UNAVAILABLE;
 @RestController
 public class CarrelloController {
 
+    @PostMapping("/aggiungiNelCarrello")
+    public void aggiungiNelCarrello(HttpServletResponse res,HttpServletRequest req, @RequestBody String nomeProdotto) throws SQLException
+    {
+        Utente u = (Utente) req.getSession().getAttribute("utente");
+        if(DatabaseJDBC.getInstance().getCarrelloDao().inserisciNelCarrello(u.getEmail(),nomeProdotto.replaceAll("\"","")))
+            res.setStatus(HttpServletResponse.SC_OK);
+        else
+            res.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
+    }
+
 
     @PostMapping("/caricaCarrello")
     public ArrayList<Carrello> caricaCarrello(HttpServletRequest req,HttpServletResponse res) throws SQLException

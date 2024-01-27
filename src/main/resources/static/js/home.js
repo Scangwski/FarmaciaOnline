@@ -10,20 +10,6 @@ document.getElementById('loginButton').addEventListener('click', function () {
     });
 });
 
-document.getElementById('tachipirina').addEventListener('click', function() {
-    window.location.href = '/paginaProdotto';
-});
-document.getElementById('oki').addEventListener('click', function() {
-    window.location.href = '/paginaProdotto';
-});
-document.getElementById('brufen').addEventListener('click', function() {
-    window.location.href = '/paginaProdotto';
-});
-
-document.getElementById('pampers').addEventListener('click', function() {
-    window.location.href = '/paginaProdotto';
-});
-
 
 function checkLoginStatus() {
     return fetch('/controlloLogin')
@@ -41,3 +27,45 @@ function checkLoginStatus() {
             throw error; // Rilancia l'errore per consentire la gestione in altre parti del codice, se necessario
         });
 }
+
+function caricaProdotto(nome){
+    $.ajax(
+        {
+            type:"POST",
+            url:"/caricaProdotto",
+            contentType: "application/json",
+            data: JSON.stringify(nome),
+            success:function (prodotto)
+            {
+                localStorage.setItem('prodottoSelezionato', JSON.stringify(prodotto));
+                console.log(prodotto);
+                window.location.href = '/paginaProdotto';
+            }
+        })
+}
+
+
+
+
+document.getElementById("carr").addEventListener("click",function (){
+    window.location.href='/carrello';
+})
+
+document.getElementById("tachipirina").addEventListener("click",function (){
+    caricaProdotto(document.getElementById("nometachi").innerText);
+});
+
+
+document.getElementById("brufen").addEventListener("click", function (){
+   caricaProdotto(document.getElementById("nomebrufen").innerText );
+
+});
+
+
+document.getElementById("oki").addEventListener("click", function (){
+    caricaProdotto(document.getElementById("nomeoki").innerText);
+});
+
+document.getElementById("pampers").addEventListener("click", function (){
+    caricaProdotto(document.getElementById("nomepamp").innerText);
+});

@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" th:href="@{/css/Generali.css}" />
     <link rel="stylesheet" th:href="@{/css/Home.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
@@ -47,7 +48,7 @@
                         <path d="M17.5 37.1667C18.8807 37.1667 20 36.0475 20 34.6667C20 33.286 18.8807 32.1667 17.5 32.1667C16.1193 32.1667 15 33.286 15 34.6667C15 36.0475 16.1193 37.1667 17.5 37.1667Z" stroke="#2A332E" stroke-width="1.5"/>
                         <path d="M29.1665 37.1667C30.5472 37.1667 31.6665 36.0475 31.6665 34.6667C31.6665 33.286 30.5472 32.1667 29.1665 32.1667C27.7858 32.1667 26.6665 33.286 26.6665 34.6667C26.6665 36.0475 27.7858 37.1667 29.1665 37.1667Z" stroke="#2A332E" stroke-width="1.5"/>
                     </svg>
-                    <span>Carrello</span>
+                    <span id ="carr">Carrello</span>
                 </div>
                 <div class="boxicon" id="loginButton">
 
@@ -105,36 +106,28 @@
             <div class="pevidenza">
                 <span>Prodotti in evidenza</span>
                 <div class="prodotto" id="tachipirina">
-                    <div class="cifrasconto">
-                        <span>-15%</span>
-                    </div>
                     <div class="immaginetesto">
                         <div class="immagine">
                             <img th:src="@{/tachi.webp}">
                         </div>
-                        <span>Tachipirina 500mg</span>
+                        <span id ="nometachi">Tachipirina</span>
                     </div>
                     <div class="prezzoecarrello">
                         <div class="prezzo">
-                            <span class="span1">10€</span>
-                            <span class="span2">8,80€</span>
+                            <span class="span2">6.99€</span>
                         </div>
                     </div>
                 </div>
                 <div class="prodotto" id="oki">
-                    <div class="cifrasconto">
-                        <span>-15%</span>
-                    </div>
                     <div class="immaginetesto">
                         <div class="immagine">
                             <img th:src="@{/oki.webp}">
                         </div>
-                        <span>Oki 160mg</span>
+                        <span id ="nomeoki">Oki</span>
                     </div>
                     <div class="prezzoecarrello">
                         <div class="prezzo">
-                            <span class="span1">5€</span>
-                            <span class="span2">3,75€</span>
+                            <span class="span2">5.79€</span>
                         </div>
                     </div>
                 </div>
@@ -143,28 +136,24 @@
                         <div class="immagine">
                             <img th:src="@{/brufen.webp}">
                         </div>
-                        <span>Brufen 200mg</span>
+                        <span id ="nomebrufen">Brufen</span>
                     </div>
                     <div class="prezzoecarrello">
                         <div class="prezzo">
-                            <span class="span2">8€</span>
+                            <span class="span2">9.49€</span>
                         </div>
                     </div>
                 </div>
                 <div class="prodotto" id="pampers">
-                    <div class="cifrasconto">
-                        <span>-15%</span>
-                    </div>
                     <div class="immaginetesto">
                         <div class="immagine">
                             <img th:src="@{/pampers.webp}">
                         </div>
-                        <span>Pampers Pannolini</span>
+                        <span id ="nomepamp">Pampers</span>
                     </div>
                     <div class="prezzoecarrello">
                         <div class="prezzo">
-                            <span class="span1">11,99€</span>
-                            <span class="span2">10,80€</span>
+                            <span class="span2">4.99€</span>
                         </div>
                     </div>
                 </div>
