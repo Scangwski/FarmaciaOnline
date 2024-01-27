@@ -6,9 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>EFarm</title>
-    <script src="../static/js/menulaterale.js"></script>
-    <script src="../static/js/counter.js"></script>
-    <script src="../static/js/Counter2.js"></script>
+
 </head>
 <body>
     <div id="menuContent" class="menuContent">
@@ -66,7 +64,7 @@
                     <input type="search" placeholder="Cerca...">
                 </div>
                 <div class="icone">
-                    <div class="boxicon">
+                    <div class="boxicon" id="carr">
                         <div class="counter">
                             <span>0</span>
                         </div>
@@ -79,7 +77,7 @@
                         </svg>
                         <span>Carrello</span>
                     </div>
-                    <div class="boxicon">
+                    <div class="boxicon" id="loginButton">
                         <div class="immagine">
                             <img src="img2.jpg">
                         </div>
@@ -171,4 +169,8 @@
         </div>
     </div>
 </body>
+<script th:src="@{/js/home.js}"></script>
+<script th:src="@{/js/menulaterale.js}"></script>
+<script th:src="@{/js/counter.js}"></script>
+<script th:src="@{/js/Counter2.js}"></script>
 </html>
