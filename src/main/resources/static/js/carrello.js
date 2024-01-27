@@ -31,6 +31,7 @@ function creaCarrello(prodotto,qnt)
 {
     let doc=document.createElement("div");
     totale=totale+prodotto.prezzo*qnt;
+    totale1=totale+4,99;
     doc.innerHTML="<hr class=\"my-4\">\n" +
         "                                    <div class=\"prodotto\">\n" +
         "                                        <img\n"  + "src='"+ prodotto.immagini +"'\n" +
@@ -62,6 +63,12 @@ function creaCarrello(prodotto,qnt)
         "                                        </div>\n" +
         "                                    </div>\n" +
         "                                    <hr class=\"my-4\">";
+    document.getElementById("totale").innerText=parseFloat(totale).toFixed(2)+"€";
+    document.getElementById("totale1").innerText=parseFloat(totale1).toFixed(2) +"€";
+    if(totale1>25){
+        document.getElementById("spedizione").innerText="Gratis(>25€)"
+        document.getElementById("totale").innerText=parseFloat(totale1).toFixed(2) +"€";
+    }
     return doc;
 }
 
