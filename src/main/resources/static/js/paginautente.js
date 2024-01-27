@@ -14,7 +14,6 @@ document.getElementById('inventario').addEventListener('click', function () {
     });
 });
 
-
 function checkLoginStatus() {
     return fetch('/controlloLogin')
         .then(response => {
@@ -30,5 +29,7 @@ function checkLoginStatus() {
             console.error('Errore durante la verifica dello stato di accesso:', error);
             throw error;
         });
+
+
 }
 

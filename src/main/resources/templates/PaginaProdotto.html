@@ -13,7 +13,7 @@
     <script src="../static/js/menulaterale.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body>
+<body onload=caricaProdotto()>
     <div class="content">
         <div id="menuContent" class="menuContent">
             <div class="opzioni">
@@ -80,7 +80,7 @@
                             <path d="M17.5 37.1667C18.8807 37.1667 20 36.0475 20 34.6667C20 33.286 18.8807 32.1667 17.5 32.1667C16.1193 32.1667 15 33.286 15 34.6667C15 36.0475 16.1193 37.1667 17.5 37.1667Z" stroke="#2A332E" stroke-width="1.5"/>
                             <path d="M29.1665 37.1667C30.5472 37.1667 31.6665 36.0475 31.6665 34.6667C31.6665 33.286 30.5472 32.1667 29.1665 32.1667C27.7858 32.1667 26.6665 33.286 26.6665 34.6667C26.6665 36.0475 27.7858 37.1667 29.1665 37.1667Z" stroke="#2A332E" stroke-width="1.5"/>
                         </svg>
-                        <span>Carrello</span>
+                        <span id="carr">Carrello</span>
                     </div>
                     <div class="boxicon">
                         <div class="immagine">
@@ -107,18 +107,17 @@
                 </div>
                 <div class="testoeaggiuntacarrello">
                     <div class="titolo">
-                        <span>Vichy Minéral 89 Crema Leggera Booster Idratazione 72 ore 50 ml</span>
+                        <span id="nome"></span>
                     </div>
-                    <div class="descrizione">
-                        <span>Prova la crema Booster Idratazione 72 Vichy Minéral 89. La sua applicazione aiuta ad idratare in profondità la cute donandogli un aspetto più luminoso e rimpolpato.</span>
+                    <div class="descrizione" >
+                        <span id="descrizione"></span>
                     </div>
                     <div class="prezzoecarrello">
                         <div class="prezzoesconto">
                             <div class="prezzo">
-                                <span class="st">29,99€</span>
-                                <span id = prezzo>25,49€</span>
+                                <span id = prezzo></span>
                             </div>
-                            <span id = sconto >Risparmio del 15%</span>
+                            <span id = sconto ></span>
                         </div>
                         <div class="counterecarrello">
                             <div class="counter">
@@ -137,7 +136,7 @@
                                 </div>
                             </div>
                             <div class="bcarrello">
-                                <span>Aggiungi al carrello</span>
+                                <span onclick="aggiungiNelCarrello()">Aggiungi al carrello</span>
                             </div>
                         </div>
                     </div>
