@@ -70,20 +70,14 @@ public class ProdottoDaoJDBC implements ProdottoDao {
     }
 
     public ArrayList<Prodotto> ricercaProdotti(String filtro, String ordinamento) throws SQLException {
-        String query = "SELECT * FROM prodotto WHERE id LIKE ? OR nome LIKE ? OR categoria LIKE ?";
+        String query = "SELECT * FROM prodotto WHERE nome LIKE ? OR prezzo LIKE ? OR sconto LIKE ?";
 
         if (ordinamento != null && !ordinamento.isEmpty()) {
-            if (ordinamento.equalsIgnoreCase("prezzoCrescente")) {
+            if (ordinamento.equalsIgnoreCase("crescente")) {
                 query += " ORDER BY prezzo ASC";
-            } else if (ordinamento.equalsIgnoreCase("prezzoDecrescente")) {
+            } else if (ordinamento.equalsIgnoreCase("decrescente")) {
                 query += " ORDER BY prezzo DESC";
-            } else if (ordinamento.equalsIgnoreCase("alfabeticoCrescente")) {
-                query += " ORDER BY nome ASC";
             }
-            else if (ordinamento.equalsIgnoreCase("alfabeticoDecrescente")) {
-                query += " ORDER BY nome DESC";
-            }
-
         }
 
         PreparedStatement p = connection.prepareStatement(query);

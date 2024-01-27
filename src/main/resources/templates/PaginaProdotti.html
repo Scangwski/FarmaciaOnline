@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <link rel="stylesheet" href="Generali.css">
-    <link rel="stylesheet" href="../static/css/PaginaProdotti.css">
+    <link rel="stylesheet" th:href="@{/css/Generali.css}"/>
+    <link rel="stylesheet" th:href="@{/css/PaginaProdotti.css}"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=100%, initial-scale=1.0">
     <title>EFarm</title>
-    <script src="../static/js/Tendina.js"></script>
-    <script src="../static/js/pagine.js"></script>
-    <script src="../static/js/menulaterale.js"></script>
 </head>
 <body>
     <div class="content">
@@ -66,7 +63,7 @@
                     <input type="search" placeholder="Cerca...">
                 </div>
                 <div class="icone">
-                    <div class="boxicon">
+                    <div class="boxicon" id="carr">
                         <div class="counter">
                             <span>0</span>
                         </div>
@@ -79,7 +76,7 @@
                         </svg>
                         <span>Carrello</span>
                     </div>
-                    <div class="boxicon">
+                    <div class="boxicon" id="loginButton">
                         <div class="immagine">
                             <img src="img2.jpg">
                         </div>
@@ -93,7 +90,7 @@
             </div>             
         </div>
         <div class="corpo">
-            <div class="navigazione">
+            <div class="navigazione" id="home">
                 <span>Home</span>
                 <span>></span>
                 <span class="posizione">Crema viso</span>
@@ -113,13 +110,13 @@
                             <a href="#" data-text="Decrescente">Decrescente</a>
                         </div>
                     </div>
-                    <div class="fil">
+                    <div class="fil" id="nome">
                         <span>Nome</span> 
                     </div>
-                    <div class="fil">
+                    <div class="fil" id="prezzo">
                         <span>Prezzo</span>
                     </div>
-                    <div class="sconto">
+                    <div class="sconto" id="sconto">
                         <span>Sconto</span>
                     </div>
                 </div>
@@ -274,4 +271,10 @@
         </div>
     </div>
 </body>
+
+<script th:src="@{/js/pagine.js}"></script>
+<script th:src="@{/js/home.js}"></script>
+<script th:src="@{/js/Tendina.js}"></script>
+<script th:src="@{/js/menulaterale.js}"></script>
+
 </html>

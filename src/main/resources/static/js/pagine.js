@@ -1,3 +1,77 @@
+document.getElementById('nome').addEventListener('click', function (){
+  setFiltro('nome');
+  ricercaPerFiltro(getFiltro(), getOrdinamento());
+});
+
+document.getElementById('prezzo').addEventListener('click', function (){
+  setFiltro('prezzo');
+  ricercaPerFiltro(getFiltro(), getOrdinamento());
+});
+
+document.getElementById('sconto').addEventListener('click', function (){
+  setFiltro('sconto');
+  ricercaPerFiltro(getFiltro(), getOrdinamento());
+});
+
+// ordinamento di default
+let ordinamentoCorrente = 'crescente';
+let filtroCorrente = undefined;
+function getFiltro() {
+  return filtroCorrente;
+}
+function getOrdinamento() {
+  return ordinamentoCorrente;
+
+}
+function setFiltro(filtro) {
+  filtroCorrente = filtro;
+}
+function setOrdinamento(ordinamento) {
+  ordinamentoCorrente = ordinamento;
+}
+
+
+// utente seleziona crescente o decrescente
+var dropdownItems = document.querySelectorAll('.dropdown-content a');
+dropdownItems.forEach(function(item) {
+  item.addEventListener('click', function() {
+    setOrdinamento(item.getAttribute('data-text').toLowerCase());
+    console.log("cliccato su: " + getOrdinamento());
+    ricercaPerFiltro(getFiltro(), getOrdinamento());
+  });
+});
+
+// funzione chiamata AJAX al server per la ricerca
+function ricercaPerFiltro(filtro, ordinamento) {
+  if(filtro === undefined){
+    alert("seleziona prima: nome, prezzo o sconto");
+  }
+  else {
+    alert("Filtro selezionato: " + filtro + "\nOrdine selezionato: " + ordinamento);
+    return fetch('/ricerca?filtro=' + filtro + '&ordinamento=' + ordinamento, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Errore nella richiesta: ${response.status} - ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          return data;
+        })
+        .catch(error => {
+          console.error('Errore durante la chiamata AJAX:', error);
+          throw error;
+        });
+  }
+}
+
+
+
 let paginaCorrente = 1;
 
 function cambiaPagina(direction) {
