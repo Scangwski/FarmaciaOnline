@@ -700,3 +700,49 @@
     }
     
 }
+
+.aggiuntascorte > .belimina {
+    display: flex;
+    padding: 6px 7px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 5px;
+    background: var(--Scorrimento);
+    position: relative;
+    overflow: hidden;
+}
+
+.belimina::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Sfondo);
+    transition: transform 0.4s, color 0.4s, border 0.4s;
+}
+
+.belimina:hover::before {
+    transform: translateX(100%);
+}
+
+.belimina:hover {
+    border: 1px solid var(--Scorrimento);
+    cursor: pointer;
+}
+
+.belimina > span {
+    color: var(--Sfondo);
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    position: relative;
+}
+
+.belimina:hover span {
+    color: var(--Scorrimento);
+}

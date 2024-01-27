@@ -114,26 +114,40 @@
                     </div>
                 </div>
                 <div class="bscorte">
-                    <span>Aggiungi scorte</span>
+                    <span onclick="aggiuntaScorte()">Aggiungi scorte</span>
+                </div>
+            </div>
+            <div class="aggiuntascorte">
+                <span>Elimina prodotto</span>
+                <div class="campoidecounter">
+                    <div class="campoid">
+                        <input type="text" placeholder="Inserisci ID prodotto da eliminare">
+                    </div>
+                </div>
+                <div class="belimina">
+                    <span onclick="eliminaProdotto()">Elimina prodotto</span>
                 </div>
             </div>
             <div class="aggiuntaprodotto">
                 <span>Aggiungi prodotto</span>
                 <div class="campiprodotto">
                     <div class="idenome">
-                        <div class="id">
+                        <div class="id" id="idProdotto">
                             <input type="text" placeholder="ID prodotto">
                         </div>
-                        <div class="nome">
+                        <div class="nome" id="nomeProdotto">
                             <input type="text" placeholder="Nome prodotto">
                         </div>
                     </div>
-                    <div class="descrizione">
+                    <div class="descrizione" id="descrizioneProdotto">
                         <textarea placeholder="Aggiungi una descrizione del prodotto"></textarea>
                     </div>
                     <div class="categoriaequantita">
-                        <div class="categoria">
+                        <div class="categoria" id="categoriaProdotto">
                             <input type="text" placeholder="Inserisci categoria">
+                        </div>
+                        <div class="categoria" id="prezzoProdotto">
+                            <input type="text" placeholder="Inserisci prezzo">
                         </div>
                         <div class="counter2">
                             <div class="meno2">
@@ -151,8 +165,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="uploadImmagine">
+                        <span for="uploadImmagine">Carica un'immagine:</span>
+                        <input type="file" id="uploadImmagine" class="inputImmagine" accept="image/*">
+                    </div>
                     <div class="bcrea">
-                        <span>Crea prodotto</span>
+                        <span onclick="creaProdotto()">Crea prodotto</span>
                     </div>
                 </div>
             </div>
@@ -169,6 +187,7 @@
         </div>
     </div>
 </body>
+<script th:src="@{/js/inventario.js}"></script>
 <script th:src="@{/js/home.js}"></script>
 <script th:src="@{/js/menulaterale.js}"></script>
 <script th:src="@{/js/counter.js}"></script>
