@@ -121,19 +121,22 @@
                 <span>Aggiungi prodotto</span>
                 <div class="campiprodotto">
                     <div class="idenome">
-                        <div class="id">
+                        <div class="id" id="idProdotto">
                             <input type="text" placeholder="ID prodotto">
                         </div>
-                        <div class="nome">
+                        <div class="nome" id="nomeProdotto">
                             <input type="text" placeholder="Nome prodotto">
                         </div>
                     </div>
-                    <div class="descrizione">
+                    <div class="descrizione" id="descrizioneProdotto">
                         <textarea placeholder="Aggiungi una descrizione del prodotto"></textarea>
                     </div>
                     <div class="categoriaequantita">
-                        <div class="categoria">
+                        <div class="categoria" id="categoriaProdotto">
                             <input type="text" placeholder="Inserisci categoria">
+                        </div>
+                        <div class="categoria" id="prezzoProdotto">
+                            <input type="text" placeholder="Inserisci prezzo">
                         </div>
                         <div class="counter2">
                             <div class="meno2">
@@ -156,7 +159,7 @@
                         <input type="file" id="uploadImmagine" class="inputImmagine" accept="image/*">
                     </div>
                     <div class="bcrea">
-                        <span>Crea prodotto</span>
+                        <span onclick="creaProdotto()">Crea prodotto</span>
                     </div>
                 </div>
             </div>
