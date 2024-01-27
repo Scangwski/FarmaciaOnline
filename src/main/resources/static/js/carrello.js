@@ -29,6 +29,7 @@ function caricaCarrello()
 let totale=0;
 function creaCarrello(prodotto,qnt)
 {
+
     let doc=document.createElement("div");
     cont=1;
     totale=totale+prodotto.prezzo*qnt;
@@ -36,7 +37,7 @@ function creaCarrello(prodotto,qnt)
     doc.innerHTML="<hr class=\"my-4\">\n" +
         "                                    <div class=\"prodotto\">\n" +
         "                                    <a> <button onclick=eliminaArticolo("+ '"' + prodotto.nome + '"' + ")" + " type=\"button\" class=\"btn btn-outline-dark\">✖</button></a>\n" +
-        "                                        <img\n"  + "src='"+ prodotto.immagini +"'\n" +
+        "                                        <img\n"  + "src='"+ prodotto.immagine +"'\n" +
         "                                        <div class=\"info\">\n" +
         "                                            <span>" +
         "                                                      "+prodotto.nome+"</span>\n" +
@@ -119,7 +120,6 @@ function aumento(){
 }
 
 function diminuzione(){
-    var spedizione= 4.99
     var cont = document.getElementById("counterValue");
     var cont1 = parseFloat(cont.innerText);
     if(cont1>1) {

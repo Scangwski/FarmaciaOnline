@@ -21,7 +21,17 @@ function caricaProdotto(){
     var nome= document.getElementById("nome").innerText=prodottoSelezionato.nome;
     var descrizione=document.getElementById("descrizione").innerText=prodottoSelezionato.descrizione;
     var prezzo= document.getElementById("prezzo").innerText=prodottoSelezionato.prezzo +"€";
+    var urlImmagine="oooooooooooooooooaa"
+    var imgElement = document.getElementById("img");
+
+    // Modificare l'URL dell'immagine
+    var nuovoUrl = prodottoSelezionato.immagine;
+    imgElement.setAttribute("src", nuovoUrl);
+
+
+
 }
+
 
 function inserisciRicetta() {
     var ricettaValue = document.querySelector("#ricetta").value;
