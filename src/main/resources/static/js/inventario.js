@@ -1,5 +1,5 @@
 function creaProdotto() {
-
+    //todo completare
     var idProdotto = document.getElementById('idProdotto').value;
 
     var nomeProdotto = document.getElementById('nomeProdotto').value;
@@ -26,6 +26,19 @@ function creaProdotto() {
 }
 
 
+function eliminaProdotto(){
+    alert("sicuro di voler procedere? placeholder");
+    // todo inserire logica
+}
+
+
+function aggiuntaScorte(){
+    alert("Scorte aggiunte! placeholder");
+    // todo inserire logica
+}
+
+
+
 function aggiuntaProdotto(id, nome, descrizione, categoria, immagine) {
 
     fetch('/aggiuntaProdotto', {
@@ -49,3 +62,4 @@ function aggiuntaProdotto(id, nome, descrizione, categoria, immagine) {
             console.error('Errore durante la chiamata al controller:', error);
         });
 }
+
