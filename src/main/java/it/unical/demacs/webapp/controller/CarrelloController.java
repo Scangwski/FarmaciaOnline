@@ -39,10 +39,11 @@ public class CarrelloController {
 
 
     @PostMapping("/eliminaArticolo")
-    public void eliminaArticolo(HttpServletRequest req,@RequestBody Prodotto prodotto) throws SQLException
+    public void eliminaArticolo(HttpServletRequest req,@RequestBody String nomeprodotto) throws SQLException
     {
+        nomeprodotto=nomeprodotto.replaceAll("\"","");
         Utente u=(Utente)req.getSession().getAttribute("utente");
-        DatabaseJDBC.getInstance().getCarrelloDao().eliminaArticolo(u,prodotto);
+        DatabaseJDBC.getInstance().getCarrelloDao().eliminaArticolo(u.getEmail(),nomeprodotto);
     }
 
 }

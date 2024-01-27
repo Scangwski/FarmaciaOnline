@@ -81,11 +81,11 @@ public class CarrelloDaoJDBC implements CarrelloDao {
 
 
     @Override
-    public void eliminaArticolo(Utente utente, Prodotto prodotto) throws SQLException
+    public void eliminaArticolo(String email, String prodotto) throws SQLException
     {
         PreparedStatement p=connection.prepareStatement("DELETE FROM carrello WHERE emailUtente=? AND prodotti=?");
-        p.setString(1,utente.getEmail());
-        p.setString(2, prodotto.getNome());
+        p.setString(1,email);
+        p.setString(2, prodotto);
         p.executeUpdate();
     }
 }
