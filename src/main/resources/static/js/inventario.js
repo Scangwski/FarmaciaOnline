@@ -27,14 +27,31 @@ function creaProdotto() {
 
 
 function eliminaProdotto(){
-    alert("sicuro di voler procedere? placeholder");
-    // todo inserire logica
+    var inputElement = document.querySelector('#eliminaById input');
+    var idProdotto = inputElement.value;
+
+    if(idProdotto === undefined) {
+        alert("inserisci un id");
+    }
+    else {
+        alert("id prodotto preso: " + idProdotto);
+        rimuoviProdotto(idProdotto);
+    }
+
 }
 
 
 function aggiuntaScorte(){
-    alert("Scorte aggiunte! placeholder");
-    // todo inserire logica
+    var inputElement = document.querySelector('#caricaById input');
+    var idProdotto = inputElement.value;
+    if(idProdotto === undefined) {
+        alert("inserisci un id");
+    }
+    else {
+        alert("id prodotto preso: " + idProdotto);
+        caricaScorte(idProdotto);
+    }
+
 }
 
 
@@ -62,4 +79,45 @@ function aggiuntaProdotto(id, nome, descrizione, categoria, immagine) {
             console.error('Errore durante la chiamata al controller:', error);
         });
 }
+
+
+function rimuoviProdotto(id) {
+
+    fetch('/rimuoviProdotto', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Risposta dal controller:', data);
+        })
+        .catch(error => {
+            console.error('Errore durante la chiamata al controller:', error);
+        });
+}
+
+function caricaScorte(id) {
+
+    fetch('/caricaProdotto', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Risposta dal controller:', data);
+        })
+        .catch(error => {
+            console.error('Errore durante la chiamata al controller:', error);
+        });
+}
+
+
 
