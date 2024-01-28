@@ -31,13 +31,11 @@ function creaCarrello(prodotto,qnt)
 {
 
     let doc=document.createElement("div");
-    cont=1;
     totale=totale+prodotto.prezzo*qnt;
-    totale1=totale+4.99;
     doc.innerHTML="<hr class=\"my-4\">\n" +
         "                                    <div class=\"prodotto\">\n" +
-        "                                    <a> <button onclick=eliminaArticolo("+ '"' + prodotto.nome + '"' + ")" + " type=\"button\" class=\"btn btn-outline-dark\">✖</button></a>\n" +
-        "                                        <img\n"  + "src='"+ prodotto.immagine +"'\n" +
+        "                                    <a> <button onclick=eliminaArticolo("+ '"' + prodotto.nome + '"' + ")" + " type=\"button\" > ✖</button></a>\n" +
+        "                                        <img\n"  + "src='"+ prodotto.immagine +"' style='display: block; margin-left: auto; margin-right: auto;'\n" +
         "                                        <div class=\"info\">\n" +
         "                                            <span>" +
         "                                                      "+prodotto.nome+"</span>\n" +
@@ -49,7 +47,7 @@ function creaCarrello(prodotto,qnt)
         "                                                        </svg>\n" +
         "                                                    </div>\n" +
         "                                                    <div class=\"numero\">\n" +
-        "                                                        <span id=\"counterValue\">"+cont+"</span>\n" +
+        "                                                        <span id=\"counterValue\">"+ qnt +"</span>\n" +
         "                                                    </div>\n" +
         "                                                    <div class=\"piu\" onclick=aumento()>\n" +
         "                                                        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\">\n" +
@@ -67,10 +65,15 @@ function creaCarrello(prodotto,qnt)
         "                                    </div>\n" +
         "                                    <hr class=\"my-4\">";
     document.getElementById("totale").innerText=parseFloat(totale).toFixed(2)+"€";
-    document.getElementById("totale1").innerText=parseFloat(totale1).toFixed(2) +"€";
-    if(totale1>25){
-        document.getElementById("spedizione").innerText="Gratis(>25€)"
-        document.getElementById("totale").innerText=parseFloat(totale1).toFixed(2) +"€";
+    if(totale>25) {
+        document.getElementById("totale1").innerText = parseFloat(totale).toFixed(2) + "€";
+        document.getElementById("spedizione").innerText= "Spedizione Gratuita (<25€)";
+    }
+    else{
+        tot= totale + 4.99;
+        document.getElementById("totale1").innerText = parseFloat(tot).toFixed(2) + "€";
+        document.getElementById("spedizione").innerText= "4.99€";
+
     }
     return doc;
 }
@@ -96,25 +99,21 @@ function aumento(){
     cont.innerText = contvero;
 
     var prezzoprodotto=document.getElementById("prezzoprodotto");
-    var prezzoprodotto1=parseFloat(prezzoprodotto.innerText);
+    var prezzoprodotto1=parseFloat(prezzoprodotto.innerText).toFixed(2);
     var prezzoaggiornato=prezzoprodotto1*contvero;
-
-    var totale=document.getElementById("totale").innerText=prezzoaggiornato +"€";
-
-    var totale2 =document.getElementById("totale1");
-    var total3=parseFloat(totale2);
-    if(prezzoaggiornato <=25) {
-        var totaleagg = prezzoaggiornato + 4.99;
-        totale2.innerText=totaleagg +"€"
-        document.getElementById("spedizione").innerText="4.99€"
-
-    }
-    else{
-        var totaleagg=prezzoaggiornato
-        totale2.innerText=totaleagg +"€"
-        document.getElementById("spedizione").innerText="Gratis(>25€)"
+    var prs=parseFloat(prezzoaggiornato).toFixed(2);
+    var total1=document.getElementById("totale").innerText=parseFloat(prs)+"€";
+    if(prezzoaggiornato>25){
+        document.getElementById("spedizione").innerText= "Spedizione Gratuita (<25€)";
+        document.getElementById("totale1").innerText=parseFloat(prezzoaggiornato).toFixed(2)+"€";
+    }else{
+        document.getElementById("spedizione").innerText= "4.99€";
+        var spedizione=prezzoaggiornato+4.99;
+        document.getElementById("totale1").innerText=parseFloat(spedizione).toFixed(2)+"€";
 
     }
+
+
 
 
 }
@@ -125,28 +124,24 @@ function diminuzione(){
     if(cont1>1) {
         var contvero = cont1 - 1;
         cont.innerText = contvero;
-        var prezzoprodotto=document.getElementById("prezzoprodotto");
-        var prezzoprodotto1=parseFloat(prezzoprodotto.innerText);
-        var totale=document.getElementById("totale")
-        var totale1= parseFloat(totale.innerText);
-        var prezzoaggiornato=totale1-prezzoprodotto1;
+        var prezzoprodotto = document.getElementById("prezzoprodotto");
+        var prezzoprodotto1 = parseFloat(prezzoprodotto.innerText).toFixed(2);
+        var totale = document.getElementById("totale")
+        var totale1 = parseFloat(totale.innerText).toFixed(2);
+        var prezzoaggiornato = totale1 - prezzoprodotto1;
+        var prs = parseFloat(prezzoaggiornato).toFixed(2);
 
-        var totale=document.getElementById("totale").innerText=prezzoaggiornato+"€";
+        var totale = document.getElementById("totale").innerText = prs + "€";
 
-        var totale2 =document.getElementById("totale1");
-        var totale3=parseFloat(totale2.innerText);
-        if(prezzoaggiornato <25) {
-            var totaleagg = totale3 - prezzoprodotto1;
-            totale2.innerText=totaleagg +"€";
-            document.getElementById("spedizione").innerText="4.99€";
-
-        }
-        else if(prezzoaggiornato>25){
-            var totaleagg=prezzoaggiornato;
-            totale2.innerText=totaleagg +"€";
-            document.getElementById("spedizione").innerText="Gratis(>25€)";
-
-        }
+       if(prezzoaggiornato>25){
+           document.getElementById("spedizione").innerText= "Spedizione Gratuita (<25€)";
+           document.getElementById("totale1").innerText=parseFloat(prezzoaggiornato).toFixed(2)+"€";
+       }
+       else{
+           document.getElementById("spedizione").innerText= "4.99€";
+           var spedizione=prezzoaggiornato+4.99;
+           document.getElementById("totale1").innerText=parseFloat(spedizione).toFixed(2)+"€";
+       }
 
     }
 
