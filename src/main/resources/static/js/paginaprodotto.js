@@ -23,8 +23,6 @@ function caricaProdotto(){
     var prezzo= document.getElementById("prezzo").innerText=prodottoSelezionato.prezzo +"€";
     var urlImmagine="oooooooooooooooooaa"
     var imgElement = document.getElementById("img");
-
-    // Modificare l'URL dell'immagine
     var nuovoUrl = prodottoSelezionato.immagine;
     imgElement.setAttribute("src", nuovoUrl);
 

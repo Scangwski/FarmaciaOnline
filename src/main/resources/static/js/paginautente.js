@@ -1,3 +1,4 @@
+
 document.getElementById('inventario').addEventListener('click', function () {
     checkLoginStatus().then(function(response) {
         if (response.tipoUtente === 'Farmacista' || response.tipoUtente === 'Admin') {
@@ -121,3 +122,6 @@ function ban(emailUtente) {
             throw error;
         });
 }
+
+
+
