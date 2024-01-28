@@ -1,4 +1,16 @@
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector("#formRecensione form").onsubmit = function(e) {
+        e.preventDefault();
+        inviaRecensione();
+    };
+});
+
+function mostraFormRecensione() {
+    var form = document.getElementById('formRecensione');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+}
+
 document.getElementById("homeButton").addEventListener("click", function (){
     window.location.href = '/home';
 });
@@ -55,26 +67,47 @@ function inserisciRicetta() {
 function inviaRecensione() {
     var commento = document.querySelector("#formRecensione textarea[name='comment']").value;
     var valutazione = document.querySelector("#formRecensione input[name='rating']:checked").value;
+    var nome = document.getElementById("nome").innerText;
 
     if (!commento || !valutazione) {
-        alert("Per favore, compila tutti i campi della recensione.");
+        alert("Per favore, assicurati che tutti i campi siano compilati. ");
         return;
     }
-
-    var recensione = {
-        commento: commento,
-        valutazione: valutazione
-    };
 
     $.ajax({
         url: "/inserisciRecensione",
         type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(recensione),
-        success: function () {
-            alert("Recensione inviata con successo!");
-            // Qui puoi aggiungere codice per pulire il form o aggiornare la pagina
+        contentType: "application/x-www-form-urlencoded",
+        data: {
+            nomeprodotto: nome,
+            descrizione: commento,
+            valutazione: valutazione,
+
         },
+        success: function () {
+                     alert("Recensione inviata con successo!");
+
+                     // Crea un nuovo elemento per la recensione
+                     var nuovaRecensione = document.createElement("div");
+                     nuovaRecensione.className = "recensione";
+
+                     // Aggiungi il commento e la valutazione alla recensione
+                     var testoCommento = document.createElement("p");
+                     testoCommento.textContent = commento;
+                     nuovaRecensione.appendChild(testoCommento);
+
+                     var testoValutazione = document.createElement("p");
+                     testoValutazione.textContent = "Valutazione: " + valutazione;
+                     nuovaRecensione.appendChild(testoValutazione);
+
+                     // Aggiungi la recensione appena creata al container delle recensioni
+                     var containerRecensioni = document.getElementById("containerRecensioni");
+                     containerRecensioni.appendChild(nuovaRecensione);
+
+                     // Pulisci il form dopo l'invio
+                     document.querySelector("#formRecensione textarea[name='comment']").value = "";
+                     document.querySelector("#formRecensione input[name='rating']:checked").checked = false;
+                 },
         error: function (xhr, status, error) {
             // Gestisci gli errori
             alert("Errore durante l'invio della recensione. Stato: " + status + ", Errore: " + error);

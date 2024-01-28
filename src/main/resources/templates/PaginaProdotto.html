@@ -6,11 +6,12 @@
     <link rel="stylesheet" th:href="@{/css/Home.css}" />
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width= , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
     <title>EFarm</title>
     <script src="../static/js/immagini.js"></script>
     <script src="../static/js/counter.js"></script>
     <script src="../static/js/menulaterale.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload=caricaProdotto()>
@@ -107,7 +108,7 @@
                 </div>
                 <div class="testoeaggiuntacarrello">
                     <div class="titolo">
-                        <span id="nome"></span>
+                        <span id="nome" value="NomeProdottoQui"></span>
                     </div>
                     <div class="descrizione" >
                         <span id="descrizione"></span>
@@ -222,21 +223,10 @@
             </svg>
             <span>Designed by ****** for web application</span>
         </div>
+
     </div>
 </body>
-<script th:src="@{/js/paginaprodotto.js}"></script>
-<script>
-    function mostraFormRecensione() {
-    var form = document.getElementById('formRecensione');
-    form.style.display = form.style.display === 'none' ? 'block' : 'none';
 
-    // Aggiunge l'event listener al bottone di submit
-    if (form.style.display === 'block') {
-        document.querySelector("#formRecensione form").onsubmit = function(e) {
-            e.preventDefault();
-            inviaRecensione();
-        };
-    }
-}
-</script>
+
+<script th:src="@{/js/paginaprodotto.js}"></script>
 </html>

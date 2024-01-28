@@ -1,11 +1,11 @@
 package it.unical.demacs.webapp.persistance;
 
-import it.unical.demacs.webapp.model.Prodotto;
-import it.unical.demacs.webapp.model.Utente;
+import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
-
+@Repository
 public interface RecensioneDao {
 
-    public boolean aggiungiRecensione(Utente utente, Prodotto prodotto, String descrizione , Integer valutazione) throws SQLException;
+
+    boolean inserisciRecensione(String utente, String prodotto, String descrizione, Integer valutazione) throws SQLException;
 }
