@@ -72,20 +72,24 @@ function aggiuntaScorte(){
 
 
 
-function aggiuntaProdotto(id, nome, descrizione, categoria, immagine) {
+function aggiuntaProdotto(id, nome, descrizione, prezzo, categoria, quantita, immagine) {
+
+    var nuovoProdotto = {
+        id: id,
+        nome: nome,
+        descrizione: descrizione,
+        categoria: categoria,
+        prezzo: prezzo,
+        quantita: quantita,
+        immagine: immagine
+    };
 
     fetch('/aggiuntaProdotto', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            id: id,
-            nome: nome,
-            descrizione: descrizione,
-            categoria: categoria,
-            immagine: immagine
-        }),
+        body: JSON.stringify(nuovoProdotto),
     })
         .then(response => response.json())
         .then(data => {
