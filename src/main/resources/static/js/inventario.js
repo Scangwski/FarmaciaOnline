@@ -21,24 +21,26 @@ function creaProdotto() {
 
     var uploadImmagine = document.getElementById('uploadImmagine').files[0]; // Ottiene il primo file, se ce n'è uno
     var isUpload = false;
-    if(uploadImmagine) {
+    if (uploadImmagine) {
         alert("file immagine preso");
         isUpload = true;
     }
 
     alert("id: " + idProdotto +
-        "\nnome: "+ nomeProdotto +
-        "\ndescrizione "+ descrizioneProdotto +
-        "\nprezzo "+ prezzoProdotto +
-        "\ncategoria "+ categoriaProdotto +
-        "\nquantità "+ quantitaProdotto
+        "\nnome: " + nomeProdotto +
+        "\ndescrizione " + descrizioneProdotto +
+        "\nprezzo " + prezzoProdotto +
+        "\ncategoria " + categoriaProdotto +
+        "\nquantità " + quantitaProdotto
     );
 
-    if(idProdotto === undefined || nomeProdotto === undefined || descrizioneProdotto === undefined || prezzoProdotto === undefined
+    if (idProdotto === undefined || nomeProdotto === undefined || descrizioneProdotto === undefined || prezzoProdotto === undefined
         || categoriaProdotto === undefined || quantitaProdotto === undefined || isUpload === false || isNaN(prezzoProdotto)) {
         alert("completa tutti i campi");
+    } else {
+        aggiuntaProdotto(idProdotto, nomeProdotto, descrizioneProdotto, prezzoProdotto, categoriaProdotto, quantitaProdotto, uploadImmagine)
+
     }
-    aggiuntaProdotto(idProdotto, nomeProdotto, descrizioneProdotto, prezzoProdotto, categoriaProdotto, quantitaProdotto, uploadImmagine)
 }
 
 
