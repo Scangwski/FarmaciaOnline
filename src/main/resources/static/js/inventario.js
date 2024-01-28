@@ -1,34 +1,48 @@
+
 function creaProdotto() {
     //todo completare
-    var idProdotto = document.getElementById('idProdotto').value;
+    var inputId = document.querySelector('#idProdotto input');
+    var idProdotto = inputId.value;
 
-    var nomeProdotto = document.getElementById('nomeProdotto').value;
+    var inputNome = document.querySelector('#nomeProdotto input');
+    var nomeProdotto = inputNome.value;
 
-    var descrizioneProdotto = document.getElementById('descrizioneProdotto').value;
+    //var inputDescr = document.querySelector('#descrizioneProdotto input');
+    //var descrizioneProdotto = inputDescr.value;
 
-    var prezzoProdottoString = document.getElementById('prezzoProdotto').value;
-    var prezzoProdotto = parseFloat(prezzoProdottoString.replace(',', '.'));
-    // check di prezzo
-    if (isNaN(prezzoProdotto)) {
-        alert("prezzo inserito non valido!");
+    var prezzoProdotto = parseFloat(document.querySelector('#prezzoProdotto input').value);
+
+    var inputCategoria = document.querySelector('#categoriaProdotto input');
+    var categoriaProdotto = inputCategoria.value;
+
+    var quantitaProdotto = parseInt(document.querySelector('#counterValue2').innerText);
+
+    var uploadImmagine = document.getElementById('uploadImmagine').files[0]; // Ottiene il primo file, se ce n'è uno
+    var isUpload = false;
+    if(uploadImmagine) {
+        alert("file immagine preso");
+        isUpload = true;
     }
 
-    var categoriaProdotto = document.getElementById('categoriaProdotto').value;
+    alert("id: " + idProdotto +
+        "\nnome: "+ nomeProdotto +
+        "\ndescrizione "+descrizioneProdotto +
+        "\nprezzo "+ prezzoProdotto +
+        "\ncategoria "+ categoriaProdotto +
+        "\nquantità "+ quantitaProdotto
+    );
 
-    var quantitaProdotto = document.getElementById('counterValue2').value;
-
-    var immagineProdotto = document.getElementById('uploadImmagine').value;
-
-
-
-    alert("aggiunti: " + idProdotto+","+ nomeProdotto+","+ descrizioneProdotto+","+ prezzoProdotto+","+ categoriaProdotto+","+ quantitaProdotto+","+ immagineProdotto);
-    //aggiuntaProdotto(idProdotto, nomeProdotto, descrizioneProdotto, prezzoProdotto, categoriaProdotto, quantitaProdotto, immagineProdotto)
+    if(idProdotto === undefined || nomeProdotto === undefined || descrizioneProdotto === undefined || prezzoProdotto === undefined
+        || categoriaProdotto === undefined || quantitaProdotto === undefined || isUpload === false) {
+        alert("completa tutti i campi");
+    }
+    aggiuntaProdotto(idProdotto, nomeProdotto, descrizioneProdotto, prezzoProdotto, categoriaProdotto, quantitaProdotto, uploadImmagine)
 }
 
 
 function eliminaProdotto(){
-    var inputElement = document.querySelector('#eliminaById input');
-    var idProdotto = inputElement.value;
+    var inputId = document.querySelector('#eliminaById input');
+    var idProdotto = inputId.value;
 
     if(idProdotto === undefined) {
         alert("inserisci un id");
