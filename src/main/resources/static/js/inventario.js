@@ -103,13 +103,16 @@ function aggiuntaProdotto(id, nome, descrizione, prezzo, categoria, quantita, im
 
 function rimuoviProdotto(id) {
 
+    var prodotto = {
+        id: id
+    };
+
     fetch('/rimuoviProdotto', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-        }),
+        body: JSON.stringify(prodotto),
     })
         .then(response => response.json())
         .then(data => {
@@ -122,13 +125,16 @@ function rimuoviProdotto(id) {
 
 function caricaScorte(id) {
 
+    var prodotto = {
+        id: id
+    };
+
     fetch('/caricaProdotto', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-        }),
+        body: JSON.stringify(prodotto),
     })
         .then(response => response.json())
         .then(data => {
