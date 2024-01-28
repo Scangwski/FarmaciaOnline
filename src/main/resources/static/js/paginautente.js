@@ -73,8 +73,17 @@ function checkLoginStatus() {
 }
 
 function promuovi(emailUtente) {
-    return fetch(`/promuovi?email=${encodeURIComponent(emailUtente)}`, {
+
+    var utente = {
+        email: emailUtente
+    };
+
+    return fetch(`/promuovi`, {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(utente)
     })
         .then(response => {
             if (!response.ok) {
@@ -83,14 +92,23 @@ function promuovi(emailUtente) {
             return response.json();
         })
         .catch(error => {
-            console.error('Errore durante la promozione:', error);
+            console.error('Errore durante il ban:', error);
             throw error;
         });
 }
 
 function ban(emailUtente) {
-    return fetch(`/espulsione?email=${encodeURIComponent(emailUtente)}`, {
+
+    var utente = {
+        email: emailUtente
+    };
+
+    return fetch(`/espulsione`, {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(utente)
     })
         .then(response => {
             if (!response.ok) {
@@ -99,7 +117,7 @@ function ban(emailUtente) {
             return response.json();
         })
         .catch(error => {
-            console.error('Errore durante la promozione:', error);
+            console.error('Errore durante il ban:', error);
             throw error;
         });
 }
