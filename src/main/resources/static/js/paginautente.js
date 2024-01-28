@@ -1,3 +1,22 @@
+const nomeUtente = checkLoginStatus().then(function (response){
+   return responde.nomeUtente.value;
+});
+const cognomeUtente = checkLoginStatus().then(function (response){
+    return responde.cognomeUtente.value;
+});
+const emailUtente = checkLoginStatus().then(function (response){
+    return responde.emailUtente.value;
+});
+const nomeElement = document.getElementById("nome");
+const cognomeElement = document.getElementById("cognome");
+const emailElement = document.getElementById("email");
+
+nomeElement.textContent = nomeUtente;
+cognomeElement.textContent = cognomeUtente;
+emailElement.textContent = emailUtente;
+
+
+
 
 document.getElementById('inventario').addEventListener('click', function () {
     checkLoginStatus().then(function(response) {
