@@ -28,7 +28,7 @@ function creaProdotto() {
 
     alert("id: " + idProdotto +
         "\nnome: "+ nomeProdotto +
-        "\ndescrizione "+descrizioneProdotto +
+        "\ndescrizione "+ descrizioneProdotto +
         "\nprezzo "+ prezzoProdotto +
         "\ncategoria "+ categoriaProdotto +
         "\nquantità "+ quantitaProdotto
