@@ -17,7 +17,13 @@ document.getElementById('inventario').addEventListener('click', function () {
 document.getElementById('promuoviFarmacista').addEventListener('click', function () {
     checkLoginStatus().then(function(response) {
         if(response.tipoUtente === 'Admin') {
-            promuovi();
+            var emailUtente = document.getElementById('email').value;
+            promuovi(emailUtente).then(function(data) {
+
+                console.log('Risposta dalla promozione:', data);
+            }).catch(function (error) {
+                console.error('Errore durante la promozione:', error);
+            });
         }
         else {
             alert("Non hai i permessi per eseguire questa azione!")
@@ -30,7 +36,13 @@ document.getElementById('promuoviFarmacista').addEventListener('click', function
 document.getElementById('espelliUtente').addEventListener('click', function () {
     checkLoginStatus().then(function(response) {
         if(response.tipoUtente === 'Admin') {
-            ban();
+            var emailUtente = document.getElementById('email').value;
+            ban(emailUtente).then(function(data) {
+
+                console.log('Risposta del ban: ', data);
+            }).catch(function (error) {
+                console.error('Errore durante il ban:', error);
+            });
         }
         else {
             alert("Non hai i permessi per eseguire questa azione!")
@@ -60,41 +72,34 @@ function checkLoginStatus() {
 
 }
 
-function promuovi() {
-    return fetch('/promuovi')
+function promuovi(emailUtente) {
+    return fetch(`/promuovi?email=${encodeURIComponent(emailUtente)}`, {
+        method: 'POST',
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Errore nella richiesta: ${response.status} - ${response.statusText}`);
             }
             return response.json();
         })
-        .then(data => {
-            return data;
-        })
         .catch(error => {
-            console.error('Errore durante la verifica dello stato di accesso:', error);
+            console.error('Errore durante la promozione:', error);
             throw error;
         });
-
-
 }
 
-function ban() {
-    return fetch('/espulsione')
+function ban(emailUtente) {
+    return fetch(`/espulsione?email=${encodeURIComponent(emailUtente)}`, {
+        method: 'POST',
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Errore nella richiesta: ${response.status} - ${response.statusText}`);
             }
             return response.json();
         })
-        .then(data => {
-            return data;
-        })
         .catch(error => {
-            console.error('Errore durante la verifica dello stato di accesso:', error);
+            console.error('Errore durante la promozione:', error);
             throw error;
         });
-
-
 }
-
