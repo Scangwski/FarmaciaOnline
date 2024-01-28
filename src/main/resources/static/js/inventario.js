@@ -10,9 +10,8 @@ function creaProdotto() {
     //var inputDescr = document.querySelector('#descrizioneProdotto input');
     //var descrizioneProdotto = inputDescr.value;
 
-    var prezzoProdotto = parseFloat(document.querySelector('#prezzoProdotto input').value);
-    //var prezzoProdottoString = document.querySelector('#prezzoProdotto input');
-    //var prezzoProdotto = parseFloat(prezzoProdottoString.replace(',', '.'));
+    var prezzoProdottoString = document.querySelector('#prezzoProdotto input').value;
+    var prezzoProdotto = parseFloat(prezzoProdottoString.replace(',', '.'));
 
 
     var inputCategoria = document.querySelector('#categoriaProdotto input');
