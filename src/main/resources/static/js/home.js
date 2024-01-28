@@ -53,22 +53,22 @@ document.getElementById("carr").addEventListener("click",function (){
 
 document.getElementById("tachipirina").addEventListener("click",function (){
     caricaProdotto(document.getElementById("nometachi").innerText);
-    window.location.href='/PaginaProdotti';
+
 });
 
 
 document.getElementById("brufen").addEventListener("click", function (){
    caricaProdotto(document.getElementById("nomebrufen").innerText );
-    window.location.href='/PaginaProdotti';
+
 });
 
 
 document.getElementById("oki").addEventListener("click", function (){
     caricaProdotto(document.getElementById("nomeoki").innerText);
-    window.location.href='/PaginaProdotti';
+
 });
 
 document.getElementById("pampers").addEventListener("click", function (){
     caricaProdotto(document.getElementById("nomepamp").innerText);
-    window.location.href='/PaginaProdotti';
+
 });
