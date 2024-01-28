@@ -51,12 +51,15 @@ function inserisciRicetta() {
                 var sconto= document.getElementById("sconto");
                 prezzo.innerText="0€"
                 sconto.innerText="Risparmio del 100% (Ricetta)"
+                prodottoSelezionato.prezzo=0;
+                localStorage.setItem('prodottoSelezionato', JSON.stringify(prodottoSelezionato));
                 alert("Ricetta inserita con successo!");
             },
             error: function (xhr, status, error) {
                 // Gestisci gli errori
                 alert("Codice non valido o gia usato!");
             },
+
         });
 }
 
@@ -90,7 +93,7 @@ function inviaRecensione() {
     });
 }
 
-function aggiungiNelCarrello(nomeProdotto)
+function aggiungiNelCarrello()
 {
     console.log();
     $.ajax(
@@ -101,7 +104,40 @@ function aggiungiNelCarrello(nomeProdotto)
             data: JSON.stringify(prodottoSelezionato.nome),
             success: function()
             {
-                alert("Prodotto correttamente aggiunto nel carrello!");
+                if(prodottoSelezionato.prezzo==0){
+                    aggiornaPrezzo();
+                    alert("Prodotto azzerato correttamente aggiunto nel carrello!");
+
+                }
+                else{
+                    alert("Prodotto correttamente aggiunto nel carrello!");
+                }
+
+            }
+        })
+}
+function Carrello(prodotti,emailUtente,quantita, prezzoTotale) {
+    this.prodotti = prodotti;
+    this.emailUtente=emailUtente;
+    this.quantita=quantita;
+    this.prezzoTotale = prezzoTotale;
+}
+
+function aggiornaPrezzo(){
+    var nome= prodottoSelezionato.nome;
+    var prezzo= prodottoSelezionato.prezzo;
+    var carrello= new Carrello(nome,null,1,prezzo);
+    console.log(carrello)
+
+    $.ajax(
+        {
+            type:"POST",
+            url:"/aggiornaPrezzo",
+            contentType: "application/json",
+            data: JSON.stringify(carrello),
+            success: function()
+            {
+
             }
         })
 }

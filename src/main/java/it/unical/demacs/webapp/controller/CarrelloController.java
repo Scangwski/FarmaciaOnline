@@ -30,6 +30,17 @@ public class CarrelloController {
             res.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
     }
 
+    @PostMapping("/aggiornaPrezzo")
+    public void aggiornaPrezzo(HttpServletResponse res, HttpServletRequest req, @RequestBody Carrello carrello) throws SQLException {
+        Utente u = (Utente) req.getSession().getAttribute("utente");
+
+        if(DatabaseJDBC.getInstance().getCarrelloDao().aggiornaPrezzo(u.getEmail(),carrello.getProdotti(),carrello.getPrezzoTotale()))
+            res.setStatus(HttpServletResponse.SC_OK);
+        else
+            res.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
+
+    }
+
 
     @PostMapping("/caricaCarrello")
     public ArrayList<Carrello> caricaCarrello(HttpServletRequest req,HttpServletResponse res) throws SQLException

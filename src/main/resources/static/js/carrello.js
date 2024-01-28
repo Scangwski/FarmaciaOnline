@@ -7,9 +7,11 @@ function caricaCarrello()
             success:function(carrello)
             {
                 var index=0;
+                var prezzoSelezionato = prodottoSelezionato.prezzo;
                 while(index!==carrello.length)
                 {
                     let qnt=carrello[index].quantita;
+                    let prezzo=carrello[index].prezzoTotale;
                     $.ajax(
                         {
                             type:"POST",
@@ -18,21 +20,23 @@ function caricaCarrello()
                             data: JSON.stringify(carrello[index++].prodotti),
                             success:function (prodotto)
                             {
-                                $("#articolo_qui").append(creaCarrello(prodotto,qnt));
+                                $("#articolo_qui").append(creaCarrello(prodotto,qnt,prezzo));
                             }
                         })
                 }
             }
         })
 }
+var prodottoSelezionato = JSON.parse(localStorage.getItem('prodottoSelezionato'));
+console.log(prodottoSelezionato);
 
 let totale=0;
-let contatoreElementi = 0;  // Contatore per rendere gli ID univoci
+let contatoreElementi = 0;
 
-function creaCarrello(prodotto, qnt) {
-    contatoreElementi++;  // Incrementa il contatore per ottenere un ID univoco
+function creaCarrello(prodotto, qnt,prezzo) {
+    contatoreElementi++;
     let doc = document.createElement("div");
-    totale = totale + prodotto.prezzo * qnt;
+    totale = totale + prezzo * qnt;
 
     doc.innerHTML = "<hr class=\"my-4\">\n" +
         "                                    <div class=\"prodotto\">\n" +
@@ -59,7 +63,7 @@ function creaCarrello(prodotto, qnt) {
         "                                                </div>\n" +
         "                                                <div class=\"prezzo\">\n" +
         "                                                    <span class=\"t1\"></span>\n" +
-        "                                                    <span class=\"P\" id='prezzoprodotto_" + contatoreElementi + "'>" + prodotto.prezzo + "€</span>\n" +
+        "                                                    <span class=\"P\" id='prezzoprodotto_" + contatoreElementi + "'>" + prezzo + "€</span>\n" +
         "                                                </div>\n" +
         "                                            </div>\n" +
         "                                        </div>\n" +
@@ -119,18 +123,23 @@ function aumento(cont) {
     var contatore = document.getElementById("counterValue_" + cont);
     var cont1 = parseFloat(contatore.innerText);
     var contvero = cont1 + 1;
-    contatore.innerText = contvero;
 
     var prezzoprodotto = document.getElementById("prezzoprodotto_" + cont);
     var prezzoprodotto1 = parseFloat(prezzoprodotto.innerText).toFixed(2);
-    var prezzoaggiornato = prezzoprodotto1 * contvero;
 
-    aggiornaTotale();
+    // Aggiungi questa condizione per verificare se il prezzo è 0
+    if (prezzoprodotto1 > 0) {
+        contatore.innerText = contvero;
+        var prezzoaggiornato = prezzoprodotto1 * contvero;
+        aggiornaTotale();
+    }
 }
 
 function diminuzione(cont) {
     var contatore = document.getElementById("counterValue_" + cont);
     var cont1 = parseFloat(contatore.innerText);
+
+    // Aggiungi questa condizione per controllare se il contatore è maggiore di 1
     if (cont1 > 1) {
         var contvero = cont1 - 1;
         contatore.innerText = contvero;
@@ -142,5 +151,6 @@ function diminuzione(cont) {
         aggiornaTotale();
     }
 }
+
 
 
