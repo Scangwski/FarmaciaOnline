@@ -15,6 +15,10 @@ document.getElementById("homeButton").addEventListener("click", function (){
     window.location.href = '/home';
 });
 
+document.getElementById("profilobtn").addEventListener("click", function (){
+    window.location.href = '/paginautente';
+});
+
 document.getElementById("carr").addEventListener("click",function (){
     window.location.href='/carrello';
 })

@@ -1,3 +1,11 @@
+document.getElementById('profilobtn').addEventListener('click', function() {
+    window.location.href = '/paginautente';
+    });
+
+document.getElementById('homebtn').addEventListener('click', function() {
+    window.location.href = '/home';
+    });
+
 function caricaCarrello()
 {
     $.ajax(
