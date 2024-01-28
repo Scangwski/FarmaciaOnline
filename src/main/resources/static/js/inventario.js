@@ -47,8 +47,7 @@ function creaProdotto() {
 function eliminaProdotto(){
     var inputId = document.querySelector('#eliminaById input');
     var idProdotto = inputId.value;
-
-    if(idProdotto === undefined) {
+    if(idProdotto === '') {
         alert("inserisci un id");
     }
     else {
@@ -60,14 +59,18 @@ function eliminaProdotto(){
 
 
 function aggiuntaScorte(){
-    var inputElement = document.querySelector('#caricaById input');
-    var idProdotto = inputElement.value;
-    if(idProdotto === undefined) {
+    var inputId = document.querySelector('#caricaById input');
+    var idProdotto = inputId.value;
+    quantitaProdotto = parseInt(document.querySelector('#counterValue').innerText);
+
+
+    if(idProdotto === '') {
         alert("inserisci un id");
     }
     else {
-        alert("id prodotto preso: " + idProdotto);
-        caricaScorte(idProdotto);
+        alert("id prodotto preso: " + idProdotto +
+            "\nquantità prodotto preso: " + quantitaProdotto);
+        caricaScorte(idProdotto, quantitaProdotto);
     }
 
 }
@@ -125,10 +128,11 @@ function rimuoviProdotto(id) {
         });
 }
 
-function caricaScorte(id) {
+function caricaScorte(id, quantita) {
 
     var prodotto = {
-        id: id
+        id: id,
+        quantita: quantita
     };
 
     fetch('/caricaProdotto', {
