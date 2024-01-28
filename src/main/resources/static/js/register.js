@@ -1,5 +1,5 @@
 document.getElementById('loginButton').addEventListener('click', function() {
-    window.location.href = '/login';
+    window.location.href = '/';
 });
 
 window.addEventListener("load", function ()
