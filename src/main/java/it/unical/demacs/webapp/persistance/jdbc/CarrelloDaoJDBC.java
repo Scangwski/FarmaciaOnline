@@ -1,7 +1,6 @@
 package it.unical.demacs.webapp.persistance.jdbc;
 
 import it.unical.demacs.webapp.model.Carrello;
-import it.unical.demacs.webapp.model.Prodotto;
 import it.unical.demacs.webapp.model.Utente;
 import it.unical.demacs.webapp.persistance.CarrelloDao;
 
@@ -15,53 +14,60 @@ public class CarrelloDaoJDBC implements CarrelloDao {
     Connection connection;
     public CarrelloDaoJDBC(Connection connection){this.connection=connection;}
     @Override
-    public boolean inserisciNelCarrello(String emailUtente, String nomeProdotto) throws SQLException
-    {
-        if(connection.isClosed() || connection==null)
+    public boolean inserisciNelCarrello(String emailUtente, String nomeProdotto) throws SQLException {
+        if (connection.isClosed() || connection == null)
             return false;
 
-        PreparedStatement p=connection.prepareStatement("SELECT* FROM carrello where emailutente=? AND prodotti=?");
-        p.setString(1,emailUtente);
-        p.setString(2,nomeProdotto);
-        ResultSet r=p.executeQuery();
+        PreparedStatement p = connection.prepareStatement("SELECT * FROM carrello WHERE emailutente=? AND prodotti=?");
+        p.setString(1, emailUtente);
+        p.setString(2, nomeProdotto);
+        ResultSet r = p.executeQuery();
 
-        if(r.next())
-        {
-            int q=r.getInt("quantita");
-            ++q;
-
-            p=connection.prepareStatement("UPDATE carrello SET quantita=? WHERE emailutente=? AND prodotti=?");
-            p.setInt(1,q);
-            p.setString(2,emailUtente);
-            p.setString(3,nomeProdotto);
-            p.executeUpdate();
-            return true;
-        }
-
-        if(r.next())
-        {
-            double q=r.getDouble("prezzototale");
+        if (r.next()) {
+            int q = r.getInt("quantita");
             q++;
 
-            p=connection.prepareStatement("UPDATE carrello SET prezzototale=? WHERE emailutente=? AND prodotti=?");
-            p.setDouble(1,q);
-            p.setString(2,emailUtente);
-            p.setString(3,nomeProdotto);
+
+            p = connection.prepareStatement("UPDATE carrello SET quantita=? WHERE emailutente=? AND prodotti=?");
+            p.setInt(1, q);
+            p.setString(2, emailUtente);
+            p.setString(3, nomeProdotto);
             p.executeUpdate();
+
+
+            double prezzoUnitario = r.getDouble("prezzototale") / r.getInt("quantita");
+            double prezzoTotale = prezzoUnitario * q;
+            p = connection.prepareStatement("UPDATE carrello SET prezzototale=? WHERE emailutente=? AND prodotti=?");
+            p.setDouble(1, prezzoTotale);
+            p.setString(2, emailUtente);
+            p.setString(3, nomeProdotto);
+            p.executeUpdate();
+
             return true;
         }
 
+        PreparedStatement p1 = connection.prepareStatement("SELECT prezzo FROM prodotto WHERE nome=? ");
+        p1.setString(1, nomeProdotto);
+        ResultSet rs = p1.executeQuery();
+        double prezzo = 0.0;
+        if (rs.next()) {
+            prezzo = rs.getDouble("prezzo");
+        }
 
-        p=connection.prepareStatement("INSERT INTO carrello VALUES(?,?,?,?)");
-        p.setString(1,nomeProdotto);
-        p.setString(2,emailUtente);
-        p.setInt(3,1);
-        p.setDouble(4,10);
+
+        p = connection.prepareStatement("INSERT INTO carrello VALUES(?,?,?,?)");
+        p.setString(1, nomeProdotto);
+        p.setString(2, emailUtente);
+        p.setInt(3, 1);
+        p.setDouble(4, prezzo);
 
         p.executeUpdate();
 
         return true;
     }
+
+
+
 
     @Override
     public ArrayList<Carrello> prelevaCarrello(Utente utente) throws SQLException
@@ -88,4 +94,16 @@ public class CarrelloDaoJDBC implements CarrelloDao {
         p.setString(2, prodotto);
         p.executeUpdate();
     }
+
+    @Override
+    public boolean aggiornaPrezzo(String email, String nomeprodotto, Double prezzo) throws SQLException {
+        PreparedStatement p = connection.prepareStatement("UPDATE carrello SET prezzototale=? WHERE emailutente=? AND prodotti=?");
+        p.setDouble(1, prezzo);
+        p.setString(2, email);
+        p.setString(3, nomeprodotto);
+        p.executeUpdate();
+
+        return true;
+    }
+
 }

@@ -12,11 +12,15 @@
     <title>EFarm</title>
     <style>
         .container {
-            width: 400px; /* larghezza del container */
-            height: 400px; /* altezza del container */
+            width: 500px; /* larghezza del container */
+            height: 570px; /* altezza del container */
             overflow: auto; /* aggiunge uno scorrimento se necessario */
-            border: 1px solid #ccc; /* solo per visualizzazione */
+            border: 0px solid #ccc; /* solo per visualizzazione */
+            background-color: white;
+            border-radius: 10px;
+
         }
+
     </style>
 </head>
 <body class="carrello-back" onload=caricaCarrello() style="background-color: white"7>
@@ -96,15 +100,16 @@
         </div>
     </div>
     <div class="corpo">
-        <div class="carrello">
-            <div class="numprodotti">
+        <div class="container">
+            <div class="numprodotti" style="text-align: center;">
                 <span class="num">Prodotti nel carrello</span>
-                <i class="fa-regular fa-trash-xmark"></i>
+                 <i class="fa-regular fa-trash-xmark"></i>
             </div>
 
 
             <div class ="container" id="articolo_qui">
             </div>
+
             <hr class="my-4">
         </div>
         <div class="totaleavviso">
@@ -123,7 +128,7 @@
                         </svg>
                         <span>Spedizione:</span>
                     </div>
-                    <span id ="spedizione" class="S">4.99€</span>
+                    <span id ="spedizione" class="S">0€</span>
                 </div>
                 <div class="prezzototale">
                     <span>Totale:</span>
@@ -150,7 +155,5 @@
     </div>
 </div>
 </body>
-<script th:src="@{/js/counter.js}"></script>
 <script th:src="@{/js/carrello.js}"></script>
-<script th:src="@{/js/menulaterale.js}"></script>
 </html>

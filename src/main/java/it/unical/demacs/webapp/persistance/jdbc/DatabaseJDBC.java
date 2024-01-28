@@ -22,7 +22,7 @@ public class DatabaseJDBC implements Database {
     {
         try
         {
-            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5434/farmaciaOnline", "postgres", "password");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/farmaciaOnline", "postgres", "ea");
         }
         catch (SQLException e)
         {

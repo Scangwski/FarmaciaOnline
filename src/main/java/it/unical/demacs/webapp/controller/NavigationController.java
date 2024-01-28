@@ -31,6 +31,9 @@ public class NavigationController {
             Utente utente = (Utente) session.getAttribute("utente");
             // aggiungo il ruolo dell'utente
             response.put("tipoUtente", utente.getTipoUtente());
+            response.put("nomeUtente", utente.getNome());
+            response.put("cognomeUtente", utente.getCognome());
+            response.put("emailUtente", utente.getEmail());
         }
         return response;
     }

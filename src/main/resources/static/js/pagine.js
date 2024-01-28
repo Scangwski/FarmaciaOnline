@@ -61,7 +61,8 @@ function ricercaPerFiltro(filtro, ordinamento) {
           return response.json();
         })
         .then(data => {
-          return data;
+          const container = visualizzaRisultati(data);
+          document.getElementById("visualizzaProdotti").appendChild(container);
         })
         .catch(error => {
           console.error('Errore durante la chiamata AJAX:', error);
@@ -113,4 +114,44 @@ function gestisciVisibilitaFrecce() {
   // Imposta la visibilità della freccia destra in base alla pagina corrente
   // Aggiungi qui la logica per gestire la visibilità delle frecce in base al numero totale di pagine
   frecced.style.display = 'block';
+}
+
+
+function visualizzaRisultati(prodotto) {
+
+  let doc = document.createElement("div");
+  doc.innerHTML = `<hr class="my-4">
+        <div class="prodotto">
+            <div class="immaginetesto">
+                <div class="immagine">
+                    <img src="${prodotto.immagine}">
+                </div>
+                <span>${prodotto.nome}</span>
+            </div>
+            <div class="prezzoecarrello">
+                <div class="prezzo">
+                    <span class="span1">${prodotto.prezzo.toFixed(2)}€</span>
+                    <span class="span2">${(prodotto.prezzo * 0.85).toFixed(2)}€</span>
+                </div>
+                <div class="bcarrello" onclick="aggiungiNelCarrello("${prodotto.nome}")">
+                    <span>Aggiungi al Carrello</span>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">`;
+  return doc;
+}
+
+function aggiungiNelCarrello(nome) {
+  $.ajax(
+      {
+        type:"POST",
+        url:"/aggiungiNelCarrello",
+        contentType: "application/json",
+        data: JSON.stringify(prodottoSelezionato.nome),
+        success: function()
+        {
+          alert("Prodotto correttamente aggiunto nel carrello!");
+        }
+      })
 }

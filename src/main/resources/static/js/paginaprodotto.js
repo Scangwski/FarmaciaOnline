@@ -15,6 +15,10 @@ document.getElementById("homeButton").addEventListener("click", function (){
     window.location.href = '/home';
 });
 
+document.getElementById("profilobtn").addEventListener("click", function (){
+    window.location.href = '/paginautente';
+});
+
 document.getElementById("carr").addEventListener("click",function (){
     window.location.href='/carrello';
 })
@@ -57,29 +61,32 @@ function caricaRecensioni(nomeProdotto) {
         });
 }
 
-function aggiungiRecensioneAlDOM(nomeUtente, descrizione, valutazione) {
+function aggiungiRecensioneAlDOM(nomeUtente, testoRecensione, valutazione) {
     const containerRecensioni = document.getElementById('containerRecensioni');
     const divRecensione = document.createElement('div');
-    divRecensione.className = 'recensione';
+    divRecensione.className = 'singolarecensione';
 
-    // Aggiungi altri elementi (nomeUtente, descrizione, valutazione) qui
-    const nomeUtenteElement = document.createElement('p');
-    nomeUtenteElement.textContent = nomeUtente;
-    divRecensione.appendChild(nomeUtenteElement);
+    // Aggiungi il testo della recensione
+    const testoElement = document.createElement('span');
+    testoElement.textContent = testoRecensione + " ";
+    divRecensione.appendChild(testoElement);
 
-    const descrizioneElement = document.createElement('p');
-    descrizioneElement.textContent = descrizione;
-    divRecensione.appendChild(descrizioneElement);
+    // Aggiungi le stelle in base alla valutazione
+    for (let i = 0; i < 5; i++) {
+        const star = document.createElement('span');
+        star.textContent = i < valutazione ? '★' : '☆';
+        star.style.color = i < valutazione ? '#E1DC65' : '#ccc'; // Stelle piene per la valutazione, vuote per il resto
+        divRecensione.appendChild(star);
+    }
 
-    const valutazioneElement = document.createElement('p');
-    valutazioneElement.textContent = 'Valutazione: ' + valutazione;
-    divRecensione.appendChild(valutazioneElement);
-
+    // Aggiungi il div della recensione al container principale
     containerRecensioni.appendChild(divRecensione);
 }
 
+
 // Assumi che 'prodottoSelezionato' sia un oggetto che contiene le informazioni del prodotto, incluso il nome.
 caricaRecensioni(prodottoSelezionato.nome);
+
 function inserisciRicetta() {
     var ricettaValue = document.querySelector("#ricetta").value;
 
@@ -134,23 +141,7 @@ function inviaRecensione() {
                      console.log("Recensione aggiunta: ", commento, "Valutazione: ", valutazione);
 
 
-                     // Crea un nuovo elemento per la recensione
-                     var nuovaRecensione = document.createElement("div");
-                     nuovaRecensione.className = "recensione";
-
-                     // Aggiungi il commento e la valutazione alla recensione
-                     var testoCommento = document.createElement("p");
-                     testoCommento.textContent = commento;
-                     nuovaRecensione.appendChild(testoCommento);
-
-                     var testoValutazione = document.createElement("p");
-                     testoValutazione.textContent = "Valutazione: " + valutazione;
-                     nuovaRecensione.appendChild(testoValutazione);
-
-                     // Aggiungi la recensione appena creata al container delle recensioni
-                     var containerRecensioni = document.getElementById("containerRecensioni");
-                     containerRecensioni.appendChild(nuovaRecensione);
-                     console.log("Nuova recensione aggiunta al DOM:", nuovaRecensione);
+                     aggiungiRecensioneAlDOM("NomeUtente", commento, valutazione);
 
                      // Pulisci il form dopo l'invio
                      document.querySelector("#formRecensione textarea[name='comment']").value = "";
