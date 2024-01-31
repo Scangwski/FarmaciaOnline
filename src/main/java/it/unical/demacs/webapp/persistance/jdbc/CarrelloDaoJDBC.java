@@ -106,4 +106,16 @@ public class CarrelloDaoJDBC implements CarrelloDao {
         return true;
     }
 
+    @Override
+    public void svuotaCarrello(String emailUtente) throws SQLException
+    {
+        PreparedStatement p=connection.prepareStatement("SELECT* FROM carrello WHERE emailutente=?");
+        p.setString(1,emailUtente);
+        ResultSet r=p.executeQuery();
+
+        p=connection.prepareStatement("DELETE FROM carrello where emailUtente=?");
+        p.setString(1,emailUtente);
+        p.executeUpdate();
+    }
+
 }

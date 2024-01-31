@@ -67,4 +67,11 @@ public class CarrelloController {
         DatabaseJDBC.getInstance().getCarrelloDao().eliminaArticolo(u.getEmail(),nomeprodotto);
     }
 
+    @PostMapping("/svuotaCarrello")
+    public void svuotaCarrello(HttpServletRequest req) throws SQLException
+    {
+        Utente u=(Utente)req.getSession().getAttribute("utente");
+        DatabaseJDBC.getInstance().getCarrelloDao().svuotaCarrello(u.getEmail());
+    }
+
 }

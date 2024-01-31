@@ -23,6 +23,8 @@ public class Carrello {
 
     public Double getPrezzoTotale() {return prezzoTotale;}
 
+
+
 }
 
 

@@ -13,6 +13,8 @@ public interface CarrelloDao {
 
     public boolean aggiornaPrezzo(String email, String nomeprodotto, Double prezzo) throws SQLException;
 
+    public void svuotaCarrello(String emailUtente)throws SQLException;
+
 
 }
 

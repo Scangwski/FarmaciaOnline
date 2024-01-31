@@ -160,5 +160,15 @@ function diminuzione(cont) {
     }
 }
 
+function svuotaCarrello()
+{
+    $.ajax(
+        {
+            type:"POST",
+            url:"/svuotaCarrello"
+        })
+    window.location.href="http://localhost:8085/carrello";
+}
+
 
 
