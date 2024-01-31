@@ -13,4 +13,6 @@ public interface RecensioneDao {
     boolean inserisciRecensione(String utente, String prodotto, String descrizione, Integer valutazione) throws SQLException;
 
     List<Recensione> getRecensioni(String nomeprodotto) throws SQLException;
+
+    void svuotaCarrello(String emailUtente) throws SQLException;
 }

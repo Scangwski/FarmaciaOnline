@@ -56,4 +56,12 @@ public class RecensioneDaoJDBC implements RecensioneDao {
         }
         return recensioni;
     }
+
+    @Override
+    public void svuotaCarrello(String emailUtente) throws SQLException
+    {
+        PreparedStatement p=connection.prepareStatement("DELETE FROM recensioni where emailUtente=?");
+        p.setString(1,emailUtente);
+        p.executeUpdate();
+    }
 }
